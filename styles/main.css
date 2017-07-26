@@ -1,19 +1,30 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+ 
 html, body {
     display: flex;
     flex-direction: column;
     height: 100%;
-
-    border: 1px blue solid;
+    /* width: 100%; */
+     /* border: 1px blue solid;  */
 }
+
 
 header {
     display: flex;
     flex-direction: row;
-    border: 1px black solid;
+    border-bottom: 1px black solid;
     font-family: Arial, Helvetica, sans-serif;
     align-items: center;
-    justify-content: space-between;
-    background-color: #10547F;
+    justify-content: center;
+    /* justify-content: space-around; */
+    /* background-color: #10547F; */
 }
 
 .title {
@@ -22,21 +33,17 @@ header {
     align-items: center;
 }
 
-.logo {
-    border: 1px green solid;
-    width: 80px;
-    height: 80px;
-    margin: 10px; 
-}
 
 h1 {
-    border: 1px purple solid;
-    color: #6DC6FF;
+
+    /* border: 1px purple solid; */
+    /* color: #6DC6FF; */
+
 }
 
 nav {
-    border: 1px red solid;
-    margin-right: 20px;   
+    /* border: 1px red solid; */
+    /* margin-right: 20px;    */
 }
 
 nav button {
@@ -54,13 +61,13 @@ main {
     height: 100%;
     width: 30%;
 
-    border: 1px yellow solid;
+    /* border: 1px yellow solid; */
 }
 .main-panel {
     height: 100%;
     /* width: 70%; */
     width: 100%;
-    border: 1px green solid;
+    /* border: 1px green solid; */
 }
 
 button {
@@ -69,8 +76,15 @@ button {
 }
 
 .results {
-    border: 1px black solid;
+    border-top: 1px black solid;
     height: 40%;
     width: 100%;
 
 }
+
+.burger {
+    position: absolute;
+    /* top: 5px;*/
+    left: 10px;
+    
+} 
