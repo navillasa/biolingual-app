@@ -1,8 +1,62 @@
-header {
-    text-align: center;
-    font-family: sans-serif;
-    color: white;
+html, body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    border: 1px blue solid;
 }
-body {
-    background-color: navy;
+
+header {
+    display: flex;
+    flex-direction: row;
+    border: 1px black solid;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo {
+    border: 1px green solid;
+    width: 80px;
+    height: 80px;
+    margin: 10px; 
+}
+
+h1 {
+    border: 1px purple solid;
+}
+
+nav {
+    border: 1px red solid;
+    margin-right: 20px;   
+}
+
+nav button {
+    margin: 10px;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+
+}
+
+.side-panel {
+    height: 100%;
+    width: 30%;
+
+    border: 1px yellow solid;
+}
+.main-panel {
+    height: 100%;
+    width: 70%;
+
+    border: 1px green solid;
 }
