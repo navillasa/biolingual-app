@@ -6,8 +6,13 @@ function initialize(){
     var translationsAlreadyMade = {
         house: "casa",
     };
-    makeRequestToTranslator(data, translationsAlreadyMade);
-    console.log(translationsAlreadyMade);
+    (button['target']['dataset']['target'])
+    
+    $(document).ready(function() {
+        $('[data-target="main-panel"]').click(function(button){
+            console.log(button['target']['dataset']['target']);
+        })
+    })
 
 }
 
