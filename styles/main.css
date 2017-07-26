@@ -45,7 +45,7 @@ nav button {
 
 main {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     height: 100%;
 
 }
@@ -66,4 +66,11 @@ main {
 button {
     border: 1px solid blue;
     margin-top: 5px;
+}
+
+.results {
+    border: 1px black solid;
+    height: 40%;
+    width: 100%;
+
 }
