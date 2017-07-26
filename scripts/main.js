@@ -12,7 +12,7 @@ function initialize(){
 }
 
 function dataToTranslate(){
-    var searchString = "mountains"
+    var searchString = "house"
     var targetLanguage = "es"
     var data = {
         "key": "AIzaSyCE7H2z-RTJBWk12jV2JIJTnU83ryAJD3Q",
