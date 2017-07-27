@@ -1,229 +1,75 @@
-/* apply a natural box layout model to all elements, but allowing components to change */
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 10px; 
 }
 *, *:before, *:after {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 
- 
 html, body {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 100%;
     font-family: "Avenir Next", "Avenir", sans-serif;
     text-decoration: none;
-    /* width: 100%; */
-     /* border: 1px blue solid;  */
+    overflow: hidden;
 }
 
-
-header {
-    display: flex;
-    flex-direction: row;
-    /* border-bottom: 1px black solid; */
-    /* font-family: Arial, Helvetica, sans-serif; */
-    align-items: center;
-    justify-content: center;  
-    /* justify-content: space-around; */
-    /* background-color: #10547F; */
-}
-
-.title {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-
-h1 {
-
+.burger-holder {
     position: absolute;
-    top: 25px;
-    left: 80px;
-    color:#cdcdcd;
-
+    top: 20px;
+    left: 20px;
+    height: 50px;
+    width: 50px;
+    z-index: 2;
 }
 
-nav {
-    /* border: 1px red solid; */
-    /* margin-right: 20px;    */
+.burger-holder span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    border-radius: 3px;
+    z-index: 2;
+    transform-origin: 4px 0px; 
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease; 
 }
 
-nav button {
-    margin: 10px;
-}
-
-main {
+.menu {
     display: flex;
     flex-direction: column;
+    color:#cdcdcd;
+    background-color:#232323;
+    width: 300px;
     height: 100%;
-
+    transform: translateX(-100%);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
-
-.side-panel {
+.menu-area {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
     height: 100%;
-    width: 30%;
-
-    /* border: 1px yellow solid; */
-}
-.main-panel {
-    height: 100%;
-    /* width: 70%; */
-    width: 100%;
-    margin-left: 100px;
-    /* border: 1px green solid; */
-}
-
-button {
-    border: 1px solid blue;
-    margin-top: 200px;
-}
-
-.results {
-    border-top: 1px black solid;
-    height: 30%;
-    width: 100%;
+    padding-left: 50px;
 
 }
 
-.burger {
-    position: absolute;
-     top: 5px;
-    left: 20px;
-    
-} 
-
-#menuToggle {
-    display: block;
-    position: absolute;
-    top: 50px;
-    left: 50px; 
-    z-index: 1;
-    height: 100%; 
-  
+.menu-title {
+    position: relative;
+    top: 3px;
+    left: 90px;
 }
 
-#menuToggle input
-{
-  display: block;
-  width: 40px;
-  height: 32px;
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  
-  cursor: pointer;
-  
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
-  
-  -webkit-touch-callout: none;
-}
-
-/*
- * Just a quick hamburger
- */
-#menuToggle .burger
-{
-  display: block;
-  width: 33px;
-  height: 4px;
-  margin-bottom: 5px;
-  position: relative;
-  top: -20px;
-  left: -20px;
-  
-  background: black;
-  border-radius: 3px;
-  
-  z-index: 1;
-  
-  transform-origin: 4px 0px;
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              opacity 0.55s ease;
-}
-
-#menuToggle .burger:first-child
-{
-  transform-origin: 0% 0%;
-}
-
-#menuToggle .burger:nth-last-child(2)
-{
-  transform-origin: 0% 100%;
-}
-
-/* 
- * Transform all the slices of hamburger
- * into a crossmark.
- */
-#menuToggle input:checked ~ .burger
-{
-  opacity: 1;
-  transform: rotate(45deg) translate(-2px, -1px);
-    background: #cdcdcd;
-}
-
-/*
- * But let's hide the middle one.
- */
-#menuToggle input:checked ~ span:nth-last-child(3)
-{
-  opacity: 0;
-  transform: rotate(0deg) scale(0.2, 0.2);
-}
-
-/*
- * Ohyeah and the last one should go the other direction
- */
-#menuToggle input:checked ~ span:nth-last-child(2)
-{
-  opacity: 1;
-  transform: rotate(-45deg) translate(0, -1px);
-}
-
-/*
- * Make this absolute positioned
- * at the top left of the screen
- */
-#menu
-{
-  position: absolute;
-  width: 300px;
-  margin: -100px 0 0 -50px;
-  padding: 50px;
-  padding-top: 125px; 
-  height: 100%;
-  background: #232323;
-  list-style-type: none;
-  -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
-  color: #cdcdcd;
-  transform-origin: 0% 0%;
-  transform: translate(-100%, 0);
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-}
-
-
-/*
- * And let's fade it in from the left
- */
-#menuToggle input:checked ~ div
-{
-  transform: scale(1.0, 1.0);
-  opacity: 1;
-}
-
-#menu select {
-    
+select {
     color: #cdcdcd; 
     background-color: #232323;
-    
 }
+
 select:focus {
     outline: none !important;
     border-color: #719ECE;
@@ -232,61 +78,210 @@ select:focus {
     background-color: #232323;
 }
 
-/* The switch - the box around the slider */
-.switch {
-  position: relative;
+.open {
+    transform: translateX(0%);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+.burger1, .burger2, .burger3 {
+    background-color:#232323;
+}
+
+.rotate-SE {
+    opacity: 1;
+    transform: rotate(45deg) translate(0px, -2px); 
+    background: #cdcdcd;
+}
+
+.rotate-NE {
+    opacity: 1;
+    transform: rotate(-45deg) translate(0px, -2px);
+    background: #cdcdcd;  
+}
+
+.hide {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.languages {
+    margin-top: 50px;
+}
+
+.symptoms {
+    margin-top: 50px;
+}
+
+.info {
+    margin-top: 50px;
+}
+
+.symptoms input, .info input {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0px;
+    overflow: hidden;
+}
+
+.symptoms label, .info label {
   display: inline-block;
   width: 60px;
-  height: 34px;
+  background-color: #cdcdcd;
+  color: #232323;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  text-shadow: none;
+  padding: 6px 14px;
+  border: 1px solid #232323;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition:    all 0.1s ease-in-out;
+  -ms-transition:     all 0.1s ease-in-out;
+  -o-transition:      all 0.1s ease-in-out;
+  transition:         all 0.1s ease-in-out;
 }
 
-/* Hide default HTML checkbox */
-.switch input {display:none;}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+.symptoms input:checked + label, .info input:checked + label {
+    background-color: #719ECE;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+.symptoms label:first-of-type, .info label:first-of-type {
+    border-radius: 4px 0 0 4px;
 }
 
-input:checked + .slider {
-  background-color: #2196F3;
+.symptoms label:last-of-type, .info label:last-of-type {
+    border-radius: 0 4px 4px 0;
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+
+/*Phone*/ 
+@media only screen and (min-width : 300px) {
+    .menu {
+        width: 100%;
+    }
+    .menu-title {
+        margin-top: 22px;
+        font-size: 2.5em;
+    }  
+    .languages {
+        font-size: 1.25rem;
+    }
+    .symptoms {
+        font-size: 1.25rem;
+    }
+    .info {
+        font-size: 1.25rem;
+    }
 }
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+@media only screen and (min-width : 300px) and (orientation: landscape) {
+    .menu-area {
+        display: flex;
+        flex-direction: row;     
+    }
+    .menu-title {
+        margin-top: 22px;
+        font-size: 2.5em;
+    }  
+    .languages {
+        font-size: 1.25rem;
+         margin-right: 50px; 
+    }
+    .symptoms {
+        font-size: 1.25rem;
+         margin-right: 50px; 
+    }
+    .info {
+        font-size: 1.25rem;
+    }
+    .symptoms label:first-of-type, .info label:first-of-type {
+        border-radius: 4px 4px 4px 4px;
+    }
+
+    .symptoms label:last-of-type, .info label:last-of-type {
+        border-radius: 4px 4px 4px 4px;
+    }
+
 }
 
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
+/*Tablets */
+@media only screen and (min-width : 750px) {
+    .menu {
+        width: 50%;
+    }
+    .menu-area {
+        display: flex;
+        flex-direction: column;     
+    }
+    .menu-title {
+        padding-top: 50px;
+        font-size: 3rem;
+        margin-top: 22px;
+    }  
+    .languages {
+        font-size: 1.5rem;
+    }
+    .symptoms {
+        font-size: 1.5rem;
+    }
+    .info {
+        font-size: 1.5rem;
+    }
+    .symptoms label:first-of-type, .info label:first-of-type {
+        border-radius: 4px 0 0 4px;
+    }
+
+    .symptoms label:last-of-type, .info label:last-of-type {
+        border-radius: 0 4px 4px 0;
+    }
+
 }
 
-.slider.round:before {
-  border-radius: 50%;
+/*Desktops */
+@media only screen and (min-width : 1200px) {
+    .menu {
+        padding-top: 50px;
+        width: 300px;
+        transform: translateX(0%); 
+    }
+    .burger-holder, .burger1, .burger2, .burger3 {
+        z-index: -1;
+    }
+    .menu-title {
+        position: absolute;
+        top: 3px;
+        left: 50px; 
+    }  
+    .menu-area {
+        margin-top: 50px;
+    }
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.main-panel {
+    border: 1px black solid;
+    height: 300px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 1.5em;
+}
+
+
+.results {
+    border: 1px black solid;
+    height: 200px;
+    width: 200px;
+    font-size: 1.5em;
 }
