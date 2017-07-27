@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    font-size: 10px;
 }
 *, *:before, *:after {
     box-sizing: inherit;
@@ -156,6 +157,42 @@ select:focus {
 .symptoms label:last-of-type, .info label:last-of-type {
     border-radius: 0 4px 4px 0;
 }
+
+
+/*Phone*/ 
+@media only screen and (min-width : 300px) {
+    .menu {
+        /* overflow-x: hidden;
+        overflow-y: scroll; */
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width : 300px) and (orientation: landscape) {
+    .menu {
+        border: 1px white solid;
+        font-size: 0.7rem;
+    }
+}
+
+/*Tablets */
+@media only screen and (min-width : 750px) {
+    .menu {
+        /* overflow-x: hidden; */
+        width: 50%;
+        font-size: 1rem;
+    }
+}
+
+/*Desktops */
+@media only screen and (min-width : 1200px) {
+    .menu {
+        /* overflow-x: hidden; */
+        width: 30%;
+        font-size: 1rem;
+    }   
+}
+
 
 
 
