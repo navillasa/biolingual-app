@@ -1,6 +1,6 @@
 html {
     box-sizing: border-box;
-    font-size: 10px;
+    /* font-size: 10px; */
 }
 *, *:before, *:after {
     box-sizing: inherit;
@@ -187,10 +187,20 @@ select:focus {
 /*Desktops */
 @media only screen and (min-width : 1200px) {
     .menu {
+        padding-top: 50px;
         /* overflow-x: hidden; */
-        width: 30%;
+        width: 300px;
         font-size: 1rem;
-    }   
+        transform: translateX(0%); 
+    }
+    .burger-holder, .burger1, .burger2, .burger3 {
+        z-index: -1;
+    }
+    .menu-title {
+        position: absolute;
+        top: 3px;
+        left: 50px; 
+    }  
 }
 
 
