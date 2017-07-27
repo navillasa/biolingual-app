@@ -1,12 +1,14 @@
-
+var BACK_ELEMENT = document.getElementById("backsvg");
 
 function initialize(){
     // var data = dataToTranslate();
     var translationsAlreadyMade = {
         house: "casa",
     };
-    console.log($('[data-role="point1"]'));
+    
+    console.log($('[data-role="upper-back"]'));
     $(document).ready(function() {
+        
         
         $('[data-target="main-panel"] button').click(function(button){
             var searchString = button['target']['value'];
@@ -14,9 +16,17 @@ function initialize(){
             var searchData = dataToTranslate(searchString, language);
             retrieveTranslation(searchData, translationsAlreadyMade);
         })
-        $('[data-role="point1"]').click(function(){
-            console.log('it worked');
-        })
+        //wrap this in a function and pass in backsvg, the selector of the svg element that i want to click, and a funciton with an action)
+        $("#backsvg").on("load", function(){
+            var a = BACK_ELEMENT;
+            var svgDoc = a.contentDocument; //get the inner DOM of alpha.svg
+            var svgRoot  = svgDoc.documentElement;
+            $(svgRoot).find('[data-role="upper-back"]').on("click", function(){
+                console.log("derp derp");
+            })
+           
+        });
+        
 
     })
     
@@ -56,8 +66,25 @@ function retrieveTranslation(data, translationsAlreadyMade){
     //I have this commented out so that it does not run anytime you refresh
 }
 
+// function addEventListener() {
+//     BACK_SELECTOR.addEventListener("load", function() {
+//         // get the inner DOM of svg
+//         var svgDoc = BACK_SELECTOR.contentDocument;
+//         // get the inner element by ID
+//         var upper_back = svgDoc.getElementById("upper_back");
+//         // add action
+//         upper_back.addEventListener("mousedown", function() {
+//             alert("it's my upper back!");
+//         }, false);
+//     }, false);
+// }
+
+// addEventListener();
+
 function printIt(text){
     console.log('success');
 }
 
 initialize();
+
+//want a function that accepts my dom element(object tag with the svg), the name of the selector inside of the svg file, then a function that I will associate with the click event. 

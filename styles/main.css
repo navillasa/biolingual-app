@@ -294,3 +294,7 @@ input:checked + .slider:before {
 .test{
   z-index: 999;
 }
+
+#upper_back{
+  border: 1px solid red;
+}
