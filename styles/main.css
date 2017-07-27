@@ -194,7 +194,6 @@ button {
   width: 300px;
   margin: -100px 0 0 -50px;
   padding: 50px;
-/* padding-left: 60px;  */
   padding-top: 125px; 
   height: 100%;
   background: #232323;
@@ -222,3 +221,16 @@ button {
   transform: scale(1.0, 1.0);
   opacity: 1;
 }
+
+#menu select {
+    
+    color: #cdcdcd; 
+    
+}
+.selector {
+
+    border: 1px solid white;
+    width: 196px;
+
+}
+
