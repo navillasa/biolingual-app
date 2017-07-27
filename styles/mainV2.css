@@ -1,6 +1,6 @@
 html {
     box-sizing: border-box;
-    /* font-size: 10px; */
+    font-size: 10px; 
 }
 *, *:before, *:after {
     box-sizing: inherit;
@@ -162,35 +162,72 @@ select:focus {
 /*Phone*/ 
 @media only screen and (min-width : 300px) {
     .menu {
-        /* overflow-x: hidden;
-        overflow-y: scroll; */
         width: 100%;
+    }
+    .menu-title {
+        margin-top: 22px;
+        font-size: 2.5em;
+    }  
+    .languages {
+        font-size: 1.25rem;
+    }
+    .symptoms {
+        font-size: 1.25rem;
+    }
+    .info {
+        font-size: 1.25rem;
     }
 }
 
 @media only screen and (min-width : 300px) and (orientation: landscape) {
-    .menu {
-        border: 1px white solid;
-        font-size: 0.7rem;
+    .menu-area {
+        display: flex;
+        flex-direction: row;     
+    }
+    .menu-title {
+        margin-top: 22px;
+        font-size: 2.5em;
+    }  
+    .languages {
+        font-size: 1.25rem;
+         margin-right: 50px; 
+    }
+    .symptoms {
+        font-size: 1.25rem;
+         margin-right: 50px; 
+    }
+    .info {
+        font-size: 1.25rem;
     }
 }
 
 /*Tablets */
 @media only screen and (min-width : 750px) {
     .menu {
-        /* overflow-x: hidden; */
         width: 50%;
-        font-size: 1rem;
     }
+    .menu-title {
+        padding-top: 50px;
+        font-size: 3rem;
+        margin-top: 22px;
+    }  
+    .languages {
+        font-size: 1.5rem;
+    }
+    .symptoms {
+        font-size: 1.5rem;
+    }
+    .info {
+        font-size: 1.5rem;
+    }
+
 }
 
 /*Desktops */
 @media only screen and (min-width : 1200px) {
     .menu {
         padding-top: 50px;
-        /* overflow-x: hidden; */
         width: 300px;
-        font-size: 1rem;
         transform: translateX(0%); 
     }
     .burger-holder, .burger1, .burger2, .burger3 {
