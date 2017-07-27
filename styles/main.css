@@ -212,6 +212,7 @@ select:focus {
 /*Tablets */
 @media only screen and (min-width : 750px) {
     .menu {
+        min-width: 300px;
         width: 50%;
     }
     .menu-area {
@@ -283,9 +284,6 @@ select:focus {
     height: 200px;
     width: 200px;
     font-size: 1.5em;
-
-.slider.round:before {
-  border-radius: 50%;
 }
 
 .test{
