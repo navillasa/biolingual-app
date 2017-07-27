@@ -34,13 +34,14 @@ function dataToTranslate(searchString, language){
 function retrieveTranslation(data, translationsAlreadyMade){
     // console.log(translationsAlreadyMade[data['q']]);
     if (translationsAlreadyMade[data['q']]){
+        console.log(translationsAlreadyMade[data['q']])
         return translationsAlreadyMade[data['q']];
     }
-    $.post("https://translation.googleapis.com/language/translate/v2", data, printIt)
-        .then(function(d){
-            console.log(translationsAlreadyMade[data['q']] = d['data']['translations']['0']['translatedText']);
-            translationsAlreadyMade[data['q']] = d['data']['translations']['0']['translatedText'];
-        });
+    // $.post("https://translation.googleapis.com/language/translate/v2", data, printIt)
+    //     .then(function(d){
+    //         console.log(translationsAlreadyMade[data['q']] = d['data']['translations']['0']['translatedText']);
+    //         translationsAlreadyMade[data['q']] = d['data']['translations']['0']['translatedText'];
+    //     });
     //I have this commented out so that it does not run anytime you refresh
 }
 
