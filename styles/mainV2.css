@@ -29,7 +29,6 @@ html, body {
     position: relative;
     top: 10px;
     left: 10px;
-    background-color:#cdcdcd;
     border-radius: 3px;
     z-index: 2;
     transform-origin: 4px 0px; 
@@ -81,21 +80,51 @@ select:focus {
     transform: translateX(0%);
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
+.burger1, .burger2, .burger3 {
+    background-color:#232323;
+}
+
+.rotate-SE {
+    opacity: 1;
+    transform: rotate(45deg) translate(0px, -2px); 
+    background: #cdcdcd;
+}
+
+.rotate-NE {
+    opacity: 1;
+    transform: rotate(-45deg) translate(0px, -2px);
+    background: #cdcdcd;  
+}
+
+.hide {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
 
 
 
+
+/* #menuToggle .burger:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle .burger:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+} */
 
 
 /* 
  * Transform all the slices of hamburger
  * into a crossmark.
  */
-#menuToggle input:checked ~ .burger
+/* #menuToggle input:checked ~ .burger
 {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
     background: #cdcdcd;
-}
+} */
 
 /*
  * But let's hide the middle one.
