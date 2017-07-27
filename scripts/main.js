@@ -1,4 +1,4 @@
-
+var BACK_SELECTOR = document.getElementById("backsvg");
 
 function initialize(){
     // var data = dataToTranslate();
@@ -44,6 +44,21 @@ function retrieveTranslation(data, translationsAlreadyMade){
     //     });
     //I have this commented out so that it does not run anytime you refresh
 }
+
+function addEventListener() {
+    BACK_SELECTOR.addEventListener("load", function() {
+        // get the inner DOM of svg
+        var svgDoc = BACK_SELECTOR.contentDocument;
+        // get the inner element by ID
+        var upper_back = svgDoc.getElementById("upper_back");
+        // add action
+        upper_back.addEventListener("mousedown", function() {
+            alert("it's my upper back!");
+        }, false);
+    }, false);
+}
+
+addEventListener();
 
 function printIt(text){
     console.log('success');

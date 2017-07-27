@@ -53,8 +53,8 @@
   <title>Layer 1</title>
   <use id="svg_44" xlink:href="#svg_43" transform="matrix(1.1130809277266958,0,0,1.1130809277266958,-33.70917869711233,-103.67500848488963) " y="25.1554" x="1.79681"/>
   <g id="svg_45"/>
-  <rect data-role="point1" fill="#ff007f" stroke="#000000" stroke-width="0" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x="136" y="293" width="44" height="72" id="svg_47" fill-opacity="0.33"/>
-  <rect data-role="point2" fill="#ff007f" stroke-width="0" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" fill-opacity="0.33" x="39" y="326" width="43" height="154" id="svg_49" stroke="#000000"/>
-  <rect data-role="point3" fill="#ff007f" stroke="#000000" stroke-width="0" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" fill-opacity="0.33" x="253" y="332" width="35" height="38" id="svg_50"/>
+  <rect data-role="upper-back" fill="#ff007f" stroke="#000000" stroke-width="0" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x="136" y="293" width="44" height="72" id="upper_back" fill-opacity="0.33"/>
+  <rect data-role="back-of-arm" fill="#ff007f" stroke-width="0" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" fill-opacity="0.33" x="39" y="326" width="43" height="154" id="back_of_arm" stroke="#000000"/>
+  <rect data-role="back-of-shoulder" fill="#ff007f" stroke="#000000" stroke-width="0" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" fill-opacity="0.33" x="253" y="332" width="35" height="38" id="back_of_shoulder"/>
  </g>
 </svg>
