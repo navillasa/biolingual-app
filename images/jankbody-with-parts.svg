@@ -60,6 +60,7 @@
        id="path3433"
        inkscape:connector-curvature="0" />
     <rect
+       data-role="abdomen-pelvis-butt"
        style="fill:#0000ff;fill-opacity:0.52857145;fill-rule:evenodd;stroke:#000000;stroke-width:0.66539884px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        id="rect3473"
        width="454.62024"
@@ -67,6 +68,7 @@
        x="428.40414"
        y="-553.51978" />
     <rect
+       data-role="arm"
        style="fill:#00ff00;fill-opacity:0.52857145"
        id="rect4277"
        width="294.28571"
@@ -74,6 +76,7 @@
        x="131.42856"
        y="-824.78101" />
     <rect
+       data-role="arm"
        style="fill:#00ff00;fill-opacity:0.52941165"
        id="rect4321"
        width="288.57144"
@@ -81,6 +84,7 @@
        x="894.28571"
        y="-833.35248" />
     <rect
+       data-role="chest-back"
        style="fill:#ff00ff;fill-opacity:0.52941165"
        id="rect4323"
        width="457.14285"
@@ -88,6 +92,7 @@
        x="428.57144"
        y="-856.20959" />
     <rect
+       data-role="head-throat-neck"
        style="fill:#ff7f2a;fill-opacity:0.52941165"
        id="rect4325"
        width="537.14288"
@@ -95,6 +100,7 @@
        x="391.42856"
        y="-1201.9238" />
     <rect
+       data-role="legs"
        style="fill:#500080;fill-opacity:0.52941165"
        id="rect4327"
        width="531.42859"
