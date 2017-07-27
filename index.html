@@ -9,36 +9,65 @@
     <title>Interactive Body</title>
 </head>
 <body>
-    <header>
-
-        <h1>Interactive Human Anatomy Map</h1>
-
-
-        <div class="title">
-            <div class="logo"></div>
-            <h1>Interactive Human Anatomy Map</h1> 
-        </div> 
-        <!-- <nav>
-            <button>Language</button>
-            <button>Feature</button>
-            <button>Feature</button>
-            <button>Feature</button>
-        </nav> -->
-    </header>
+    <!-- <header> -->
+        <!-- <i class="fa fa-bars fa-2x burger" aria-hidden="true"></i> -->
+       
+    
+    <nav role="navigation">
+        <div id="menuToggle">
+            <input type="checkbox"/>
+            <span class="burger"></span>
+            <span class="burger"></span>
+            <span class="burger"></span>
+            <!-- <div id="menu"></div> -->
+            <div id="menu">
+                <h1>BioTranslate</h1>
+                <h2>Language</h2>
+                <div class="selector">
+                    <select>
+                        <option>Spanish / Español</option>
+                        <option>Mandarin / 汉语</option>
+                        <option>French / Français</option>
+                        <option>Tagalog</option>
+                        <option>Vietnamese / Tiếng Việt </option>
+                        <option>Korean / 한국어</option>
+                        <option>German / Deutsche</option>
+                        <option>Arabic / عربى</option>
+                        <option>Russian / ру́сский язы́к</option>
+                    </select>
+                </div>
+                <br/>
+                <h2>Symptoms</h2>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <br/>
+                <br/>
+                <h2>Wiki</h2>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+    </nav>
     <main>
-        <!-- <div class="side-panel"></div> -->
         <div class="main-panel" data-target="main-panel">
             <button data-target="arm">arm</button>
             <button data-target="leg">leg</button>
             <button data-target="head">head</button>
             <button data-target="foot">foot</button>
             <button data-target="hand">hand</button>
-        </div>
+        </div> 
+        <div class="results" data-target="results"></div>
     </main>
+
+    <script src="https://use.fontawesome.com/966ad21209.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
-    <script src="scripts/main.js" charset="utf-8"></script> 
+    <!-- <script src="scripts/main.js" charset="utf-8"></script>  -->
 </body>
 </html>
