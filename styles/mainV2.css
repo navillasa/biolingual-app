@@ -1,3 +1,17 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html, body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    font-family: "Avenir Next", "Avenir", sans-serif;
+    text-decoration: none;
+}
 
 .burger-holder {
     position: absolute;
@@ -15,11 +29,88 @@
     position: relative;
     top: 10px;
     left: 10px;
-    background: black;
-     border-radius: 3px;
+    background-color:#cdcdcd;
+    border-radius: 3px;
     z-index: 2;
     transform-origin: 4px 0px; 
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
                 background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
                 opacity 0.55s ease; 
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    color:#cdcdcd;
+    background-color:#232323;
+    width: 300px;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+.menu-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    height: 100%;
+    padding: 50px;
+    padding-bottom: 150px; 
+}
+
+.menu-title {
+    position: relative;
+    top: 3px;
+    left: 95px;
+}
+
+select {
+    color: #cdcdcd; 
+    background-color: #232323;
+}
+
+select:focus {
+    outline: none !important;
+    border-color: #719ECE;
+    color: #cdcdcd; 
+    box-shadow: 0 0 5px #719ECE; 
+    background-color: #232323;
+}
+
+.open {
+    transform: translateX(0%);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+
+
+
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ .burger
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+    background: #cdcdcd;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  opacity: 1;
+  transform: rotate(-45deg) translate(0, -1px);
 }
