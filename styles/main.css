@@ -1,19 +1,32 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+ 
 html, body {
     display: flex;
     flex-direction: column;
     height: 100%;
-
-    border: 1px blue solid;
+    font-family: "Avenir Next", "Avenir", sans-serif;
+    text-decoration: none;
+    /* width: 100%; */
+     /* border: 1px blue solid;  */
 }
+
 
 header {
     display: flex;
     flex-direction: row;
-    border: 1px black solid;
-    font-family: Arial, Helvetica, sans-serif;
+    /* border-bottom: 1px black solid; */
+    /* font-family: Arial, Helvetica, sans-serif; */
     align-items: center;
-    justify-content: space-between;
-    background-color: #10547F;
+    justify-content: center;  
+    /* justify-content: space-around; */
+    /* background-color: #10547F; */
 }
 
 .title {
@@ -22,21 +35,19 @@ header {
     align-items: center;
 }
 
-.logo {
-    border: 1px green solid;
-    width: 80px;
-    height: 80px;
-    margin: 10px; 
-}
 
 h1 {
-    border: 1px purple solid;
-    color: #6DC6FF;
+
+    position: absolute;
+    top: 25px;
+    left: 80px;
+    color:#cdcdcd;
+
 }
 
 nav {
-    border: 1px red solid;
-    margin-right: 20px;   
+    /* border: 1px red solid; */
+    /* margin-right: 20px;    */
 }
 
 nav button {
@@ -54,23 +65,228 @@ main {
     height: 100%;
     width: 30%;
 
-    border: 1px yellow solid;
+    /* border: 1px yellow solid; */
 }
 .main-panel {
     height: 100%;
     /* width: 70%; */
     width: 100%;
-    border: 1px green solid;
+    margin-left: 100px;
+    /* border: 1px green solid; */
 }
 
 button {
     border: 1px solid blue;
-    margin-top: 5px;
+    margin-top: 200px;
 }
 
 .results {
-    border: 1px black solid;
-    height: 40%;
+    border-top: 1px black solid;
+    height: 30%;
     width: 100%;
 
+}
+
+.burger {
+    position: absolute;
+     top: 5px;
+    left: 20px;
+    
+} 
+
+#menuToggle {
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: 50px; 
+    z-index: 1;
+    height: 95%; 
+  
+}
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle .burger
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  top: -20px;
+  left: -20px;
+  
+  background: black;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle .burger:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle .burger:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ .burger
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+    background: #cdcdcd;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  opacity: 1;
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px; 
+  height: 100%;
+  background: #232323;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  color: #cdcdcd;
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+
+/*
+ * And let's fade it in from the left
+ */
+#menuToggle input:checked ~ div
+{
+  transform: scale(1.0, 1.0);
+  opacity: 1;
+}
+
+#menu select {
+    
+    color: #cdcdcd; 
+    background-color: #232323;
+    
+}
+select:focus {
+    outline: none !important;
+    border-color: #719ECE;
+    color: #cdcdcd; 
+    box-shadow: 0 0 5px #719ECE; 
+    background-color: #232323;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
