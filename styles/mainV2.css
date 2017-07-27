@@ -199,12 +199,24 @@ select:focus {
     .info {
         font-size: 1.25rem;
     }
+    .symptoms label:first-of-type, .info label:first-of-type {
+        border-radius: 4px 4px 4px 4px;
+    }
+
+    .symptoms label:last-of-type, .info label:last-of-type {
+        border-radius: 4px 4px 4px 4px;
+    }
+
 }
 
 /*Tablets */
 @media only screen and (min-width : 750px) {
     .menu {
         width: 50%;
+    }
+    .menu-area {
+        display: flex;
+        flex-direction: column;     
     }
     .menu-title {
         padding-top: 50px;
@@ -219,6 +231,13 @@ select:focus {
     }
     .info {
         font-size: 1.5rem;
+    }
+    .symptoms label:first-of-type, .info label:first-of-type {
+        border-radius: 4px 0 0 4px;
+    }
+
+    .symptoms label:last-of-type, .info label:last-of-type {
+        border-radius: 0 4px 4px 0;
     }
 
 }
@@ -238,6 +257,9 @@ select:focus {
         top: 3px;
         left: 50px; 
     }  
+    .menu-area {
+        margin-top: 50px;
+    }
 }
 
 
