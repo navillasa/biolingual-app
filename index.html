@@ -23,17 +23,17 @@
             <div id="menu">
                 <h1>BioTranslate</h1>
                 <h2>Language</h2>
-                <div class="selector">
+                <div class="selector" data-target="lang-selector">
                     <select>
-                        <option>Spanish / Español</option>
-                        <option>Mandarin / 汉语</option>
-                        <option>French / Français</option>
-                        <option>Tagalog</option>
-                        <option>Vietnamese / Tiếng Việt </option>
-                        <option>Korean / 한국어</option>
-                        <option>German / Deutsche</option>
-                        <option>Arabic / عربى</option>
-                        <option>Russian / ру́сский язы́к</option>
+                        <option value = 'es'>Spanish / Español</option>
+                        <option value = 'zh-CN'>Mandarin / 汉语</option>
+                        <option value = 'fr'>French / Français</option>
+                        <option value = 'tl'>Tagalog</option>
+                        <option value = 'vi'>Vietnamese / Tiếng Việt </option>
+                        <option value = 'ko'>Korean / 한국어</option>
+                        <option value = 'de'>German / Deutsche</option>
+                        <option value = 'ar'>Arabic / عربى</option>
+                        <option value = 'ru'>Russian / ру́сский язы́к</option>
                     </select>
                 </div>
                 <br/>
@@ -54,11 +54,11 @@
     </nav>
     <main>
         <div class="main-panel" data-target="main-panel">
-            <button data-target="arm">arm</button>
-            <button data-target="leg">leg</button>
-            <button data-target="head">head</button>
-            <button data-target="foot">foot</button>
-            <button data-target="hand">hand</button>
+            <button value="arm">arm</button>
+            <button value="leg">leg</button>
+            <button value="head">head</button>
+            <button value="foot">foot</button>
+            <button value="hand">hand</button>
         </div> 
         <div class="results" data-target="results"></div>
     </main>
@@ -68,6 +68,6 @@
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
-    <!-- <script src="scripts/main.js" charset="utf-8"></script>  -->
+     <script src="scripts/main.js" charset="utf-8"></script>  
 </body>
 </html>
