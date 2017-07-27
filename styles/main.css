@@ -71,17 +71,18 @@ main {
     height: 100%;
     /* width: 70%; */
     width: 100%;
+    margin-left: 100px;
     /* border: 1px green solid; */
 }
 
 button {
     border: 1px solid blue;
-    margin-top: 5px;
+    margin-top: 200px;
 }
 
 .results {
     border-top: 1px black solid;
-    height: 40%;
+    height: 30%;
     width: 100%;
 
 }
