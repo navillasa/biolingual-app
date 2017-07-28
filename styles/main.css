@@ -7,7 +7,7 @@ html {
 }
 
 html, body {
-    border: 10px solid coral;
+    border: 10px solid blue;
     display: flex;
     flex-direction: row; 
     height: 100%;
@@ -61,6 +61,8 @@ body {
     z-index: 1;
     transform: translateX(-100%);
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    
+    
 }
 .menu-area {
     display: flex;
@@ -170,6 +172,16 @@ select:focus {
     border-radius: 0 4px 4px 0;
 }
 
+.entire-container{
+  width: 250px;
+  height: 350px;
+  background-color: blue;
+}
+
+main{
+  display: flex;
+  align-items: center;
+}
 
 /*Phone*/ 
 @media only screen and (min-width : 300px) {
@@ -257,7 +269,6 @@ select:focus {
     .symptoms label:last-of-type, .info label:last-of-type {
         border-radius: 0 4px 4px 0;
     }
-
 }
 
 /*Desktops */
@@ -281,17 +292,17 @@ select:focus {
 }
 
 .main {
-    border: 10px solid lightgreen;
-    display: flex;
+    border: 10px solid lightgreen; 
+    /* display: flex; */
     width: 100%;
     height: 100%;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: row; 
+    /* justify-content: space-between; */
+    
 }
 
 .main-panel {
-     /* transform: translateX(-100%);  */
-     border: 10px cyan solid; 
+    border: 10px cyan solid; 
     height: 100%;
     width: 100%;
     display: flex;
@@ -301,10 +312,28 @@ select:focus {
 }
 
 .results {
-    border: 1px black solid;
-    height: 200px;
-    width: 200px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-flow: column wrap;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    margin-bottom: 1em;
+    border-radius: 25px;
+    text-align: center;
+    padding: .5em;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 90%;
     font-size: 1.5em;
+}
+
+.body-part, .symptom-box, .wiki-box {
+    display: flex;
+    padding: 1em;
+    margin: 1em;
+    border: 1px solid black;
+    border-radius: 25px;
 }
 
 #upper_back{
