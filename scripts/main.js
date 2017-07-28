@@ -21,7 +21,9 @@ function initialize(){
                 console.log("derp derp");  
             })
         });
-        putItTogether(translationsAlreadyMade);  
+        putItTogether(translationsAlreadyMade).then(function(data){
+            console.log(data);  
+        });
     })   
 }
 function dataToTranslate(searchString, language){
@@ -34,16 +36,14 @@ function dataToTranslate(searchString, language){
 }
 function retrieveTranslation(data, translationsAlreadyMade){
     if (translationsAlreadyMade[data['q']]){
-        console.log('here');
+        console.log(translationsAlreadyMade[data['q']]);
         return translationsAlreadyMade[data['q']];
     }
     
     var P = $.post("https://translation.googleapis.com/language/translate/v2", data, printIt)
         .then(function(d){
             translationsAlreadyMade[data['q']] = d['data']['translations']['0']['translatedText'];
-            // return d['data']['translations']['0']['translatedText'];
             var P = new Promise(function(resolve, reject){
-                // console.log(translationsAlreadyMade[data['q']]);
                 resolve(translationsAlreadyMade[data['q']]);
             
             });      
@@ -62,7 +62,7 @@ function returnURLForSymptomChecker(ID){
 
 function dataForSymptomChecker(){
     var data = {
-        token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Impsam9obnMxMjE2QGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiMTk1OCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdmVyc2lvbiI6IjIwMCIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGltaXQiOiI5OTk5OTk5OTkiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXAiOiJQcmVtaXVtIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9sYW5ndWFnZSI6ImVuLWdiIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9leHBpcmF0aW9uIjoiMjA5OS0xMi0zMSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbWVtYmVyc2hpcHN0YXJ0IjoiMjAxNy0wNy0yNiIsImlzcyI6Imh0dHBzOi8vc2FuZGJveC1hdXRoc2VydmljZS5wcmlhaWQuY2giLCJhdWQiOiJodHRwczovL2hlYWx0aHNlcnZpY2UucHJpYWlkLmNoIiwiZXhwIjoxNTAxMjUxMzk4LCJuYmYiOjE1MDEyNDQxOTh9.4Xl9p5imFw8Q9X8QAigiHczjbcIUHdp1tGWey9O7foY',
+        token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Impsam9obnMxMjE2QGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiMTk1OCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdmVyc2lvbiI6IjIwMCIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGltaXQiOiI5OTk5OTk5OTkiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXAiOiJQcmVtaXVtIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9sYW5ndWFnZSI6ImVuLWdiIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9leHBpcmF0aW9uIjoiMjA5OS0xMi0zMSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbWVtYmVyc2hpcHN0YXJ0IjoiMjAxNy0wNy0yNiIsImlzcyI6Imh0dHBzOi8vc2FuZGJveC1hdXRoc2VydmljZS5wcmlhaWQuY2giLCJhdWQiOiJodHRwczovL2hlYWx0aHNlcnZpY2UucHJpYWlkLmNoIiwiZXhwIjoxNTAxMjU5MTY4LCJuYmYiOjE1MDEyNTE5Njh9.iz4sKn0eAIu2g8wxVMWjkKcJwf8i5MoGEk69GBFIOlg',
         language: 'en-gb',
         format:"json",
     }
@@ -76,15 +76,20 @@ initialize();
 
 function formatGetRequest(translationsAlreadyMade, rawData){
     var newDictionary = {};
-    $.each(rawData, function(key, value){
-        var searchString = value['Name'];
+    var translationResults = $.map(rawData, function(obj){
+        var searchString = obj['Name'];
         var language = $('[data-target="lang-selector"] select').val();
         var searchData = dataToTranslate(searchString, language);
-        retrieveTranslation(searchData, translationsAlreadyMade).then(function(data){
-            newDictionary[value['Name']] = data;
-        });
+        return retrieveTranslation(searchData, translationsAlreadyMade)
     });
-    console.log(newDictionary);
+    return Promise.all(translationResults).then(function(arrayOfResults){
+        var dictionary = {}
+        $.each(rawData, function(key, value){
+            dictionary[value['Name']] = arrayOfResults[key];
+        })
+        return dictionary;
+        // return test;
+    })
     
 }
 
@@ -92,7 +97,7 @@ function formatGetRequest(translationsAlreadyMade, rawData){
 function putItTogether(translationsAlreadyMade){
     // console.log(translationsAlreadyMade)
     //yes this is a terrible name. I need to build the big function that i talk about above.
-    retrieveSymptoms(7).then(formatGetRequest.bind(this, translationsAlreadyMade));
+    return retrieveSymptoms(7).then(formatGetRequest.bind(this, translationsAlreadyMade));
 }
 
 //base url: https://sandbox-healthservice.priaid.ch/
