@@ -272,8 +272,7 @@ select:focus {
 
 .main-panel {
     border: 1px black solid;
-    height: 300px;
-    width: 200px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
