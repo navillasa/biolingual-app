@@ -286,18 +286,17 @@ main{
 }
 
 .main {
-    border: 10px solid lightgreen;
-    display: flex;
+    border: 10px solid lightgreen; 
+    /* display: flex; */
     width: 100%;
     height: 100%;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: row; 
+    /* justify-content: space-between; */
     
 }
 
 .main-panel {
-     /* transform: translateX(-100%);  */
-     border: 10px cyan solid; 
+    border: 10px cyan solid; 
     height: 100%;
     width: 100%;
     display: flex;
@@ -307,10 +306,23 @@ main{
 }
 
 .results {
-    border: 1px black solid;
-    height: 200px;
-    width: 200px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    margin-bottom: 1em;
+    border-radius: 25px;
+    text-align: center;
+    padding: .5em;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 90%;
     font-size: 1.5em;
+}
+
+.body-part, .symptom-box, .wiki-box {
+    border: 1px solid black;
+    border-radius: 25px;
 }
 
 #upper_back{
