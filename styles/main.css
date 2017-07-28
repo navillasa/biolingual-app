@@ -6,14 +6,19 @@ html {
     box-sizing: inherit;
 }
 
-html, body {
-    display: flex;
-    flex-direction: row;
+ html, body { 
+    /* display: flex;   
+    flex-direction: row; */
     height: 100%;
     width: 100%;
     font-family: "Avenir Next", "Avenir", sans-serif;
     text-decoration: none;
     overflow: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
 }
 
 .burger-holder {
@@ -42,6 +47,7 @@ html, body {
 }
 
 .menu {
+    position: absolute;
     display: flex;
     flex-direction: column;
     color:#cdcdcd;
