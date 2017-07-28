@@ -307,7 +307,9 @@ main{
 
 .results {
     display: flex;
-    justify-content: center;
+    justify-content: center; 
+    align-items: center;
+    flex-flow: column wrap;
     position: absolute;
     bottom: 0;
     left: 20px;
@@ -315,12 +317,15 @@ main{
     border-radius: 25px;
     text-align: center;
     padding: .5em;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.8);
     width: 90%;
     font-size: 1.5em;
 }
 
 .body-part, .symptom-box, .wiki-box {
+    display: flex;
+    padding: 1em;
+    margin: 1em;
     border: 1px solid black;
     border-radius: 25px;
 }
