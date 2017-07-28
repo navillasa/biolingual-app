@@ -178,6 +178,10 @@ select:focus {
     .info {
         font-size: 1.25rem;
     }
+    #fullbodysvg {
+        height: 100%;
+    }
+
 }
 
 @media only screen and (min-width : 300px) and (orientation: landscape) {
@@ -271,7 +275,8 @@ select:focus {
 }
 
 .main-panel {
-    border: 1px black solid;
+    /* transform: translateX(-100%); */
+    border: 10px cyan solid;
     height: 100%;
     display: flex;
     flex-direction: column;
