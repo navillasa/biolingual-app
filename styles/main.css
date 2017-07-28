@@ -5,6 +5,9 @@ html {
 *, *:before, *:after {
     box-sizing: inherit;
 }
+.hover{
+  fill: #111;
+}
 
 html, body {
     border: 10px solid coral;
