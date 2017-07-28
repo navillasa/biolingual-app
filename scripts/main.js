@@ -1,4 +1,5 @@
 var BACK_ELEMENT = document.getElementById("backsvg");
+var FULL_BODY_ELEMENT = document.getElementById("fullbodysvg");
 
 function initialize(){
     // var data = dataToTranslate();
@@ -17,17 +18,19 @@ function initialize(){
             retrieveTranslation(searchData, translationsAlreadyMade);
         })
         //wrap this in a function and pass in backsvg, the selector of the svg element that i want to click, and a funciton with an action)
-        $("#backsvg").on("load", function(){
-            var a = BACK_ELEMENT;
+        $("#fullbodysvg").on("load", function(event){
+            
+            var a = FULL_BODY_ELEMENT;
             var svgDoc = a.contentDocument; //get the inner DOM of alpha.svg
             var svgRoot  = svgDoc.documentElement;
-            $(svgRoot).find('[data-role="upper-back"]').on("click", function(){
-                console.log("derp derp");  
+            $(svgRoot).find('rect').on("click", function(event){
+                var ID = event["currentTarget"]["id"];
+                putItTogether(translationsAlreadyMade, ID).then(function(data){
+                    console.log(data);  
+                });
             })
         });
-        putItTogether(translationsAlreadyMade).then(function(data){
-            console.log(data);  
-        });
+        
     })   
 }
 function dataToTranslate(searchString, language){
@@ -67,7 +70,7 @@ function returnURLForSymptomChecker(ID){
 
 function dataForSymptomChecker(){
     var data = {
-        token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Impsam9obnMxMjE2QGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiMTk1OCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdmVyc2lvbiI6IjIwMCIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGltaXQiOiI5OTk5OTk5OTkiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXAiOiJQcmVtaXVtIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9sYW5ndWFnZSI6ImVuLWdiIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9leHBpcmF0aW9uIjoiMjA5OS0xMi0zMSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbWVtYmVyc2hpcHN0YXJ0IjoiMjAxNy0wNy0yNiIsImlzcyI6Imh0dHBzOi8vc2FuZGJveC1hdXRoc2VydmljZS5wcmlhaWQuY2giLCJhdWQiOiJodHRwczovL2hlYWx0aHNlcnZpY2UucHJpYWlkLmNoIiwiZXhwIjoxNTAxMjU5MTY4LCJuYmYiOjE1MDEyNTE5Njh9.iz4sKn0eAIu2g8wxVMWjkKcJwf8i5MoGEk69GBFIOlg',
+        token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Impsam9obnMxMjE2QGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiMTk1OCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdmVyc2lvbiI6IjIwMCIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGltaXQiOiI5OTk5OTk5OTkiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXAiOiJQcmVtaXVtIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9sYW5ndWFnZSI6ImVuLWdiIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9leHBpcmF0aW9uIjoiMjA5OS0xMi0zMSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbWVtYmVyc2hpcHN0YXJ0IjoiMjAxNy0wNy0yNiIsImlzcyI6Imh0dHBzOi8vc2FuZGJveC1hdXRoc2VydmljZS5wcmlhaWQuY2giLCJhdWQiOiJodHRwczovL2hlYWx0aHNlcnZpY2UucHJpYWlkLmNoIiwiZXhwIjoxNTAxMjY4NjMyLCJuYmYiOjE1MDEyNjE0MzJ9.g6QT0iqEJpl8EB1w06_CimYFg-u_8wsi4QR5fB5B7hw',
         language: 'en-gb',
         format:"json",
     }
@@ -99,10 +102,10 @@ function formatGetRequest(translationsAlreadyMade, rawData){
 }
 
 
-function putItTogether(translationsAlreadyMade){
+function putItTogether(translationsAlreadyMade, ID){
     // console.log(translationsAlreadyMade)
     //yes this is a terrible name. I need to build the big function that i talk about above.
-    return retrieveSymptoms(7).then(formatGetRequest.bind(this, translationsAlreadyMade));
+    return retrieveSymptoms(ID).then(formatGetRequest.bind(this, translationsAlreadyMade));
 }
 
 //base url: https://sandbox-healthservice.priaid.ch/
