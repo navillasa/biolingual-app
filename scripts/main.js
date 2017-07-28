@@ -27,8 +27,9 @@ function initialize(){
     })   
 }
 function dataToTranslate(searchString, language){
+    
     var data = {
-        "key": "AIzaSyAmUmUgRqQU86v4NNTWIHKFVfB-kO4WCrI",
+        "key": googleTranslate,
         "q": searchString,
         "target": language
     };
