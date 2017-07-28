@@ -1,4 +1,5 @@
 var BACK_ELEMENT = document.getElementById("backsvg");
+var FULL_BODY_ELEMENT = document.getElementById("fullbodysvg");
 
 function initialize(){
     // var data = dataToTranslate();
