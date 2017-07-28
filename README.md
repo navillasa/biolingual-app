@@ -1,10 +1,52 @@
-Group Project 1 
-July 2017
-Natalie Ventura
-Jennifer Johnson
-Tim Brady
+# BioLingual
 
-Sources:
-<a href="https://www.vexels.com/vectors/preview/141931/myologia-muscular-system-human-body"> Myologia muscular system human body </a> | designed by Vexels
+Our brief overview will go here!
 
-<a href="https://www.vexels.com/vectors/preview/142434/skeletal-system-anatomy-bones"> Skeletal system anatomy bones </a> | designed by Vexels
+## Authors
+
+* **Jennifer Li Johnson** - [jenlij](https://github.com/jenlij)
+* **Tim Brady** - [tfb414](https://github.com/tfb414)
+* **Nat Ventura** - [nat-ventura](https://github.com/nat-ventura)
+
+## Getting Started
+
+(How to run project on local machine for development and testing purposes.)
+
+### Installation Requirements
+
+Coming soon!
+
+## Walkthrough
+
+Example use case.
+
+### Development Process
+* [1. Concept]
+* [2. Initial Planning]
+* [3. Accessing APIs]
+* [4. Visualization]
+* [5. Challenges and Successes!]
+
+## If We Had More Time...
+
+* Future concepts..
+
+## Closing Thoughts
+
+## Contributing
+
+Coming soon!
+
+## Built With
+
+* JavaScript ES6
+* jQuery 3.2.1
+* HTML5/CSS3
+* [ApiMedic](https://apimedic.net/) - Medical Symptom Checker
+* [Google Translate](https://cloud.google.com/translate/) - Translation Tool
+
+## Acknowledgments
+
+Thank you to our wonderful instructors at DigitalCrafts!
+* **Chris Aquino** - [radishmouse](https://github.com/radishmouse)
+* **Carl Severe** - [mutebard](https://github.com/mutebard)
