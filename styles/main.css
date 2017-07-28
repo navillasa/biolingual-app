@@ -11,7 +11,7 @@ html {
 }
 
 html, body {
-    border: 10px solid blue;
+    /* border: 10px solid blue;    */
     display: flex;
     flex-direction: row; 
     height: 100%;
@@ -19,6 +19,11 @@ html, body {
     font-family: "Avenir Next", "Avenir", sans-serif;
     text-decoration: none;
     overflow: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
 }
 
 .burger-holder {
@@ -47,6 +52,7 @@ html, body {
 }
 
 .menu {
+    position: absolute;
     display: flex;
     position: absolute;
     top: 0;
@@ -290,8 +296,8 @@ main{
 }
 
 .main {
-    border: 10px solid lightgreen; 
-    /* display: flex; */
+     /* border: 10px solid lightgreen;   */
+    display: flex;
     width: 100%;
     height: 100%;
     flex-direction: row; 
@@ -332,9 +338,4 @@ main{
     margin: 1em;
     border: 1px solid black;
     border-radius: 25px;
-}
-
-#upper_back{
-  border: 1px solid red;
-
 }
