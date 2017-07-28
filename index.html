@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
     <link rel="stylesheet" href="styles/main.css">
+     
     <title>Biolingual</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
         <span class="burger3"></span>
     </div>
      <div class="menu">
-        <h1 class="menu-title">BioTranslate</h1>
+        <h1 class="menu-title">BioLingual</h1>
         <div class="menu-area">
             <div class="languages">
             <h2>Language</h2>
@@ -52,9 +53,26 @@
     <div class="main">
          <div class="main-panel" data-target="main-panel">
             <object data="images/jankbody-with-parts.svg" type="image/svg+xml" id="fullbodysvg" alt="vector graphic drawing outline of a human body with color overlays"></object>
-             
-        </div> 
-        <div class="results" data-target="results">Results</div>
+             <!-- <object data="images/backpoints.svg" type="image/svg+xml" id="backsvg" alt="vector graphic contour drawing of back - three pain locations"></object>  -->
+            <!-- <button id="16" value="Abdomen, pelvis and buttocks" >Abdomen, pelvis and buttocks</button>
+            <button id= "7" value="Arms and shoulder">Arms and shoulder</button>
+            <button id= "15" value="Chest and back">Chest and back</button>
+            <button id= "6" value="Head, throat and neck">Head, throat and neck</button>
+            <button id= "10" value="Legs">Legs</button>
+            <button id= "17" value="Skin, joints, general">Skin, joints and general</button> -->
+        </div>
+        <div class="results" data-target="results">
+            <h4>RESULTS<h4>
+            <div class="body-part" data-target="body-part">
+                <h4>Body Part<h4>
+            </div>
+            <div class="symptom-box" data-target="symptom-box">
+                <h4>Symptoms</h4>
+            </div>
+            <div class="wiki-box" data-target="wiki-box">
+                <h4>Wikipedia</h4>
+            </div>
+        </div>
     </main> 
     <script src="scripts/api.js" charset="utf-8"></script> 
     <script
@@ -63,5 +81,7 @@
       crossorigin="anonymous"></script>
     <script src="scripts/menu.js" charset="utf-8"></script>
     <script src="scripts/main.js" charset="utf-8"></script> 
+    <script src="jquery-svg-master/dist/jquery.svg.es5.min.js"></script> 
+    
 </body>
 </html>
