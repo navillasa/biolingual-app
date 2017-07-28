@@ -19,7 +19,8 @@ function initialize(){
         })
 
         clickOnTheBoxes("#fullbodysvg", translationsAlreadyMade, printIt)
-    })   
+    })
+       
 }
 
 function clickOnTheBoxes(elementToSelect, translationsAlreadyMade, fn){
