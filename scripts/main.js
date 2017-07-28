@@ -77,19 +77,12 @@ initialize();
 function formatGetRequest(translationsAlreadyMade, rawData){
     var newDictionary = {};
     $.each(rawData, function(key, value){
-
         var searchString = value['Name'];
         var language = $('[data-target="lang-selector"] select').val();
         var searchData = dataToTranslate(searchString, language);
         retrieveTranslation(searchData, translationsAlreadyMade).then(function(data){
             newDictionary[value['Name']] = data;
         });
-        // console.log(translationsAlreadyMade);
-        // console.log(translationsAlreadyMade);
-        // console.log(searchString + "this is the search string");
-        // newDictionary[value['Name']] = translationsAlreadyMade.searchString;
-        
-        
     });
     console.log(newDictionary);
     
