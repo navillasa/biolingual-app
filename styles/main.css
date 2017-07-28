@@ -7,7 +7,7 @@ html {
 }
 
 html, body {
-    border: 10px solid coral;
+    border: 10px solid blue;
     display: flex;
     flex-direction: row; 
     height: 100%;
