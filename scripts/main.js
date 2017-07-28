@@ -4,6 +4,10 @@ function initialize(){
     // var data = dataToTranslate();
     var translationsAlreadyMade = {
         "house": "casa",
+        "Pain in the limbs": "Dolor en las extremidades",
+        "Tremor at rest": "Temblor en reposo",
+        "Paralysis": "Parálisis",
+        "Swollen glands in the armpits": "Glándulas inflamadas en las axilas"
     };
     $(document).ready(function() {
         $('[data-target="main-panel"] button').click(function(button){
@@ -37,8 +41,8 @@ function dataToTranslate(searchString, language){
 }
 function retrieveTranslation(data, translationsAlreadyMade){
     if (translationsAlreadyMade[data['q']]){
-        console.log(translationsAlreadyMade[data['q']]);
-        return translationsAlreadyMade[data['q']];
+        // console.log(translationsAlreadyMade[data['q']]);
+        var P = translationsAlreadyMade[data['q']];
     }
     
     var P = $.post("https://translation.googleapis.com/language/translate/v2", data, printIt)
