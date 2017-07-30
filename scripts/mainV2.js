@@ -4,7 +4,7 @@
 var GOOGLE_URL = "https://translation.googleapis.com/language/translate/v2";
 var APIMEDIC_URL = "https://sandbox-healthservice.priaid.ch/symptoms/";
 var FULL_BODY_ELEMENT = document.getElementById("fullbodysvg");
-var BODY_PART_SELECTOR = 
+var BODY_PART_SELECTOR = '[data-target="main-panel"] button';
 
 
 
@@ -18,7 +18,7 @@ function initialize(){
     };
     $(document).ready(function() {
         // once the document loads, then you can do stuff to it
-        $('[data-target="main-panel"] button').click(function(button){
+        $(BODY_PART_SELECTOR).click(function(button){
             var searchString = button['target']['value'];
             var language = $('[data-target="lang-selector"] select').val();
             var searchData = dataToTranslate(searchString, language);
@@ -47,7 +47,6 @@ function clickOnTheBoxes(elementToSelect, translationDictionary, fn){
 }
 
 function dataToTranslate(searchString, language){
-    
     var data = {
         "key": googleTranslateToken,
         "q": searchString,
@@ -55,6 +54,7 @@ function dataToTranslate(searchString, language){
     };
     return data;
 }
+
 function retrieveTranslation(data, translationDictionary){
     if (translationDictionary[data['q']]){
         // console.log(translationDictionary[data['q']]);
