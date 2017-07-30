@@ -18,15 +18,35 @@ function initialize(){
     };
     $(document).ready(function() {
         // .ready(): once the document loads, then you can do stuff to it
+        // function selectLang() {
+        //     return $('[data-target=select]').val();
+        // }
+        // var language = $('[data-target=select]').on('change', function() {
+        //     return $('[data-target=select]').val();
+        // });
+
+
+
+
+
         $(BODY_PART_SELECTOR).click(function(bodyPartTarget){
             var searchString = bodyPartTarget['target']['value'];
-            var language = $(LANGUAGE_SELECTOR).val();
+            var language = $('[data-target=select]').on('change', function() {
+                return $('[data-target=select]').val();
+            });
+            //var language = $(LANGUAGE_SELECTOR).val();
             var queryDictionary = dataToTranslate(searchString, language); // this makes a formatted 'package' of the language and search item to send to google translate
             retrieveTranslation(queryDictionary, storedTranslations);
-        })
+        });
+        
 
-        clickOnTheBoxes("#fullbodysvg", storedTranslations, drawToDom)
+
+
+
+
+        clickOnTheBoxes("#fullbodysvg", storedTranslations, drawToDom);
     })
+
 
 }
 
@@ -79,7 +99,7 @@ function drawToDom(text){
 }
 
 function returnURLForSymptomChecker(ID){
-    return APIMEDIC_URL + ID + '/man';
+    return APIMEDIC_URL + ID + '/woman'; //more inclusive of symptoms 
 }
 
 function dataForSymptomChecker(){
@@ -119,6 +139,7 @@ function formatGetRequest(storedTranslations, rawData){
             //dictionary[value['Name']] = arrayOfResults[key]; //add to dictionary under key value["Name"]
         })
         return dictionary;
+
     })
 }
 
