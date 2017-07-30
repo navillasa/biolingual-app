@@ -206,8 +206,15 @@ main{
         font-size: 1.25rem;
     }
     #fullbodysvg {
+        position: absolute;
+        top: 0;
+        border: 10px solid red;
         width: 100%;
         height: 100%;
+    }
+
+    #body-outline {
+        border: 10px solid navy;
     }
 
     .tooltip {
@@ -341,7 +348,7 @@ main{
 }
 
 .main {
-     /* border: 10px solid lightgreen;   */
+    border: 10px solid lightgreen;   
     display: flex;
     width: 100%;
     height: 100%;
@@ -351,7 +358,8 @@ main{
 }
 
 .main-panel {
-    border: 10px cyan solid; 
+    border: 10px cyan solid;  
+    flex: display;
     height: 100%;
     width: 100%;
     display: flex;
