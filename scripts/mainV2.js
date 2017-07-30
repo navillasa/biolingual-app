@@ -37,15 +37,14 @@ function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
         var svgRoot  = svgDoc.documentElement;
         $(svgRoot).find('rect').on("click", function(event){
             var bodyNumID = event["currentTarget"]["id"];
-            promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID);
-            //promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID).then(function(data){
-                // console.log(data); 
+            promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID).then(function(data){
+                console.log(data); 
                 //console.log(x); 
                 //drawToDom(data); this doesnt print the translations nor the body part on the first click
                 //this is where you will use the data that was clicked to create the boxes and add the data to the page.
             });
         })
-   // });
+   });
 }
 
 function dataToTranslate(searchString, language) {
