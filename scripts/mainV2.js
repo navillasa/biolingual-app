@@ -25,21 +25,21 @@ function initialize(){
             retrieveTranslation(queryDictionary, storedTranslations);
         })
 
-        clickOnTheBoxes("#fullbodysvg", storedTranslations, printIt)
+        clickOnTheBoxes("#fullbodysvg", storedTranslations, drawToDom)
     })
 
 }
 
-function clickOnTheBoxes(elementToSelect, storedTranslations, fn){
+function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
     $(elementToSelect).on("load", function(event){
-        var a = FULL_BODY_ELEMENT;
+        var a = FULL_BODY_ELEMENT; //why doesnt it work with FULL_BODY_ELEMENT.contentDocument? 
         var svgDoc = a.contentDocument;
         var svgRoot  = svgDoc.documentElement;
         $(svgRoot).find('rect').on("click", function(event){
-            var ID = event["currentTarget"]["id"];
-            promiseChainToGetSymptomsAndTranslate(storedTranslations, ID).then(function(data){
+            var bodyNumID = event["currentTarget"]["id"];
+            promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID).then(function(data){
                 // console.log(data);  
-                fn(data);
+                drawToDom(data);
                 //this is where you will use the data that was clicked to create the boxes and add the data to the page.
             });
         })
@@ -75,7 +75,7 @@ function retrieveTranslation(queryDictionary, storedTranslations){
     return translation;
 }
 
-function printIt(text){
+function drawToDom(text){
     console.log(text);
 }
 
