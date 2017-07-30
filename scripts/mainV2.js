@@ -1,15 +1,14 @@
 
 // Global Variables
 
-var googleURL = "https://translation.googleapis.com/language/translate/v2";
-var apimedicURL = "https://sandbox-healthservice.priaid.ch/symptoms/";
-// var BACK_ELEMENT = document.getElementById("backsvg");
+var GOOGLE_URL = "https://translation.googleapis.com/language/translate/v2";
+var APIMEDIC_URL = "https://sandbox-healthservice.priaid.ch/symptoms/";
 var FULL_BODY_ELEMENT = document.getElementById("fullbodysvg");
+var BODY_PART_SELECTOR = 
 
 
 
 function initialize(){
-    // var data = dataToTranslate();
     var translationDictionary = {
         "house": "casa",
         "Pain in the limbs": "Dolor en las extremidades",
@@ -18,6 +17,7 @@ function initialize(){
         "Swollen glands in the armpits": "Glándulas inflamadas en las axilas"
     };
     $(document).ready(function() {
+        // once the document loads, then you can do stuff to it
         $('[data-target="main-panel"] button').click(function(button){
             var searchString = button['target']['value'];
             var language = $('[data-target="lang-selector"] select').val();
@@ -49,7 +49,7 @@ function clickOnTheBoxes(elementToSelect, translationDictionary, fn){
 function dataToTranslate(searchString, language){
     
     var data = {
-        "key": googleTranslate,
+        "key": googleTranslateToken,
         "q": searchString,
         "target": language
     };
@@ -61,7 +61,7 @@ function retrieveTranslation(data, translationDictionary){
         var P = translationDictionary[data['q']];
     }
     
-    var P = $.post("https://translation.googleapis.com/language/translate/v2", data)
+    var P = $.post(GOOGLE_URL, data)
         .then(function(d){
             translationDictionary[data['q']] = d['data']['translations']['0']['translatedText'];
             var P = new Promise(function(resolve, reject){
@@ -78,12 +78,12 @@ function printIt(text){
 }
 
 function returnURLForSymptomChecker(ID){
-    return apimedicURL + ID + "/man";
+    return APIMEDIC_URL + ID + "/man";
 }
 
 function dataForSymptomChecker(){
     var data = {
-        token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Impsam9obnMxMjE2QGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiMTk1OCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdmVyc2lvbiI6IjIwMCIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGltaXQiOiI5OTk5OTk5OTkiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXAiOiJQcmVtaXVtIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9sYW5ndWFnZSI6ImVuLWdiIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9leHBpcmF0aW9uIjoiMjA5OS0xMi0zMSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbWVtYmVyc2hpcHN0YXJ0IjoiMjAxNy0wNy0yNiIsImlzcyI6Imh0dHBzOi8vc2FuZGJveC1hdXRoc2VydmljZS5wcmlhaWQuY2giLCJhdWQiOiJodHRwczovL2hlYWx0aHNlcnZpY2UucHJpYWlkLmNoIiwiZXhwIjoxNTAxMjY4NjMyLCJuYmYiOjE1MDEyNjE0MzJ9.g6QT0iqEJpl8EB1w06_CimYFg-u_8wsi4QR5fB5B7hw',
+        token: apiMedicToken,
         language: 'en-gb',
         format:"json",
     }
