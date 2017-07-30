@@ -3,7 +3,7 @@
 
 var GOOGLE_URL = "https://translation.googleapis.com/language/translate/v2";
 var APIMEDIC_URL = "https://sandbox-healthservice.priaid.ch/symptoms/";
-var FULL_BODY_ELEMENT = document.getElementById("fullbodysvg");
+var FULL_BODY_ELEMENT = document.getElementById("body-boxes");
 var BODY_PART_SELECTOR = '[data-target="main-panel"] button';
 var LANGUAGE_SELECTOR = '[data-target="lang-selector"] select';
 
@@ -25,7 +25,7 @@ function initialize(){
             retrieveTranslation(queryDictionary, storedTranslations);
         })
 
-        clickOnTheBoxes("#fullbodysvg", storedTranslations, drawToDom)
+        clickOnTheBoxes("#body-boxes", storedTranslations, drawToDom)
     })
 
 }
