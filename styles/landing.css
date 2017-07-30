@@ -1,0 +1,25 @@
+html, body {
+    /* border: 10px solid blue;    */
+    display: flex;
+    flex-direction: row;  
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: black;
+}
+
+body {
+    border: 10px solid blue;
+}
+
+.robo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#robo-body {
+    height: 10%;
+    width: 10%;
+    background-color: black;
+}
