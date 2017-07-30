@@ -37,13 +37,15 @@ function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
         var svgRoot  = svgDoc.documentElement;
         $(svgRoot).find('rect').on("click", function(event){
             var bodyNumID = event["currentTarget"]["id"];
-            promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID).then(function(data){
-                // console.log(data);  
-                drawToDom(data);
+            promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID);
+            //promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID).then(function(data){
+                // console.log(data); 
+                //console.log(x); 
+                //drawToDom(data); this doesnt print the translations nor the body part on the first click
                 //this is where you will use the data that was clicked to create the boxes and add the data to the page.
             });
         })
-    });
+   // });
 }
 
 function dataToTranslate(searchString, language) {
@@ -93,7 +95,7 @@ function dataForSymptomChecker(){
 }
 
 function retrieveSymptoms(ID){
-    return $.get(returnURLForSymptomChecker(ID), dataForSymptomChecker())  
+    return $.get(returnURLForSymptomChecker(ID), dataForSymptomChecker());  
 }
 
 initialize();
@@ -118,12 +120,14 @@ function formatGetRequest(storedTranslations, rawData){
     })
 }
 
-function promiseChainToGetSymptomsAndTranslate(storedTranslations, ID){
-    // console.log(storedTranslations)
+function promiseChainToGetSymptomsAndTranslate(ID){
     //yes this is a terrible name. I need to build the big function that i talk about above.
-    return retrieveSymptoms(ID).then(formatGetRequest.bind(this, storedTranslations));
-}
+    return retrieveSymptoms(ID).then(formatGetRequest.bind(this, storedTranslations));;
 
+
+
+}
+var storedTranslations = {};
 //base url: https://sandbox-healthservice.priaid.ch/
 
 //want a function that accepts my dom element(object tag with the svg), the name of the selector inside of the svg file, then a function that I will associate with the click event. 
