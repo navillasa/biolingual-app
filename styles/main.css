@@ -205,16 +205,26 @@ main{
     .info {
         font-size: 1.25rem;
     }
-    #fullbodysvg {
-        position: absolute;
-        top: 0;
+
+    .body-display {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #body-boxes {
         border: 10px solid red;
+        position: absolute;
+        /* top: 0;
+        left: 0; */
         width: 100%;
         height: 100%;
     }
-
     #body-outline {
+        height: 80%;
         border: 10px solid navy;
+        /* position: relative; */
+        left: 0;
     }
 
     .tooltip {
