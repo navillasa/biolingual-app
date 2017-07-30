@@ -88,6 +88,7 @@ function retrieveSymptoms(ID){
 }
 initialize();
 
+//puts symptoms and translations into dictionary? J+N
 function formatGetRequest(translationsAlreadyMade, rawData){
     var newDictionary = {};
     var translationResults = $.map(rawData, function(obj){
