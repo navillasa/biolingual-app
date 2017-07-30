@@ -8,7 +8,7 @@ var BODY_PART_SELECTOR = '[data-target="main-panel"] button';
 var LANGUAGE_SELECTOR = '[data-target="lang-selector"] select';
 
 
-function initialize(bodyPart){
+function initialize(){
     var storedTranslations = {
         // "house": "casa",
         // "Pain in the limbs": "Dolor en las extremidades",
