@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>test with embed css</title>
+    <meta charset="utf-8" />
+    <style id="embed-css">
+        * {
+            transition: 1s;
+        }
+    </style>
+</head>
+<body>
+    <iframe src="https://ghbtns.com/github-btn.html?user=mberneti&repo=jquery-svg&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+    <h1 style="font-family:cursive;letter-spacing:2px;text-align:center;">test with embed css</h1>
+    <object id="cars" type="image/svg+xml" data="content/cars.svg"></object>
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../dist/jquery.svg.es5.min.js"></script>
+    <script>
+     window.onload = function(){
+            //get embed css
+            var style = $("#embed-css").html();
+            //apply css to the svg object
+            $("#cars").setSVGStyle(style);
+
+            //change car's body color per 1s
+            setInterval(function () {
+                //get a random color
+                var color = '#' + getRandom(100000, 999999);
+
+                //get svg object, like a jquery object
+                var svg = $("#cars").getSVG();
+                //use jquery functions to do some thing
+                svg.find("g path:first-child()").attr('fill', color);
+            }, 1000);
+        };
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+    </script>
+</body>
+</html>

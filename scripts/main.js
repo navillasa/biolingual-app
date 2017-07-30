@@ -17,22 +17,28 @@ function initialize(){
             var searchData = dataToTranslate(searchString, language);
             retrieveTranslation(searchData, translationsAlreadyMade);
         })
-        //wrap this in a function and pass in backsvg, the selector of the svg element that i want to click, and a funciton with an action)
-        $("#fullbodysvg").on("load", function(event){
-            
-            var a = FULL_BODY_ELEMENT;
-            var svgDoc = a.contentDocument; //get the inner DOM of alpha.svg
-            var svgRoot  = svgDoc.documentElement;
-            $(svgRoot).find('rect').on("click", function(event){
-                var ID = event["currentTarget"]["id"];
-                putItTogether(translationsAlreadyMade, ID).then(function(data){
-                    console.log(data);  
-                });
-            })
-        });
-        
-    })   
+
+        clickOnTheBoxes("#fullbodysvg", translationsAlreadyMade, printIt)
+    })
+
 }
+
+function clickOnTheBoxes(elementToSelect, translationsAlreadyMade, fn){
+    $(elementToSelect).on("load", function(event){
+        var a = FULL_BODY_ELEMENT;
+        var svgDoc = a.contentDocument;
+        var svgRoot  = svgDoc.documentElement;
+        $(svgRoot).find('rect').on("click", function(event){
+            var ID = event["currentTarget"]["id"];
+            promiseChainToGetSymptomsAndTranslate(translationsAlreadyMade, ID).then(function(data){
+                // console.log(data);  
+                fn(data);
+                //this is where you will use the data that was clicked to create the boxes and add the data to the page.
+            });
+        })
+    });
+}
+
 function dataToTranslate(searchString, language){
     
     var data = {
@@ -48,7 +54,7 @@ function retrieveTranslation(data, translationsAlreadyMade){
         var P = translationsAlreadyMade[data['q']];
     }
     
-    var P = $.post("https://translation.googleapis.com/language/translate/v2", data, printIt)
+    var P = $.post("https://translation.googleapis.com/language/translate/v2", data)
         .then(function(d){
             translationsAlreadyMade[data['q']] = d['data']['translations']['0']['translatedText'];
             var P = new Promise(function(resolve, reject){
@@ -61,7 +67,7 @@ function retrieveTranslation(data, translationsAlreadyMade){
     // I have this commented out so that it does not run anytime you refresh
 }
 function printIt(text){
-    // console.log(text);
+    console.log(text);
 }
 
 function returnURLForSymptomChecker(ID){
@@ -77,7 +83,7 @@ function dataForSymptomChecker(){
     return data;
 }
 function retrieveSymptoms(ID){
-    return $.get(returnURLForSymptomChecker(ID), dataForSymptomChecker(), printIt)
+    return $.get(returnURLForSymptomChecker(ID), dataForSymptomChecker())
     
 }
 initialize();
@@ -102,7 +108,7 @@ function formatGetRequest(translationsAlreadyMade, rawData){
 }
 
 
-function putItTogether(translationsAlreadyMade, ID){
+function promiseChainToGetSymptomsAndTranslate(translationsAlreadyMade, ID){
     // console.log(translationsAlreadyMade)
     //yes this is a terrible name. I need to build the big function that i talk about above.
     return retrieveSymptoms(ID).then(formatGetRequest.bind(this, translationsAlreadyMade));
