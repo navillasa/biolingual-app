@@ -1,101 +1,113 @@
-var BACK_ELEMENT = document.getElementById("backsvg");
-var FULL_BODY_ELEMENT = document.getElementById("fullbodysvg");
+
+// Global Variables
+
+var GOOGLE_URL = "https://translation.googleapis.com/language/translate/v2";
+var APIMEDIC_URL = "https://sandbox-healthservice.priaid.ch/symptoms/";
+var FULL_BODY_ELEMENT = document.getElementById("body-boxes");
+var BODY_PART_SELECTOR = '[data-target="main-panel"] button';
+var LANGUAGE_SELECTOR = '[data-target="lang-selector"] select';
+
 
 function initialize(){
-    // var data = dataToTranslate();
-    var translationsAlreadyMade = {
-        "house": "casa",
-        "Pain in the limbs": "Dolor en las extremidades",
-        "Tremor at rest": "Temblor en reposo",
-        "Paralysis": "Parálisis",
-        "Swollen glands in the armpits": "Glándulas inflamadas en las axilas"
+    var storedTranslations = {
+        // "house": "casa",
+        // "Pain in the limbs": "Dolor en las extremidades",
+        // "Tremor at rest": "Temblor en reposo",
+        // "Paralysis": "Parálisis",
+        // "Swollen glands in the armpits": "Glándulas inflamadas en las axilas"
     };
     $(document).ready(function() {
-        $('[data-target="main-panel"] button').click(function(button){
-            var searchString = button['target']['value'];
-            var language = $('[data-target="lang-selector"] select').val();
-            var searchData = dataToTranslate(searchString, language);
-            retrieveTranslation(searchData, translationsAlreadyMade);
+        // .ready(): once the document loads, then you can do stuff to it
+        $(BODY_PART_SELECTOR).click(function(bodyPartTarget){
+            var searchString = bodyPartTarget['target']['value'];
+            var language = $(LANGUAGE_SELECTOR).val();
+            var queryDictionary = dataToTranslate(searchString, language); // this makes a formatted 'package' of the language and search item to send to google translate
+            retrieveTranslation(queryDictionary, storedTranslations);
         })
 
-        clickOnTheBoxes("#fullbodysvg", translationsAlreadyMade, printIt)
+        clickOnTheBoxes("#body-boxes", storedTranslations, drawToDom)
     })
 
 }
 
-function clickOnTheBoxes(elementToSelect, translationsAlreadyMade, fn){
+function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
     $(elementToSelect).on("load", function(event){
-        var a = FULL_BODY_ELEMENT;
+        var a = FULL_BODY_ELEMENT; //why doesnt it work with FULL_BODY_ELEMENT.contentDocument? 
         var svgDoc = a.contentDocument;
         var svgRoot  = svgDoc.documentElement;
         $(svgRoot).find('rect').on("click", function(event){
-            var ID = event["currentTarget"]["id"];
-            promiseChainToGetSymptomsAndTranslate(translationsAlreadyMade, ID).then(function(data){
-                // console.log(data);  
-                fn(data);
+            var bodyNumID = event["currentTarget"]["id"];
+            promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID).then(function(data){
+                console.log(data); 
+                //console.log(x); 
+                //drawToDom(data); this doesnt print the translations nor the body part on the first click
                 //this is where you will use the data that was clicked to create the boxes and add the data to the page.
             });
         })
-    });
+   });
 }
 
-function dataToTranslate(searchString, language){
-    
+function dataToTranslate(searchString, language) {
     var data = {
-        "key": googleTranslate,
+        "key": googleTranslateToken,
         "q": searchString,
         "target": language
     };
     return data;
 }
-function retrieveTranslation(data, translationsAlreadyMade){
-    if (translationsAlreadyMade[data['q']]){
-        // console.log(translationsAlreadyMade[data['q']]);
-        var P = translationsAlreadyMade[data['q']];
-    }
-    
-    var P = $.post("https://translation.googleapis.com/language/translate/v2", data)
-        .then(function(d){
-            translationsAlreadyMade[data['q']] = d['data']['translations']['0']['translatedText'];
-            var P = new Promise(function(resolve, reject){
-                resolve(translationsAlreadyMade[data['q']]);
-            
-            });      
-            return P;      
+function retrieveTranslation(queryDictionary, storedTranslations){
+    if (storedTranslations[queryDictionary['q']]){
+        // console.log(storedTranslations[data['q']]);
+        var translation = storedTranslations[queryDictionary['q']];
+    } else {
+        var translation = $.post(GOOGLE_URL, queryDictionary)
+            translation.then(function(googleApiObject){
+                // this makes a new key in storedTranslations dictionary, then on the right side, it's referencing results from google translate
+                storedTranslations[queryDictionary['q']] = googleApiObject['data']['translations']['0']['translatedText'];
+                var translation = new Promise(function(resolve, reject){
+                // why did we re-assign 'P' aka 'translation' instead of just calling translation again?
+                // why did this need to be a new promise?
+                // do we need a reject function..?
+                    resolve(storedTranslations[queryDictionary['q']]);    
+                });      
+                return translation;      
         });
-    return P;
-    // I have this commented out so that it does not run anytime you refresh
+    }
+    return translation;
 }
-function printIt(text){
+
+function drawToDom(text){
     console.log(text);
 }
 
 function returnURLForSymptomChecker(ID){
-    return "https://sandbox-healthservice.priaid.ch/symptoms/" + ID + "/man";
+    return APIMEDIC_URL + ID + '/man';
 }
 
 function dataForSymptomChecker(){
     var data = {
-        token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Impsam9obnMxMjE2QGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiMTk1OCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdmVyc2lvbiI6IjIwMCIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGltaXQiOiI5OTk5OTk5OTkiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXAiOiJQcmVtaXVtIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9sYW5ndWFnZSI6ImVuLWdiIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9leHBpcmF0aW9uIjoiMjA5OS0xMi0zMSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbWVtYmVyc2hpcHN0YXJ0IjoiMjAxNy0wNy0yNiIsImlzcyI6Imh0dHBzOi8vc2FuZGJveC1hdXRoc2VydmljZS5wcmlhaWQuY2giLCJhdWQiOiJodHRwczovL2hlYWx0aHNlcnZpY2UucHJpYWlkLmNoIiwiZXhwIjoxNTAxMjY4NjMyLCJuYmYiOjE1MDEyNjE0MzJ9.g6QT0iqEJpl8EB1w06_CimYFg-u_8wsi4QR5fB5B7hw',
+        token: apiMedicToken,
         language: 'en-gb',
-        format:"json",
+        format: 'json',
     }
     return data;
 }
+
 function retrieveSymptoms(ID){
-    return $.get(returnURLForSymptomChecker(ID), dataForSymptomChecker())
-    
+    return $.get(returnURLForSymptomChecker(ID), dataForSymptomChecker());  
 }
+
 initialize();
 
 //puts symptoms and translations into dictionary? J+N
-function formatGetRequest(translationsAlreadyMade, rawData){
+function formatGetRequest(storedTranslations, rawData){
+    // which rawData??
     var newDictionary = {};
     var translationResults = $.map(rawData, function(obj){
         var searchString = obj['Name'];
-        var language = $('[data-target="lang-selector"] select').val();
+        var language = $(LANGUAGE_SELECTOR).val();
         var searchData = dataToTranslate(searchString, language);
-        return retrieveTranslation(searchData, translationsAlreadyMade)
+        return retrieveTranslation(searchData, storedTranslations)
     });
     return Promise.all(translationResults).then(function(arrayOfResults){
         var dictionary = {}
@@ -105,16 +117,16 @@ function formatGetRequest(translationsAlreadyMade, rawData){
         return dictionary;
         // return test;
     })
-    
 }
 
-
-function promiseChainToGetSymptomsAndTranslate(translationsAlreadyMade, ID){
-    // console.log(translationsAlreadyMade)
+function promiseChainToGetSymptomsAndTranslate(ID){
     //yes this is a terrible name. I need to build the big function that i talk about above.
-    return retrieveSymptoms(ID).then(formatGetRequest.bind(this, translationsAlreadyMade));
-}
+    return retrieveSymptoms(ID).then(formatGetRequest.bind(this, storedTranslations));;
 
+
+
+}
+var storedTranslations = {};
 //base url: https://sandbox-healthservice.priaid.ch/
 
 //want a function that accepts my dom element(object tag with the svg), the name of the selector inside of the svg file, then a function that I will associate with the click event. 
