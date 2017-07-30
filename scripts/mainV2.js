@@ -37,15 +37,12 @@ function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
         var svgRoot  = svgDoc.documentElement;
         $(svgRoot).find('rect').on("click", function(event){
             var bodyNumID = event["currentTarget"]["id"];
-            promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID);
-            //promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID).then(function(data){
-                // console.log(data); 
-                //console.log(x); 
-                //drawToDom(data); this doesnt print the translations nor the body part on the first click
+            promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID).then(function(data){
+                drawToDom(data); //this doesnt print the translations nor the body part on the first click
                 //this is where you will use the data that was clicked to create the boxes and add the data to the page.
             });
         })
-   // });
+   });
 }
 
 function dataToTranslate(searchString, language) {
@@ -101,6 +98,7 @@ function retrieveSymptoms(ID){
 initialize();
 
 //puts symptoms and translations into dictionary? J+N
+//TIm how does this work?
 function formatGetRequest(storedTranslations, rawData){
     // which rawData??
     var newDictionary = {};
@@ -108,26 +106,30 @@ function formatGetRequest(storedTranslations, rawData){
         var searchString = obj['Name'];
         var language = $(LANGUAGE_SELECTOR).val();
         var searchData = dataToTranslate(searchString, language);
-        return retrieveTranslation(searchData, storedTranslations)
+        return retrieveTranslation(searchData, storedTranslations);
     });
-    return Promise.all(translationResults).then(function(arrayOfResults){
-        var dictionary = {}
-        $.each(rawData, function(key, value){
-            dictionary[value['Name']] = arrayOfResults[key];
+    return Promise.all(translationResults).then(function(arrayOfResults){ //get translations of symptoms
+        var dictionary = {}; 
+        $.each(rawData, function(key, value){//need a promise here to prevent lag
+            dictionary[value['Name']] = arrayOfResults[key]['data']['translations']['0']['translatedText'];
+
+            //console.log(value["Name"]);
+            //console.log(arrayOfResults[key]);
+            //console.log(arrayOfResults[key]['data']['translations']['0']['translatedText']);
+            //dictionary[value['Name']] = arrayOfResults[key]; //add to dictionary under key value["Name"]
         })
         return dictionary;
-        // return test;
     })
 }
 
-function promiseChainToGetSymptomsAndTranslate(ID){
+
+function promiseChainToGetSymptomsAndTranslate(storedTranslations, ID){
     //yes this is a terrible name. I need to build the big function that i talk about above.
     return retrieveSymptoms(ID).then(formatGetRequest.bind(this, storedTranslations));;
 
 
 
 }
-var storedTranslations = {};
 //base url: https://sandbox-healthservice.priaid.ch/
 
 //want a function that accepts my dom element(object tag with the svg), the name of the selector inside of the svg file, then a function that I will associate with the click event. 
