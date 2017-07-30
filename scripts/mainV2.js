@@ -58,7 +58,9 @@ function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
         $(svgRoot).find('rect').on("click", function(event){
             var bodyNumID = event["currentTarget"]["id"];
             promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID).then(function(data){
-                drawToDom(data); //this doesnt print the translations nor the body part on the first click
+                console.log(data); 
+                //console.log(x); 
+                //drawToDom(data); this doesnt print the translations nor the body part on the first click
                 //this is where you will use the data that was clicked to create the boxes and add the data to the page.
             });
         })
