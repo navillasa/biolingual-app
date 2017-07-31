@@ -51,6 +51,10 @@
     </rdf:RDF>
   </metadata>
    <style>
+    .ear-nose-throat {
+        fill-opacity: 1;
+    }
+
     .ears-nose-throat:active {
         fill-opacity: 0.35294118;
     }
@@ -83,7 +87,7 @@
        x="741.9834"
        y="-1059.1805" />
     <rect
-       style="opacity:1;fill:#0000ff;fill-opacity:0;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
+       style="fill:#0000ff;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
        id="rect4453"
        class="ears-nose-throat"
        width="168.97079"
@@ -99,7 +103,7 @@
        x="594.25317"
        y="-1001.4214" />
     <rect
-       style="opacity:1;fill:#0000ff;fill-opacity:0.35294118;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
+       style="fill:#0000FF;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
        id="rect4457"
        class="ears-nose-throat"
        width="140.62799"
