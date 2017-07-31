@@ -257,7 +257,7 @@ main{
         left: 7px;
         top:0;
         width:100%;
-        height:100% */
+        height:100%
     }
 
     .ears-nose-throat, .mouth,
@@ -359,14 +359,11 @@ main{
         padding-top: 50px;
         font-size: 3rem;
         margin-top: 22px;
+        position: relative;
     }  
-    .languages {
-        font-size: 1.5rem;
-    }
-    .symptoms {
-        font-size: 1.5rem;
-    }
+    .languages, .symptoms,
     .info {
+        margin-right: unset;
         font-size: 1.5rem;
     }
     .symptoms label:first-of-type, .info label:first-of-type {

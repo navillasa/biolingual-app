@@ -54,7 +54,9 @@
       .body-part {
         fill: rgba(0,0,0,0);
       }
-
+    
+    /*Phone*/ 
+    @media only screen and (min-width : 300px) {
       .body-part:active {
         opacity:0.9;
         fill:#0000ff;
@@ -67,7 +69,27 @@
         stroke-opacity:1
         stroke-miterlimit:4;
         stroke-dasharray:none
-        }
+      }
+    }
+
+    /*Desktops */
+    @media only screen and (min-width : 1200px) {
+      .body-part:hover {
+          opacity:0.9;
+          fill:#0000ff;
+          fill-opacity:0.35294119;
+          fill-rule:evenodd;
+          stroke:#000000;
+          stroke-width:0;
+          stroke-linecap:butt;
+          stroke-linejoin:miter;
+          stroke-opacity:1
+          stroke-miterlimit:4;
+          stroke-dasharray:none
+      }
+    }
+
+
   </style>
   <g
      inkscape:label="Layer 1"
