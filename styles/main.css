@@ -21,7 +21,8 @@ html, body {
     flex-direction: row; 
     height: 100%;
     width: 100%;
-    font-family: Baloo, Arial, Helvetica, sans-serif;
+    /* font-family: Baloo, Arial, Helvetica, sans-serif; */
+    font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 1px;
     text-decoration: none;
     overflow: hidden;
@@ -38,7 +39,7 @@ body {
     left: 20px;
     height: 50px;
     width: 50px;
-    z-index: 2;
+    z-index: 3;
 }
 
 .burger-holder span {
@@ -50,7 +51,7 @@ body {
     top: 10px;
     left: 10px;
     border-radius: 3px;
-    z-index: 2;
+    z-index: 3;
     transform-origin: 4px 0px; 
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
                 background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
@@ -70,7 +71,7 @@ body {
     background-color:rgba(40, 80, 200, 0.95);
     width: 300px;
     height: 100%;
-    z-index: 1;
+    z-index: 2;
     transform: translateX(-100%);
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
     
@@ -227,19 +228,11 @@ main{
         flex-direction: row;  
     }
 
-    /* .symptoms {
-        font-size: 1.25rem;
-    }
-    .info {
-        font-size: 1.25rem;
-    }  */
 
     .body-display {
         display: flex;
         align-items: center;
         justify-content: center;
-        /* position: relative; */
-        /* border: 10px solid goldenrod; */
 
     }
 
@@ -257,54 +250,76 @@ main{
         left: 7px;
         top:0;
         width:100%;
-        height:100% */
+        height:100% 
     }
-
-    .tooltip {
-        position: relative;
-        display: inline-block;
-        border-bottom: 1px dotted black;
-    }
-
-    .tooltip .tooltiptext {
-        visibility: hidden;
-        width: 120px;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        padding: 5px 0;
-        border-radius: 6px;
-        position: absolute;
-        z-index: 1;
-    }
-
-    .tooltip:hover .tooltiptext {
-        visibility: visible;
-    }
-
     .results {
+        font: 0.5rem;
         display: flex;
-        justify-content: center; 
-        align-items: center;
-        flex-flow: column wrap;
+        flex-direction: column;
+        align-items: center; 
         position: absolute;
-        bottom: 0;
-        left: 20px;
+        top: 75px;
+        left: 7px;
         margin-bottom: 1em;
-        border-radius: 25px;
+        border-radius: 10px;  
         text-align: center;
         padding: .5em;
-        background-color: rgba(255, 255, 255, 0.8);
-        width: 90%;
+        background-color: rgba(255, 255, 255, 0.85);
+        width: 95%;
         font-size: 1.5em;
+        z-index: 1;
+        overflow: scroll;
+        height: 350px;   
+        border: 1px black solid;
     }
-    .body-part, .symptom-box, .wiki-box {
+
+    .body-part, .wiki-box {
         display: flex;
-        padding: 1em;
-        margin: 1em;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        /* padding: 1em; */
+        /* margin: 1em; */
         border: 1px solid black;
-        border-radius: 25px;
+         /* border-radius: 25px;  */
     }
+    .symptom-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 100%;
+        /* padding: 1em; */
+        /* margin: 1em; */
+        border: 1px solid black;
+    }
+    .sym-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+    }
+    table {
+        width: 100%;
+          border-collapse: collapse;  
+    }
+     table th {
+        font-size: 2rem;
+        height: 50px;
+        
+    } 
+    .lang-title {
+        font-style: italic;
+        font-size: 1.5rem;
+        /* text-decoration: underline; */
+    }
+    table td {
+        height: 25px;
+    }
+    th, td{
+        border-bottom: 1px solid black; 
+    } 
+
+
 }
 
 @media only screen and (min-width : 300px) and (orientation: landscape) {
@@ -334,6 +349,10 @@ main{
     .symptoms label:last-of-type, .info label:last-of-type {
         border-radius: 4px 4px 4px 4px;
     }
+    .results {
+        height: 220px;
+        left: 15px;
+    } 
 
 }
 
@@ -368,6 +387,11 @@ main{
     .symptoms label:last-of-type, .info label:last-of-type {
         border-radius: 0 4px 4px 0;
     }
+    .results {
+        top: 250px;
+        left: 20px;
+        height: 300px;
+    }
 }
 
 /*Desktops */
@@ -379,6 +403,7 @@ main{
     }
     .burger-holder, .burger1, .burger2, .burger3 {
         z-index: -1;
+        opacity: 0;
     }
     .menu-title {
         position: absolute;
@@ -388,8 +413,15 @@ main{
     .menu-area {
         margin-top: 50px;
     }
-}
+    .results {
+        left: unset;
+        top: 150px;
+        right: 10px;
+        width: 30%;
+    }
 
+}
+ 
 .main {
      /* border: 10px solid lightgreen;     */
     display: flex;
@@ -411,95 +443,3 @@ main{
     font-size: 1.5em;
 }
 
-.results {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    flex-flow: column wrap;
-    position: absolute;
-    bottom: 0;
-    left: 20px;
-    margin-bottom: 1em;
-    border-radius: 25px;
-    text-align: center;
-    padding: .5em;
-    background-color: rgba(255, 255, 255, 0.8);
-    width: 90%;
-    font-size: 1.5em;
-}
-
-.body-part, .symptom-box, .wiki-box {
-    display: flex;
-    padding: 1em;
-    margin: 1em;
-    border: 1px solid black;
-    border-radius: 25px;
-}
-
-
-
-/*tooltip experiment  */
-
-
-/* Add this attribute to the element that needs a tooltip */
-[data-tooltip] {
-  position: relative;
-  z-index: 2;
-  cursor: pointer;
-}
-
-/* Hide the tooltip content by default */
-[data-tooltip]:before,
-[data-tooltip]:after {
-  visibility: hidden;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Position tooltip above the element */
-[data-tooltip]:before {
-  position: absolute;
-  bottom: 150%;
-  left: 50%;
-  margin-bottom: 5px;
-  margin-left: -80px;
-  padding: 7px;
-  width: 160px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  background-color: #000;
-  background-color: hsla(0, 0%, 20%, 0.9);
-  color: #fff;
-  content: attr(data-tooltip);
-  text-align: center;
-  font-size: 14px;
-  line-height: 1.2;
-}
-
-/* Triangle hack to make tooltip look like a speech bubble */
-[data-tooltip]:after {
-  position: absolute;
-  bottom: 150%;
-  left: 50%;
-  margin-left: -5px;
-  width: 0;
-  border-top: 5px solid #000;
-  border-top: 5px solid hsla(0, 0%, 20%, 0.9);
-  border-right: 5px solid transparent;
-  border-left: 5px solid transparent;
-  content: " ";
-  font-size: 0;
-  line-height: 0;
-}
-
-/* Show tooltip content on hover */
-[data-tooltip]:hover:before,
-[data-tooltip]:hover:after {
-  visibility: visible;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-}
