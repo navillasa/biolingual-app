@@ -5,7 +5,7 @@ html, body {
     height: 100%;
     width: 100%;
     z-index: -1;
-    background-color: rgba(0, 150, 105, .2);
+     /* background-color: rgba(40, 255, 255, .2);  */
 
     /* I added this green background because I thought it looked
     too much like facebook without the green hahaha. But we can change
@@ -20,6 +20,7 @@ body {
     /* border: 10px solid pink;  */
     height: 100%;
     width: 100%;
+    color: #0000ff;
 }
 
 @media only screen and (min-width : 300px) {
@@ -32,6 +33,7 @@ body {
         height: 110%;
         width: 110%;
         z-index: -1;
+        color: blue;
     }
 
     @font-face {
@@ -62,7 +64,7 @@ body {
         font-family: Baloo, Arial, Helvetica, sans-serif;
         font-size: 16px;
         letter-spacing: 1.5px;
-        color: #0000ff;
+        /* color: #0000ff; */
         padding-left: 8em;
         padding-top: 15em;
 
