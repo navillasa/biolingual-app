@@ -216,10 +216,15 @@ main{
         font-size: 14px;
     }
 
-      .languages, .symptoms h2, .info h2 {
+    .languages, .symptoms, .info {
         display: flex;
         align-items: center;
         flex-direction: column;
+    }
+
+    .switch {
+        display: flex;
+        flex-direction: row;  
     }
 
     /* .symptoms {
