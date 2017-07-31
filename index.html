@@ -15,76 +15,51 @@
         <span class="burger3"></span>
     </div>
      <div class="menu">
-        <h1 class="menu-title">
-             <!-- <a href="landing.html">  -->
-                BioLingual
-             <!-- </a>  -->
-        </h1>
+        <h1 class="menu-title">BioLingual</h1>
         <div class="menu-area">
-            <div class="menu-elements">
-                <div class="languages">
-                <h2>Language</h2>
-                <div class="selector" data-target="lang-selector">
-                    <select data-target="select" >
-                        <option value = 'es'>Spanish / Español</option>
-                        <option value = 'zh-CN'>Mandarin / 中文</option>
-                        <option value = 'fr'>French / Français</option>
-                        <option value = 'tl'>Filipino / Tagalog</option>
-                        <option value = 'vi'>Vietnamese / Tiếng Việt </option>
-                        <option value = 'ko'>Korean / 한국어</option>
-                        <option value = 'de'>German / Deutsche</option>
-                        <option value = 'ar'>Arabic / عربى</option>
-                        <option value = 'ru'>Russian / ру́сский</option>
-                    </select>
+            <div class="languages">
+            <h2>Language</h2>
+            <div class="selector" data-target="lang-selector">
+                <select data-target="select" >
+                    <option value = 'es'>Spanish / Español</option>
+                    <option value = 'zh-CN'>Mandarin / 中文</option>
+                    <option value = 'fr'>French / Français</option>
+                    <option value = 'tl'>Filipino / Tagalog</option>
+                    <option value = 'vi'>Vietnamese / Tiếng Việt </option>
+                    <option value = 'ko'>Korean / 한국어</option>
+                    <option value = 'de'>German / Deutsche</option>
+                    <option value = 'ar'>Arabic / عربى</option>
+                    <option value = 'ru'>Russian / ру́сский</option>
+                </select>
+            </div>
+            </div>
+            <div class="symptoms">  
+                <h2>Symptoms</h2>
+                <div class="switch">
+                <input type="radio" id="sym-switch-left" name="sym-switch" value="on" data-target="sym-on" checked/>
+                <label for="sym-switch-left">On</label>
+                <input type="radio" id="sym-switch-right" name="sym-switch" value="off" data-target="sym-off"/>
+                <label for="sym-switch-right">Off</label> 
                 </div>
-                </div>
-                <div class="symptoms">  
-                    <h2>Symptoms</h2>
-                    <input type="radio" id="sym-switch-left" name="sym-switch" value="on" data-target="sym-on" checked/>
-                    <label for="sym-switch-left">On</label>
-                    <input type="radio" id="sym-switch-right" name="sym-switch" value="off" data-target="sym-off"/>
-                    <label for="sym-switch-right">Off</label> 
-                </div>
-                <div class="info">
-                    <h2>Wiki</h2>
+            </div>
+            <div class="info">
+                <h2>Wiki</h2>
+                <div class="switch">
                     <input type="radio" id="info-switch-left" name="info-switch" value="on" data-target="info-on" checked/>
                     <label for="info-switch-left">On</label>
                     <input type="radio" id="info-switch-right" name="info-switch" data-target="info-off" value="off"/>
-                    <label for="info-switch-right">Off</label> 
+                    <label for="info-switch-right">Off</label>
                 </div>
-        
             </div>
         </div>
-    </div>
+    </div> 
     <div class="main">
          <div class="main-panel" data-target="main-panel" class="tooltip">
-            <div class="body-display">
-                <object data="images/body-outline.svg" type="image/svg+xml" id="body-outline" alt="vector graphic drawing outline of human body"></object>   
-                <object data="images/body-boxes3.svg" type="image/svg+xml" id="body-boxes" alt="vector graphic color overlays"></object> 
-            </div>
-            <!-- <object data="images/backpoints.svg" type="image/svg+xml" id="backsvg" alt="vector graphic contour drawing of back - three pain locations"></object>  -->
-            <!-- <button id="16" value="Abdomen, pelvis and buttocks" >Abdomen, pelvis and buttocks</button>
-            <button id= "7" value="Arms and shoulder">Arms and shoulder</button>
-            <button id= "15" value="Chest and back">Chest and back</button>
-            <button id= "6" value="Head, throat and neck">Head, throat and neck</button>
-            <button id= "10" value="Legs">Legs</button>
-            <button id= "17" value="Skin, joints, general">Skin, joints and general</button> -->
+            <object data="images/body-outline.svg" type="image/svg+xml" id="body-outline" alt="vector graphic drawing outline of human body"></object>   
+            <object data="images/body-boxes.svg" type="image/svg+xml" id="body-boxes" alt="vector graphic color overlays"></object> 
        <p><button data-tooltip="I’m the tooltip text.">I’m a button with a tooltip</button></p>
         </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        
-        <!-- <div class="results" data-target="results">
-=======
          <div class="results" data-target="results" class="tooltiptext">
->>>>>>> adds .tooltip and .tooltip selectors
-=======
-         <!-- <div class="results" data-target="results" class="tooltiptext">
->>>>>>> disappeared the little man outline in the bottom right corner-- successfully updated human body outline with color box overlay
-=======
-         <!-- <div class="results" data-target="results" class="tooltiptext">
->>>>>>> 9c534c97367cd14d69c17c7a63d15abd82f0cd7c
             <h4>RESULTS<h4>
             <div class="body-part" data-target="body-part">
                 <h4>Body Part<h4>
@@ -94,7 +69,7 @@
             </div>
             <div class="wiki-box" data-target="wiki-box">
                 <h4>Wikipedia</h4>
-            </div> -->
+            </div>
         </div> 
     </main> 
     <script src="scripts/api.js" charset="utf-8"></script>
@@ -103,17 +78,8 @@
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
     <script src="scripts/menu.js" charset="utf-8"></script>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <!-- <script src="scripts/main.js" charset="utf-8"></script>  -->
-    <script src="scripts/mainV2.js" charset="utf-8"></script> 
+     <script src="scripts/main.js" charset="utf-8"></script>
     <!-- <script src="scripts/info.js" charset="utf-8"></script>  -->
-=======
-=======
->>>>>>> 9c534c97367cd14d69c17c7a63d15abd82f0cd7c
-    <script src="scripts/main.js" charset="utf-8"></script>  
-    <script src="scripts/info.js" charset="utf-8"></script> 
->>>>>>> deleted unnecessary body svgs, renamed from jank to main-body.svg and body-boxes.svg, linked index to renamed main.js, turned mainV2.js to old-main.js
     <script src="jquery-svg-master/dist/jquery.svg.es5.min.js"></script> 
 </body>
 </html>
