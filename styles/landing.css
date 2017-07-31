@@ -39,9 +39,19 @@ body {
         src: url(fonts/Baloo/Baloo-Regular.ttf) format("truetype");
     }
 
-    /* .green-box {
-        background-color: rgba(0, 150, 105, 0);
-    } */
+    /* .info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: -5;
+    }
+
+     .info-button {
+        border-radius: 20px;
+        background-color: rgba(0, 0, 0, .1);
+        padding: 1em;
+        
+    }  */
 
     .container {
         /* border: 10px solid yellowgreen;  */
