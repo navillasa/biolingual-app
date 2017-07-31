@@ -251,7 +251,21 @@ main{
         left: 7px;
         top:0;
         width:100%;
-        height:100% 
+        height:100%
+    }
+
+    .ears-nose-throat, .mouth,
+    .upper-face, .head, .back,
+    .chest, .hand-wrist, abdomen,
+    .groin, .leg, .foot, {
+        fill: red;
+        pointer-events: all;
+    } 
+
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        border-bottom: 1px dotted black;
     }
     .results {
         font: 0.5rem;
@@ -368,10 +382,11 @@ main{
         display: flex;
         flex-direction: column;
     }
-    .menu-title {
+    .menu-title h1 {
         padding-top: 50px;
         font-size: 3rem;
         margin-top: 22px;
+        position: relative;
     }  
     .languages {
         font-size: 1.5rem;
@@ -383,6 +398,7 @@ main{
         margin-right: unset;
     }
     .info {
+        /* margin-right: unset; */
         font-size: 1.5rem;
     }
     .symptoms label:first-of-type, .info label:first-of-type {

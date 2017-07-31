@@ -1,4 +1,4 @@
-var FULL_BODY_ELEMENT = document.getElementById("body-boxes");
+var FULL_BODY_ELEMENT = document.getElementById("body-outline");
 var BODY_PART_SELECTOR = '[data-target="main-panel"] button';
 var LANGUAGE_SELECTOR = '[data-target="select"]';
 //derp
@@ -27,9 +27,9 @@ function initialize(){
     $(document).ready(function() {
         console.log('derp');
 
-        clickOnTheBoxes("#body-boxes", storedTranslations, drawToDom);
-        console.log(pullDataFromLocalStorage('storedTranslations'));
-        // console.log(storedTranslations);
+        clickOnTheBoxes("#body-outline", storedTranslations, drawToDom);
+        
+        
     })
 
 }
@@ -41,10 +41,12 @@ function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
         var a = FULL_BODY_ELEMENT;
         var svgDoc = a.contentDocument;
         var svgRoot  = svgDoc.documentElement;
-        console.log(svgRoot);
-        $(svgRoot).find('[data-target="body-parts"]').on("click", function(event){
+        
+        $(svgRoot).find('[data-target="body-part"]').on("click", function(event){
             console.log('we found the rectangles')
-            var bodyNumID = event["currentTarget"]["id"];
+            var bodyPart = $(event).find('class');
+            var bodyNumID = event["currentTarget"]["dataset"]['id'];
+            
             promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID)
                 .then(function(data){
                 console.log("we;re in the promise chain");
@@ -84,7 +86,8 @@ function retrieveTranslation(queryData, storedTranslations){
             return P;      
         });
     return P;
-}
+    }
+
 
 function drawToDom(text){
     console.log(text);
@@ -106,8 +109,6 @@ function retrieveSymptoms(bodyNumID){
     return $.get(returnURLForSymptomChecker(bodyNumID), dataForSymptomChecker())
     
 }
-
-
 function formatGetRequest(storedTranslations, rawData){
     var newDictionary = {};
     var translationResults = $.map(rawData, function(obj){
@@ -131,14 +132,6 @@ function promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID){
     // console.log(storedTranslations)
     return retrieveSymptoms(bodyNumID).then(formatGetRequest.bind(this, storedTranslations));
 }
-
-
-
-// }
-// var storedTranslations = {};
-//base url: https://sandbox-healthservice.priaid.ch/
-
-//want a function that accepts my dom element(object tag with the svg), the name of the selector inside of the svg file, then a function that I will associate with the click event. 
 
 function sendDataToLocalStorage(data, language){
     if (pullDataFromLocalStorage('storedTranslations') == null) {
@@ -164,6 +157,15 @@ function sendDataToLocalStorage(data, language){
 function pullDataFromLocalStorage(stringifiedJSONName){
     return JSON.parse(localStorage.getItem(stringifiedJSONName));
     
+}
+
+function translateBodyPart(bodyPart){
+    console.log(bodyPart);
+    var language = $(LANGUAGE_SELECTOR).val();
+    var queryData = dataToTranslate(bodyPart, language);
+    console.log(queryData);
+    var d =  $.post(GOOGLE_URL, queryData);
+    console.log(d);
 }
 
 initialize();
