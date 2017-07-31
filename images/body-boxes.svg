@@ -15,7 +15,8 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="body-boxes4.svg">
+   sodipodi:docname="body-boxes4.svg"
+   ontouchstart="" onmouseover="">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -49,11 +50,12 @@
       </cc:Work>
     </rdf:RDF>
   </metadata>
-  <!-- <style>
-    .leg {
-        border: 10px solid orange;
+   <style>
+    .ears-nose-throat:active {
+        fill-opacity: 0.35294118;
     }
-  </style> -->
+
+  </style> 
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
@@ -67,6 +69,7 @@
     <rect
        style="opacity:1;fill:#0000ff;fill-opacity:0.35294118;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
        id="rect4449"
+       class="ear"
        width="51.094666"
        height="124.4044"
        x="526.49719"
@@ -74,20 +77,23 @@
     <rect
        style="opacity:1;fill:#0000ff;fill-opacity:0.35294118;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
        id="rect4451"
+       class="ear"
        width="57.759186"
        height="104.41084"
        x="741.9834"
        y="-1059.1805" />
     <rect
-       style="opacity:1;fill:#0000ff;fill-opacity:0.35294118;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
+       style="opacity:1;fill:#0000ff;fill-opacity:0;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
        id="rect4453"
+       class="ears-nose-throat"
        width="168.97079"
        height="55.443542"
        x="574.92438"
        y="-1059.7559" />
     <rect
        style="opacity:1;fill:#0000ff;fill-opacity:0.35294118;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4455"
+       id="55"
+       class="mouth"
        width="141.0657"
        height="59.980694"
        x="594.25317"
@@ -95,6 +101,7 @@
     <rect
        style="opacity:1;fill:#0000ff;fill-opacity:0.35294118;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
        id="rect4457"
+       class="ears-nose-throat"
        width="140.62799"
        height="132.45218"
        x="591.40405"
@@ -117,22 +124,24 @@
        y="-1232.4581" />
     <rect
        style="opacity:1;fill:#0000ff;fill-opacity:0.35294118;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4463"
+       id="33"
+       class="back"
        width="185.49585"
        height="156.61626"
        x="769.7522"
        y="-893.67834" />
     <rect
        style="opacity:1;fill:#0000ff;fill-opacity:0.35294118;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4465"
-       class="leg"
+       id="31"
+       class="chest"
        width="359.18958"
        height="411.8707"
        x="472.76486"
        y="-802.37769" />
     <ellipse
        style="opacity:1;fill:#0000ff;fill-opacity:0.35294118;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
-       id="path4471"
+       id="29"
+       class="hand-wrist"
        cx="287.29483"
        cy="8.8713636"
        rx="120.57452"
@@ -140,6 +149,7 @@
     <ellipse
        style="opacity:1;fill:#0000ff;fill-opacity:0.35294118;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
        id="path4473"
+       class="hand-wrist"
        cx="1050.9852"
        cy="80.462914"
        rx="104.2002"
@@ -148,28 +158,31 @@
     <rect
        style="opacity:1;fill:#0000ff;fill-opacity:0.35294118;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
        id="rect4477"
+       class="arm"
        width="282.8291"
        height="595.42969"
        x="839.55591"
        y="-733.92719" />
     <rect
        style="opacity:1;fill:#0000ff;fill-opacity:0.35294118;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4479"
+       id="36"
+       class="abdomen"
        width="324.50919"
        height="279.85196"
        x="509.09241"
        y="-385.6008" />
     <rect
        style="opacity:1;fill:#0000ff;fill-opacity:0.35294118;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4481"
+       id="38"
+       class="groin"
        width="431.68652"
        height="169.69746"
        x="452.52658"
        y="-111.7031" />
     <rect
        style="opacity:1;fill:#0000ff;fill-opacity:0.35294118;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect4483"
-       class="arm"
+       id="49"
+       class="leg"
        width="190.53751"
        height="669.8584"
        x="455.50372"
@@ -177,13 +190,15 @@
     <rect
        style="opacity:1;fill:#0000ff;fill-opacity:0.35294118;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
        id="rect4485"
+       class="leg"
        width="202.44611"
        height="666.88129"
        x="678.78986"
        y="66.925804" />
     <ellipse
        style="opacity:1;fill:#0000ff;fill-opacity:0.35294118;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
-       id="path4493"
+       id="44"
+       class="foot"
        cx="516.53528"
        cy="846.9386"
        rx="117.59737"
@@ -191,13 +206,15 @@
     <ellipse
        style="opacity:1;fill:#0000ff;fill-opacity:0.35294118;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
        id="path4495"
+       class="foot"
        cx="852.8385"
        cy="849.91589"
        rx="126.64332"
        ry="145.88026" />
     <ellipse
        style="opacity:1;fill:#0000ff;fill-opacity:0.35294118;stroke-width:2.70000005;stroke-miterlimit:4;stroke-dasharray:none"
-       id="path4497"
+       id="48"
+       class="arm"
        cx="377.90421"
        cy="-503.19821"
        rx="99.01368"
