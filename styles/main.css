@@ -355,7 +355,7 @@ main{
         display: flex;
         flex-direction: column;     
     }
-    .menu-title {
+    .menu-title h1 {
         padding-top: 50px;
         font-size: 3rem;
         margin-top: 22px;
@@ -363,7 +363,7 @@ main{
     }  
     .languages, .symptoms,
     .info {
-        margin-right: unset;
+        /* margin-right: unset; */
         font-size: 1.5rem;
     }
     .symptoms label:first-of-type, .info label:first-of-type {
