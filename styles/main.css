@@ -10,13 +10,19 @@ html {
   
 } */
 
+@font-face {
+    font-family: Baloo;
+    src: url(fonts/Baloo/Baloo-Regular.ttf) format("truetype");
+}
+
 html, body {
     /* border: 10px solid blue;    */
     display: flex;
     flex-direction: row; 
     height: 100%;
     width: 100%;
-    font-family: "Avenir Next", "Avenir", sans-serif;
+    font-family: Baloo, Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
     text-decoration: none;
     overflow: hidden;
 }
@@ -58,8 +64,10 @@ body {
     top: 0;
     left: 0;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     color:#cdcdcd;
-    background-color:rgba(0, 0, 0, 0.9);
+    background-color:rgba(40, 80, 200, 0.95);
     width: 300px;
     height: 100%;
     z-index: 1;
@@ -71,16 +79,17 @@ body {
 .menu-area {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    /* width: 300px; */
+    width: 100%;
     height: 100%;
-    padding-left: 50px;
+    /* padding-left: 100px; */
 
 }
 
 .menu-title {
-    position: relative;
-    top: 3px;
-    left: 90px;
+    /* position: relative; */
+    /* top: 3px;
+    left: 90px; */
 }
 
 select {
@@ -192,31 +201,45 @@ main{
     .menu {
         width: 100%;
     }
+
     .menu-title {
         margin-top: 22px;
-        font-size: 2.5em;
-    }  
-    .languages {
-        font-size: 1.25rem;
+        font-size: 4em;
+        padding-top: 1em;
     }
-    .symptoms {
+
+    .menu-elements {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 14px;
+    }
+
+      .languages, .symptoms h2, .info h2 {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    /* .symptoms {
         font-size: 1.25rem;
     }
     .info {
         font-size: 1.25rem;
-    }
+    }  */
 
     .body-display {
         display: flex;
         align-items: center;
         justify-content: center;
         /* position: relative; */
-        border: 10px solid goldenrod;
+        /* border: 10px solid goldenrod; */
 
     }
 
     #body-boxes {
-        border: 10px solid red;
+         /* border: 10px solid red;  */
         position: absolute;
         /* top: 0;
         left: 0; */
@@ -226,7 +249,7 @@ main{
     #body-outline {
         /* size: 50%; */
         position: absolute;
-        /* left:0;
+        left: 7px;
         top:0;
         width:100%;
         height:100% */
@@ -363,7 +386,7 @@ main{
 }
 
 .main {
-    border: 10px solid lightgreen;   
+     /* border: 10px solid lightgreen;     */
     display: flex;
     width: 100%;
     height: 100%;
@@ -373,7 +396,7 @@ main{
 }
 
 .main-panel {
-    border: 10px cyan solid;  
+    /* border: 10px cyan solid;   */
     flex: display;
     height: 100%;
     width: 100%;
