@@ -16,10 +16,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: black;
 }
 
 #robo-body {
+    border: 10px solid red;
     height: 50%;
     width: 50%;
-    background: black;
 }
