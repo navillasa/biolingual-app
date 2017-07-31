@@ -76,9 +76,9 @@ function retrieveTranslation(queryData, storedTranslations){
             });      
             return P;      
         });
+    return P;
     }
-    return translation;
-}
+
 
 function drawToDom(text){
     console.log(text);
@@ -129,9 +129,6 @@ function promiseChainToGetSymptomsAndTranslate(storedTranslations, ID){
     return retrieveSymptoms(ID).then(formatGetRequest.bind(this, storedTranslations));
 }
 
-
-
-}
 var storedTranslations = {};
 //base url: https://sandbox-healthservice.priaid.ch/
 
