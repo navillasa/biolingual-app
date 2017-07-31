@@ -1,4 +1,4 @@
-var FULL_BODY_ELEMENT = document.getElementById("body-boxes");
+var FULL_BODY_ELEMENT = document.getElementById("body-outline");
 var BODY_PART_SELECTOR = '[data-target="main-panel"] button';
 var LANGUAGE_SELECTOR = '[data-target="select"]';
 //derp
@@ -22,14 +22,14 @@ function initialize(){
         };
         localStorage.setItem('storedTranslations', JSON.stringify(storedTranslations));
     }else {
-        // var storedTranslations = pullDataFromLocalStorage('storedTranslations');
+        var storedTranslations = pullDataFromLocalStorage('storedTranslations');
     }
     $(document).ready(function() {
         console.log('derp');
 
-        clickOnTheBoxes("#body-boxes", storedTranslations, drawToDom);
-        console.log(pullDataFromLocalStorage('storedTranslations'));
-        // console.log(storedTranslations);
+        clickOnTheBoxes("#body-outline", storedTranslations, drawToDom);
+        
+        
     })
 
 }
@@ -41,18 +41,15 @@ function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
         var a = FULL_BODY_ELEMENT;
         var svgDoc = a.contentDocument;
         var svgRoot  = svgDoc.documentElement;
-        console.log($(svgRoot).find('[data-target="body-parts"]'));
-        $(svgRoot).find('[data-target="body-parts"]').on("click", function(event){
+        
+        $(svgRoot).find('[data-target="body-part"]').on("click", function(event){
             console.log('we found the rectangles')
             var bodyPart = $(event).find('class');
-            console.log(bodyPart);
-            // translateBodyPart(bodyPart);
-            // console.log(bodyPart);
-            var bodyNumID = event["currentTarget"]["id"];
+            var bodyNumID = event["currentTarget"]["dataset"]['id'];
+            
             promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID)
                 .then(function(data){
                 console.log("we;re in the promise chain");
-                console.log()
                 drawToDom(data);
                 // pullDataFromLocalStorage('storedTranslations');
                 //this is where you will use the data that was clicked to create the boxes and add the data to the page.
@@ -89,7 +86,8 @@ function retrieveTranslation(queryData, storedTranslations){
             return P;      
         });
     return P;
-}
+    }
+
 
 function drawToDom(text){
     console.log(text);
