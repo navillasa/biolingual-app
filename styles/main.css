@@ -283,8 +283,8 @@ main{
         width: 95%;
         font-size: 1.5em;
         z-index: 1;
-        overflow: scroll;
-        height: 350px;   
+        overflow: scroll; 
+        height: 85%;    
         border: 1px black solid;
     }
 
@@ -366,7 +366,7 @@ main{
         border-radius: 4px 4px 4px 4px;
     }
     .results {
-        height: 220px;
+        height: 250px; 
         left: 15px;
     } 
 
@@ -409,9 +409,9 @@ main{
         border-radius: 0 4px 4px 0;
     }
     .results {
-        top: 250px;
+        top: 200px;
         left: 20px;
-        height: 300px;
+        height: unset;
     }
 }
 
@@ -436,9 +436,13 @@ main{
     }
     .results {
         left: unset;
-        top: 150px;
+        overflow: scroll;
+        align-self: center;
+        top: 50px;
+        /* top: 150px; */
         right: 10px;
         width: 30%;
+        /* height: 98%; */
     }
 
 }

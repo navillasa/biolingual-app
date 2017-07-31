@@ -169,3 +169,18 @@ function translateBodyPart(bodyPart){
 }
 
 initialize();
+
+
+
+var symptom = {
+    "es": "Síntomas",
+    "zh-CN": "症侯",
+    "fr": "Symptômes",
+    "tl": "Sintomas" ,
+    "vi": "Triệu chứng",
+    "ko": "조짐",
+    "de": "Symptome",        
+    "ar": "الأعراض",
+    "ru": "симптомы",
+};
+
