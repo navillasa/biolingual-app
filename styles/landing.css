@@ -1,26 +1,60 @@
 html, body {
-    /* border: 10px solid blue;    */
+    /* border: 10px solid lightgreen;     */
     display: flex;
     flex-direction: row;  
     height: 100%;
     width: 100%;
-    overflow: hidden;
-    background-color: black;
+    /* overflow: hidden; */
+    /* background-color: white; */
 }
 
 body {
-    border: 10px solid blue;
+    /* border: 10px solid pink; */
+    height: 100%;
+    width: 100%;
 }
 
 .robo-container {
-    display: flex;
+    /* border: 10px solid orange; */
+    /* display: flex; */
     align-items: center;
     justify-content: center;
-    background: black;
 }
 
 #robo-body {
-    border: 10px solid red;
-    height: 50%;
-    width: 50%;
+    /* border: 10px solid red; */
+    position: absolute;
+    top: 10px;
+    padding-right: 8em;
+    height: 110%;
+    width: 110%;
+    /* padding-left: 4em; */
+    z-index: -1;
+}
+
+@font-face {
+    font-family: Baloo;
+    src: url(fonts/Baloo/Baloo-Regular.ttf) format("truetype");
+}
+
+.title {
+    /* border: 10px solid yellowgreen; */
+    display: flex;
+    height: 100%;
+    width: 100%;
+    /* align-items: center; */
+    justify-content: center;
+    font-family: Baloo;
+    font-size: 16px;
+    color: blue;
+    padding-left: 8em;
+    padding-top: 15em;
+    /* padding-bottom: 15em; */
+    /* padding-bottom: 10em;  */
+    /* background: -webkit-linear-gradient(navy, blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+    /* align-items: center; */
+    /* padding-right: 7em; */
+    /* padding-top: 1em; */
 }
