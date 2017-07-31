@@ -10,10 +10,10 @@ html {
   
 } */
 
-@font-face {
+/* @font-face {
     font-family: Baloo;
     src: url(fonts/Baloo/Baloo-Regular.ttf) format("truetype");
-}
+} */
 
 html, body {
     /* border: 10px solid blue;    */
@@ -23,7 +23,7 @@ html, body {
     width: 100%;
     /* font-family: Baloo, Arial, Helvetica, sans-serif; */
     font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: 1px;
+    letter-spacing: 1px; 
     text-decoration: none;
     overflow: hidden;
 }
@@ -65,8 +65,8 @@ body {
     top: 0;
     left: 0;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: center; 
+    justify-content: center; 
     color:#cdcdcd;
     background-color:rgba(40, 80, 200, 0.95);
     width: 300px;
@@ -94,16 +94,17 @@ body {
 }
 
 select {
-    color: #cdcdcd; 
-    background-color: #232323;
+    color: #232323; 
+    /* background-color: #232323; */
+    background-color:#cdcdcd; 
 }
 
 select:focus {
     outline: none !important;
-    border-color: #719ECE;
-    color: #cdcdcd; 
-    box-shadow: 0 0 5px #719ECE; 
-    background-color: #232323;
+    border-color: #719ECE; 
+    color: #232323; 
+    box-shadow: 0 0 5px #719ECE;  
+    background-color:#cdcdcd; 
 }
 
 .open {
@@ -162,7 +163,7 @@ select:focus {
   text-align: center;
   text-shadow: none;
   padding: 6px 14px;
-  border: 1px solid #232323;
+  /* border: 1px solid #232323; */
   -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
   -webkit-transition: all 0.1s ease-in-out;
@@ -261,7 +262,7 @@ main{
         top: 75px;
         left: 7px;
         margin-bottom: 1em;
-        border-radius: 10px;  
+        border-radius: 4px;  
         text-align: center;
         padding: .5em;
         background-color: rgba(255, 255, 255, 0.85);
@@ -325,7 +326,7 @@ main{
 @media only screen and (min-width : 300px) and (orientation: landscape) {
     .menu-area {
         display: flex;
-        flex-direction: row;     
+        flex-direction: row;   
     }
     .menu-title {
         margin-top: 22px;
@@ -333,11 +334,12 @@ main{
     }  
     .languages {
         font-size: 1.25rem;
-         margin-right: 50px; 
+        margin-right: 50px; 
+        margin-left: 50px;
     }
     .symptoms {
         font-size: 1.25rem;
-         margin-right: 50px; 
+        margin-right: 50px;  
     }
     .info {
         font-size: 1.25rem;
@@ -360,11 +362,11 @@ main{
 @media only screen and (min-width : 750px) {
     .menu {
         width: 50%;
-        min-width: 300px; 
+        min-width: 300px;
     }
     .menu-area {
         display: flex;
-        flex-direction: column;     
+        flex-direction: column;
     }
     .menu-title {
         padding-top: 50px;
@@ -373,9 +375,12 @@ main{
     }  
     .languages {
         font-size: 1.5rem;
+        margin-right: unset;
+        margin-left: unset;
     }
     .symptoms {
         font-size: 1.5rem;
+        margin-right: unset;
     }
     .info {
         font-size: 1.5rem;
@@ -408,7 +413,7 @@ main{
     .menu-title {
         position: absolute;
         top: 3px;
-        left: 50px; 
+        left: unset; 
     }  
     .menu-area {
         margin-top: 50px;
