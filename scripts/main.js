@@ -22,7 +22,7 @@ function initialize(){
         };
         localStorage.setItem('storedTranslations', JSON.stringify(storedTranslations));
     }else {
-        var storedTranslations = pullDataFromLocalStorage('storedTranslations');
+        // var storedTranslations = pullDataFromLocalStorage('storedTranslations');
     }
     $(document).ready(function() {
         console.log('derp');
@@ -41,13 +41,18 @@ function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
         var a = FULL_BODY_ELEMENT;
         var svgDoc = a.contentDocument;
         var svgRoot  = svgDoc.documentElement;
-        console.log(svgRoot);
+        console.log($(svgRoot).find('[data-target="body-parts"]'));
         $(svgRoot).find('[data-target="body-parts"]').on("click", function(event){
             console.log('we found the rectangles')
+            var bodyPart = $(event).find('class');
+            console.log(bodyPart);
+            // translateBodyPart(bodyPart);
+            // console.log(bodyPart);
             var bodyNumID = event["currentTarget"]["id"];
             promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID)
                 .then(function(data){
                 console.log("we;re in the promise chain");
+                console.log()
                 drawToDom(data);
                 // pullDataFromLocalStorage('storedTranslations');
                 //this is where you will use the data that was clicked to create the boxes and add the data to the page.
@@ -106,8 +111,6 @@ function retrieveSymptoms(bodyNumID){
     return $.get(returnURLForSymptomChecker(bodyNumID), dataForSymptomChecker())
     
 }
-
-
 function formatGetRequest(storedTranslations, rawData){
     var newDictionary = {};
     var translationResults = $.map(rawData, function(obj){
@@ -131,14 +134,6 @@ function promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID){
     // console.log(storedTranslations)
     return retrieveSymptoms(bodyNumID).then(formatGetRequest.bind(this, storedTranslations));
 }
-
-
-
-// }
-// var storedTranslations = {};
-//base url: https://sandbox-healthservice.priaid.ch/
-
-//want a function that accepts my dom element(object tag with the svg), the name of the selector inside of the svg file, then a function that I will associate with the click event. 
 
 function sendDataToLocalStorage(data, language){
     if (pullDataFromLocalStorage('storedTranslations') == null) {
@@ -164,6 +159,15 @@ function sendDataToLocalStorage(data, language){
 function pullDataFromLocalStorage(stringifiedJSONName){
     return JSON.parse(localStorage.getItem(stringifiedJSONName));
     
+}
+
+function translateBodyPart(bodyPart){
+    console.log(bodyPart);
+    var language = $(LANGUAGE_SELECTOR).val();
+    var queryData = dataToTranslate(bodyPart, language);
+    console.log(queryData);
+    var d =  $.post(GOOGLE_URL, queryData);
+    console.log(d);
 }
 
 initialize();
