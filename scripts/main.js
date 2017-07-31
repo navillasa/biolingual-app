@@ -84,6 +84,7 @@ function retrieveTranslation(queryData, storedTranslations){
             return P;      
         });
     return P;
+    }
 }
 
 function drawToDom(text){
@@ -132,13 +133,6 @@ function promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID){
     return retrieveSymptoms(bodyNumID).then(formatGetRequest.bind(this, storedTranslations));
 }
 
-
-
-// }
-// var storedTranslations = {};
-//base url: https://sandbox-healthservice.priaid.ch/
-
-//want a function that accepts my dom element(object tag with the svg), the name of the selector inside of the svg file, then a function that I will associate with the click event. 
 
 function sendDataToLocalStorage(data, language){
     if (pullDataFromLocalStorage('storedTranslations') == null) {
