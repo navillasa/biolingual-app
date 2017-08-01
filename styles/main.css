@@ -332,11 +332,12 @@ main{
         border-collapse: collapse;   
         width: 80%; /* Could be more or less, depending on screen size */
     }
-     table th, td {
+    table th, td {
         font-size: 1.75rem;
          /* height: 50px;  */
-        max-height: 30px;
-    } 
+        max-height: 30px; 
+    }
+
     .lang-title {
         font-style: italic;
         font-size: 1.5rem;
@@ -345,6 +346,9 @@ main{
     table th {
         font-size: 2.75rem;
         padding: 1em .5em 1em .5em;
+        border-top: 1px solid black;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
     }
     td, th {
         border-bottom: 1px solid black; 

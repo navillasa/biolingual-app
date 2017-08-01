@@ -164,7 +164,7 @@ function createColumn(info){
     return $("<td>" + info + "</td>"); 
 }
 function createHeader(info) {
-    return $("<th>" + info + "</th>"); 
+    return $("<th class='lang-header'>" + info + "</th>"); 
 }
 
 function createLangHeader(info) {
