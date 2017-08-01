@@ -130,8 +130,8 @@ function drawToDom(text){
     $(".results").remove();
     $('.main').append($("<div class='results' data-target='results'></div>").append('<span class="close">&times;</span> '));
     $('.results').append($("<table></table>"));
-    createRow("English", $('[data-target="select"]')['0']['selectedOptions']['0']['dataset']['name'], createHeader, "language-display");
-    createRow(pullDataFromLocalStorage("bodyPartEnglish"), pullDataFromLocalStorage('bodyPartTranslated'), createLangHeader, "body-part-display");
+    createRow("English", $('[data-target="select"]')['0']['selectedOptions']['0']['dataset']['name'], createHeader, "language-part-display");
+    createRow(pullDataFromLocalStorage("bodyPartEnglish"), pullDataFromLocalStorage('bodyPartTranslated'), createLangHeader, "language-part-display");
     createRow('Symptoms', pullDataFromLocalStorage('Symptoms'), createHeader, "symp-display");
         $.each(text, function(data){
         createRow(data, text[data], createColumn, "symp-display");
