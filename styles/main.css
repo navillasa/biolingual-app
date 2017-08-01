@@ -29,8 +29,8 @@ html, body {
 }
 
 body {
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
 }
 
 .burger-holder {
@@ -254,11 +254,6 @@ main{
         height:100%
     }
 
-    .tooltip {
-        position: relative;
-        display: inline-block;
-        border-bottom: 1px dotted black;
-    }
     .results {
         font: 0.5rem;
         display: flex;
@@ -317,9 +312,30 @@ main{
         justify-content: space-around;
 
     }
+
+    .close {
+        position: absolute;
+        color: #aaa;
+        top: .5em;
+        left: .5em;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover, .close:focus {
+        color: black;
+        /* text-decoration: none; */
+        cursor: pointer;
+    }
+
     table {
         width: 100%;
-        border-collapse: collapse; 
+        height: 100%;
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
     }
      table th {
         font-size: 1.75rem;
