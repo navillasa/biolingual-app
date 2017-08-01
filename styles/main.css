@@ -202,10 +202,6 @@ main{
 
 /*Phone*/ 
 @media only screen and (min-width : 300px) {
-    .main-panel {
-        background-color: rgb(232, 255, 171);
-    }
-    
     .menu {
         width: 100%;
     }
@@ -339,25 +335,19 @@ main{
      table th, td {
         font-size: 1.75rem;
          /* height: 50px;  */
-         max-height: 30px;
+        max-height: 30px;
     } 
     .lang-title {
         font-style: italic;
         font-size: 1.5rem;
         /* text-decoration: underline; */
     }
-    table td {
-         
+    table th {
+        font-size: 2.75rem;
+        padding: 1em .5em 1em .5em;
     }
-    th, td {
+    td, th {
         border-bottom: 1px solid black; 
-
-    } 
-
-
-    th,td {
-        /* background-color: #719ECE; */
-        /* padding: 5px; */
     }
 
     .wiki-style {
