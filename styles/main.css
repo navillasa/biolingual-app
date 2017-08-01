@@ -202,6 +202,10 @@ main{
 
 /*Phone*/ 
 @media only screen and (min-width : 300px) {
+    .main-panel {
+        background-color: rgb(232, 255, 171);
+    }
+    
     .menu {
         width: 100%;
     }
@@ -210,6 +214,7 @@ main{
         margin-top: 22px;
         font-size: 4em;
         padding-top: 1em;
+        letter-spacing: 5px;
     }
 
     .menu-elements {
