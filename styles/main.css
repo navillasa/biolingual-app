@@ -273,6 +273,7 @@ main{
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> had to copy and paste files from master yikes
         z-index: 1;
@@ -293,6 +294,12 @@ main{
         border: 1px black solid;
         /* display: none; */
 >>>>>>> tried to make boxes remain highlighted with :focus-- no dice yet-- added pop up function to main.js to hide/create boxes, restyled the results box
+=======
+        z-index: 5;
+        overflow: scroll;  
+        border: 1px black solid;
+        /* display: none; */
+>>>>>>> cba7ef2e3d14662e010f30fe90917f45ffc9dc8e
     }
 
     .body-part, .wiki-box {

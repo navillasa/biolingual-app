@@ -249,4 +249,27 @@ function popUp (){
     }
 }
 
+<<<<<<< HEAD
+=======
+function popUp (){
+    var popUp = document.getElementsByClassName('results');
+    var bodyButton = document.getElementsByClassName('body-part');
+    var span = document.getElementsByClassName('close')[0];
+
+    bodyButton.onclick = function () {
+        results.style.display = 'block';
+    }
+
+    span.onclick = function () {
+        results.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        if (event.target == results) {
+            results.style.display = 'none';
+        }
+    }
+}
+
+>>>>>>> cba7ef2e3d14662e010f30fe90917f45ffc9dc8e
 popUp();
