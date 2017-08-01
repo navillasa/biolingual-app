@@ -20,7 +20,7 @@ BioLingual is an interactive anatomy map that translates the names of body parts
 
 Since the APIs we used have a limited number of free queries, we are not hosting BioLingual live online. We've provided a demo video for a use case, but if you would like to try the application on your local machine, please follow these instructions.
 
-###Mac Instructions
+### Mac Instructions
 1. Clone or download our repository
 2. Update api.js with your ApiMedic and Google Cloud Platorm Translation API (see instructions in api.js)
 3. In your console, navigate to the directory where index.html is located
