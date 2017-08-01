@@ -31,7 +31,11 @@ function initialize(){
         
         
     })
+    
+    createRow('Tim', 'Jen');
+    
 
+    
 }
 
 function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
@@ -43,6 +47,8 @@ function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
         var svgRoot  = svgDoc.documentElement;
         
         $(svgRoot).find('[data-target="body-part"]').on("click", function(event){
+            $(".results").remove();
+            // $(".main").remove($());
             console.log('we found the rectangles')
             var bodyNumID = event["currentTarget"]["dataset"]['id'];
             var bodyInfo = event["currentTarget"]["dataset"];
@@ -51,9 +57,10 @@ function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
                 .then(function(data){
                     console.log("we're in the promise chain");
                     drawToDom(data);
+                    
                     //this is where you will use the data that was clicked to create the boxes and add the data to the page.
                 })
-                .catch(drawToDom);
+                // .catch(drawToDom);
         })
    });
 }
@@ -88,7 +95,10 @@ function retrieveTranslation(queryData, storedTranslations){
 
 
 function drawToDom(text){
-    console.log(text);
+    $('.main').append($("<div class='results' data-target='results'></div>"));
+    $('.results').append($("<table></table>"));
+    createRow(pullDataFromLocalStorage("bodyPartEnglish"), pullDataFromLocalStorage('bodyPartTranslated'));
+    createRow('Symptoms', pullDataFromLocalStorage('Symptoms'))
 }
 
 function returnURLForSymptomChecker(bodyNumID){
@@ -108,32 +118,41 @@ function retrieveSymptoms(bodyNumID){
     
 }
 function formatGetRequest(storedTranslations, bodyPart, rawData){
-    translateSingleWord(bodyPart).then(function(text){
-        console.log(text);
-        //use the text here for body part
-    });
-    translateSingleWord('Symptoms').then(function(text){
-        console.log(text);
+    var translationPromises = [];
+
+    translationPromises.push(translateSingleWord(bodyPart).then(function(text){
+        // console.log(text);
+        localStorage.setItem("bodyPartEnglish", JSON.stringify(bodyPart));
+        localStorage.setItem('bodyPartTranslated', JSON.stringify(text));
+    }));
+    translationPromises.push(translateSingleWord('Symptoms').then(function(text){
+        // console.log(text);
+        localStorage.setItem('Symptoms', JSON.stringify(text));
         //text here to add symptoms / translation
-    });
+        //push this to local storage
+    }));
     
-    var newDictionary = {
-    };
-    var translationResults = $.map(rawData, function(obj){
-        var searchString = obj['Name'];
-        var language = $(LANGUAGE_SELECTOR).val();
-        var searchData = dataToTranslate(searchString, language);
+    return Promise.all(translationPromises).then(function(){
+        var newDictionary = {
+        };
+        var translationResults = $.map(rawData, function(obj){
+            var searchString = obj['Name'];
+            var language = $(LANGUAGE_SELECTOR).val();
+            var searchData = dataToTranslate(searchString, language);
+            
+            return retrieveTranslation(searchData, storedTranslations);
         
-        return retrieveTranslation(searchData, storedTranslations);
-    
-    });
-    return Promise.all(translationResults).then(function(arrayOfResults){
-        var dictionary = {}
-        $.each(rawData, function(key, value){
-            dictionary[value['Name']] = arrayOfResults[key];
-        })
-        return dictionary;
+        });
+        return Promise.all(translationResults).then(function(arrayOfResults){
+            var dictionary = {}
+            $.each(rawData, function(key, value){
+                dictionary[value['Name']] = arrayOfResults[key];
+            })
+            return dictionary;
+        });
     })
+    
+    
 }
 
 
@@ -180,17 +199,22 @@ function translateSingleWord(bodyPart){
 
 initialize();
 
+function createRow(info1, info2){
+    $('table').append($('<tr>').append(createColumn(info1)).append(createColumn(info2)));
+    // $('table').append
+    // $('table').append(createColumn(info2));
+}
 
+function createColumn(info){
+   return $("<th>" + info + "</th>"); 
+}
 
-var symptom = {
-    "es": "Síntomas",
-    "zh-CN": "症侯",
-    "fr": "Symptômes",
-    "tl": "Sintomas" ,
-    "vi": "Triệu chứng",
-    "ko": "조짐",
-    "de": "Symptome",        
-    "ar": "الأعراض",
-    "ru": "симптомы",
-};
-
+function listAllItems(){  
+    for (i=0; i<=localStorage.length-1; i++)  
+    {  
+        key = localStorage.key(i);  
+        if(key !== 'Symptoms' && key !== 'storedTranslations'){
+            return key;
+        }
+    }  
+}
