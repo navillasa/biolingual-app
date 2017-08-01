@@ -9,33 +9,17 @@ function turnOffSymp() {
 }
 
 function turnOnWiki() {
-    $('.wiki').show();
+    $('.wiki-style').show();
     showWiki = true;
 }
 
 function turnOffWiki() {
-    $('.wiki').hide();
-    console.log('off');
+    $('.wiki-style').hide();
     showWiki = false;
 }
 
-
-function selectLang() {
-   console.log($('[data-target=select]').val());
-}
-
-// function goToWiki(searchTerm) {
-//     window.open('https://en.wikipedia.org/wiki/' + searchTerm);
-// }
-
-
-// $('[data-target=info-on]').on('click', function() {
-//     goToWiki('Hand');
-// });
-
-  $('[data-target=info-off]').on('click', turnOffWiki);
-        $('[data-target=sym-on]').on('click', turnOnSymp);
-        $('[data-target=sym-off]').on('click', turnOffSymp);
-        $('[data-target=info-on]').on('click', turnOnWiki);
-        
-        $('[data-target=select]').on('change', selectLang);  
+$('[data-target=info-off]').on('click', turnOffWiki);
+$('[data-target=sym-on]').on('click', turnOnSymp);
+$('[data-target=sym-off]').on('click', turnOffSymp);
+$('[data-target=info-on]').on('click', turnOnWiki);
+ 
