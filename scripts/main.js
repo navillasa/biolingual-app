@@ -36,7 +36,9 @@ function initialize(){
 
 function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
     console.log($(elementToSelect).length);
-    $(elementToSelect).on("load", function(event){
+    $(elementToSelect).attr('src',$(this).attr('src')+'?'+new Date().getTime())
+        .on("load", function(event){
+    
         console.log('it loaded');
         var a = FULL_BODY_ELEMENT;
         var svgDoc = a.contentDocument;
