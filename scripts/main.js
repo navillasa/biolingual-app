@@ -1,14 +1,11 @@
 var FULL_BODY_ELEMENT = document.getElementById("body-boxes");
-var BODY_PART_SELECTOR = '[data-target="main-panel"] button';
-var LANGUAGE_SELECTOR = '[data-target="select"]';
+var showWiki = true;
+var showSymptoms = true;
 //derp
-
-//reject within recieve translations
-//TODO I need to create a dictionary that gets all the translation for symptoms and for each body part
-//or you just need to 
 
 
 function initialize(){
+    
     if(pullDataFromLocalStorage('storedTranslations') == null){
         var storedTranslations = {
         "es": {},
@@ -28,12 +25,8 @@ function initialize(){
     $(document).ready(function() {
         console.log('derp');
         clickOnTheBoxes("#body-boxes", storedTranslations, drawToDom);
-        
-        
+      
     })
-    
-    
-
     
 }
 
@@ -48,22 +41,14 @@ function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
         var svgRoot  = svgDoc.documentElement;
         
         $(svgRoot).find('[data-target="body-part"]').on("click", function(event){
-            $(".results").remove();
-            // $(".main").remove($());
-            console.log('we found the rectangles')
-            var bodyNumID = event["currentTarget"]["dataset"]['id'];
-            var bodyInfo = event["currentTarget"]["dataset"];
+            createsPromiseChain(event, storedTranslations); 
             
-            promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyInfo)
-                .then(function(data){
-                    console.log("we're in the promise chain");
-                    drawToDom(data);
-                    // console.log(data);
-                    
-                    //this is where you will use the data that was clicked to create the boxes and add the data to the page.
-                })
-                // .catch(drawToDom);
+            $('[data-target=select]').change(function(event2){
+                createsPromiseChain(event, storedTranslations); 
+            })
         })
+        
+        
    });
 }
 
@@ -97,16 +82,42 @@ function retrieveTranslation(queryData, storedTranslations){
 
 
 function drawToDom(text){
-    $('.main').append($("<div class='results' data-target='results'></div>"));
+    $(".results").remove();
+    $('.main').append($("<div class='results' data-target='results'></div>").append('<span class="close">&times;</span> '));
+    
+    
     $('.results').append($("<table></table>"));
-    createRow("English", $('[data-target="select"]')['0']['selectedOptions']['0']['dataset']['name'], createLangHeader);
-    createRow(pullDataFromLocalStorage("bodyPartEnglish"), pullDataFromLocalStorage('bodyPartTranslated'), createHeader);
-    createRow('Symptoms', pullDataFromLocalStorage('Symptoms'), createColumn);
-    $.each(text, function(data){
-        createRow(data, text[data], createColumn);
-        // console.log(text);
+    createRow("English", $('[data-target="select"]')['0']['selectedOptions']['0']['dataset']['name'], createHeader, "language-display");
+    createRow(pullDataFromLocalStorage("bodyPartEnglish"), pullDataFromLocalStorage('bodyPartTranslated'), createLangHeader, "body-part-display");
+    //if statement here if just change the datatarget to equal off
+    createRow('Symptoms', pullDataFromLocalStorage('Symptoms'), createHeader, "symp-display");
+        $.each(text, function(data){
+        createRow(data, text[data], createColumn, "symp-display");
+       
+        })
+    createLink(pullDataFromLocalStorage("bodyPartEnglish"), 'wiki');
+    $('.close').on('click', function(event){
+        $(".results").remove();
     })
-    createLink('arm');
+    if(showSymptoms == false){
+        turnOffSymp();
+    }
+    else{
+        turnOnSymp();
+    }
+
+    if(showWiki == false){
+        turnOffWiki();
+    }
+    else{
+        turnOnWiki();
+    }
+
+    
+    
+
+    
+    
 
     
 }
@@ -147,7 +158,7 @@ function formatGetRequest(storedTranslations, bodyPart, rawData){
         };
         var translationResults = $.map(rawData, function(obj){
             var searchString = obj['Name'];
-            var language = $(LANGUAGE_SELECTOR).val();
+            var language = $('[data-target="select"]').val();
             var searchData = dataToTranslate(searchString, language);
             
             return retrieveTranslation(searchData, storedTranslations);
@@ -197,7 +208,7 @@ function pullDataFromLocalStorage(stringifiedJSONName){
 }
 
 function translateSingleWord(bodyPart){
-    var language = $(LANGUAGE_SELECTOR).val();
+    var language = $('[data-target="select"]').val();
     var queryData = dataToTranslate(bodyPart, language);
     return $.post(GOOGLE_URL, queryData)
         .then(function(d){
@@ -209,12 +220,12 @@ function translateSingleWord(bodyPart){
 
 initialize();
 
-function createRow(info1, info2, fn){
-    $('table').append($('<tr>').append(fn(info1)).append(fn(info2)));
+function createRow(info1, info2, fn, className){
+    $('table').append($('<tr class="' + className + '">').append(fn(info1)).append(fn(info2)));
 }
 
 function createColumn(info){
-   return $("<td>" + info + "</td>"); 
+    return $("<td>" + info + "</td>"); 
 }
 function createHeader(info) {
     return $("<th>" + info + "</th>"); 
@@ -224,8 +235,8 @@ function createLangHeader(info) {
     return $("<td class='lang-title'>" + info + "</td>"); 
 }
 
-function createLink(bodyPart){
-    $('table').append($('<a href="https://en.wikipedia.org/wiki/' + bodyPart + '"target="_blank" rel="noopener noreferrer">English Wikipedia</a>'));
+function createLink(bodyPart, className){
+    $('table').append($('<tr><td class="wiki-style" colspan="2"><a href="https://en.wikipedia.org/wiki/' + bodyPart + '"target="_blank" class="' + className + '"rel="noopener noreferrer">English Wikipedia</a></td></tr>'));
     //center and fix sizing
 }
 
@@ -249,4 +260,16 @@ function popUp (){
     }
 }
 
-popUp();
+function createsPromiseChain(event, storedTranslations){
+    
+    console.log('we found the rectangles')
+    var bodyNumID = event["currentTarget"]["dataset"]['id'];
+    var bodyInfo = event["currentTarget"]["dataset"];
+    
+    promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyInfo)
+        .then(function(data){
+            console.log("we're in the promise chain");
+            drawToDom(data);
+        })
+        // .catch(drawToDom);
+}
