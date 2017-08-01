@@ -229,3 +229,24 @@ function createLink(bodyPart){
     //center and fix sizing
 }
 
+function popUp (){
+    var popUp = document.getElementsByClassName('results');
+    var bodyButton = document.getElementsByClassName('body-part');
+    var span = document.getElementsByClassName('close')[0];
+
+    bodyButton.onclick = function () {
+        results.style.display = 'block';
+    }
+
+    span.onclick = function () {
+        results.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        if (event.target == results) {
+            results.style.display = 'none';
+        }
+    }
+}
+
+popUp();
