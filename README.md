@@ -45,9 +45,11 @@ Since the APIs we used have a limited number of free queries, we are not hosting
 * Allow users to toggle between an anterior and posterior display
 * Create zoom capability for selected body part
 * Add instructions and welcome page for user
-* Make the body 3D using an API like BioDigital (https://www.biodigital.com/)
+* Add more organs, organ systems, and associated illnesses
+* Make the body 3D using an API like [BioDigital](https://www.biodigital.com/)
 
 ## Closing Thoughts
+If we had a lot more time and resources, we could imagine making this application a translation tool for hospitals and medical centers to assist communication between patients and providers.  
 
 ## Acknowledgments
 
@@ -56,7 +58,7 @@ Thank you to our wonderful instructors at DigitalCrafts!
 * **Carl Severe** - [mutebard](https://github.com/mutebard)
 
 ## License 
-Copyright <2017> <Jennifer Li Johnson, Nat Ventura Tim Brady>
+Copyright <2017> <Jennifer Li Johnson, Nat Ventura, Tim Brady>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
