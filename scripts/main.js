@@ -32,7 +32,6 @@ function initialize(){
         
     })
     
-    createRow('Tim', 'Jen');
     
 
     
@@ -40,7 +39,7 @@ function initialize(){
 
 function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
     console.log($(elementToSelect).length);
-    $(elementToSelect).attr('src',$(this).attr('src')+'?'+new Date().getTime())
+    $(elementToSelect).attr('data','images/body-boxes.svg?'+new Date().getTime())
         .on("load", function(event){
     
         console.log('it loaded');
@@ -59,6 +58,7 @@ function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
                 .then(function(data){
                     console.log("we're in the promise chain");
                     drawToDom(data);
+                    // console.log(data);
                     
                     //this is where you will use the data that was clicked to create the boxes and add the data to the page.
                 })
@@ -99,8 +99,16 @@ function retrieveTranslation(queryData, storedTranslations){
 function drawToDom(text){
     $('.main').append($("<div class='results' data-target='results'></div>"));
     $('.results').append($("<table></table>"));
-    createRow(pullDataFromLocalStorage("bodyPartEnglish"), pullDataFromLocalStorage('bodyPartTranslated'));
-    createRow('Symptoms', pullDataFromLocalStorage('Symptoms'))
+    createRow("English", $('[data-target="select"]')['0']['selectedOptions']['0']['dataset']['name'], createLangHeader);
+    createRow(pullDataFromLocalStorage("bodyPartEnglish"), pullDataFromLocalStorage('bodyPartTranslated'), createHeader);
+    createRow('Symptoms', pullDataFromLocalStorage('Symptoms'), createColumn);
+    $.each(text, function(data){
+        createRow(data, text[data], createColumn);
+        // console.log(text);
+    })
+    createLink('arm');
+
+    
 }
 
 function returnURLForSymptomChecker(bodyNumID){
@@ -201,22 +209,23 @@ function translateSingleWord(bodyPart){
 
 initialize();
 
-function createRow(info1, info2){
-    $('table').append($('<tr>').append(createColumn(info1)).append(createColumn(info2)));
-    // $('table').append
-    // $('table').append(createColumn(info2));
+function createRow(info1, info2, fn){
+    $('table').append($('<tr>').append(fn(info1)).append(fn(info2)));
 }
 
 function createColumn(info){
-   return $("<th>" + info + "</th>"); 
+   return $("<td>" + info + "</td>"); 
+}
+function createHeader(info) {
+    return $("<th>" + info + "</th>"); 
 }
 
-function listAllItems(){  
-    for (i=0; i<=localStorage.length-1; i++)  
-    {  
-        key = localStorage.key(i);  
-        if(key !== 'Symptoms' && key !== 'storedTranslations'){
-            return key;
-        }
-    }  
+function createLangHeader(info) {
+    return $("<td class='lang-title'>" + info + "</td>"); 
 }
+
+function createLink(bodyPart){
+    $('table').append($('<a href="https://en.wikipedia.org/wiki/' + bodyPart + '"target="_blank" rel="noopener noreferrer">English Wikipedia</a>'));
+    //center and fix sizing
+}
+
