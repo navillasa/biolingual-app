@@ -1,11 +1,12 @@
-var FULL_BODY_ELEMENT = document.getElementById("body-outline");
+var FULL_BODY_ELEMENT = document.getElementById("body-boxes");
 var BODY_PART_SELECTOR = '[data-target="main-panel"] button';
 var LANGUAGE_SELECTOR = '[data-target="select"]';
 //derp
 
 //reject within recieve translations
-//want the body part clicked to be put in the translation thing function to display
-//TO DO Get rid of storedTranslations all together line 85
+//TODO I need to create a dictionary that gets all the translation for symptoms and for each body part
+//or you just need to 
+
 
 function initialize(){
     if(pullDataFromLocalStorage('storedTranslations') == null){
@@ -26,35 +27,42 @@ function initialize(){
     }
     $(document).ready(function() {
         console.log('derp');
-
-        clickOnTheBoxes("#body-outline", storedTranslations, drawToDom);
+        clickOnTheBoxes("#body-boxes", storedTranslations, drawToDom);
         
         
     })
+    
+    
 
+    
 }
 
 function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
     console.log($(elementToSelect).length);
-    $(elementToSelect).on("load", function(event){
+    $(elementToSelect).attr('data','images/body-boxes.svg?'+new Date().getTime())
+        .on("load", function(event){
+    
         console.log('it loaded');
         var a = FULL_BODY_ELEMENT;
         var svgDoc = a.contentDocument;
         var svgRoot  = svgDoc.documentElement;
         
         $(svgRoot).find('[data-target="body-part"]').on("click", function(event){
+            $(".results").remove();
+            // $(".main").remove($());
             console.log('we found the rectangles')
-            var bodyPart = $(event).find('class');
             var bodyNumID = event["currentTarget"]["dataset"]['id'];
+            var bodyInfo = event["currentTarget"]["dataset"];
             
-            promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID)
+            promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyInfo)
                 .then(function(data){
-                console.log("we;re in the promise chain");
-                drawToDom(data);
-                // pullDataFromLocalStorage('storedTranslations');
-                //this is where you will use the data that was clicked to create the boxes and add the data to the page.
+                    console.log("we're in the promise chain");
+                    drawToDom(data);
+                    // console.log(data);
+                    
+                    //this is where you will use the data that was clicked to create the boxes and add the data to the page.
                 })
-                .catch(drawToDom);
+                // .catch(drawToDom);
         })
    });
 }
@@ -77,7 +85,6 @@ function retrieveTranslation(queryData, storedTranslations){
         .then(function(d){
             console.log('called the server');
             storedTranslations[queryData.target][queryData['q']] = d['data']['translations']['0']['translatedText'];
-            // storedTranslations[queryData.target][queryData['q']] = 'test';
             sendDataToLocalStorage(storedTranslations[queryData.target], queryData.target)
             var P = new Promise(function(resolve, reject){
                 resolve(storedTranslations[queryData.target][queryData['q']]);
@@ -90,7 +97,18 @@ function retrieveTranslation(queryData, storedTranslations){
 
 
 function drawToDom(text){
-    console.log(text);
+    $('.main').append($("<div class='results' data-target='results'></div>"));
+    $('.results').append($("<table></table>"));
+    createRow("English", $('[data-target="select"]')['0']['selectedOptions']['0']['dataset']['name'], createLangHeader);
+    createRow(pullDataFromLocalStorage("bodyPartEnglish"), pullDataFromLocalStorage('bodyPartTranslated'), createHeader);
+    createRow('Symptoms', pullDataFromLocalStorage('Symptoms'), createColumn);
+    $.each(text, function(data){
+        createRow(data, text[data], createColumn);
+        // console.log(text);
+    })
+    createLink('arm');
+
+    
 }
 
 function returnURLForSymptomChecker(bodyNumID){
@@ -109,28 +127,47 @@ function retrieveSymptoms(bodyNumID){
     return $.get(returnURLForSymptomChecker(bodyNumID), dataForSymptomChecker())
     
 }
-function formatGetRequest(storedTranslations, rawData){
-    var newDictionary = {};
-    var translationResults = $.map(rawData, function(obj){
-        var searchString = obj['Name'];
-        var language = $(LANGUAGE_SELECTOR).val();
-        var searchData = dataToTranslate(searchString, language);
+function formatGetRequest(storedTranslations, bodyPart, rawData){
+    var translationPromises = [];
+
+    translationPromises.push(translateSingleWord(bodyPart).then(function(text){
+        // console.log(text);
+        localStorage.setItem("bodyPartEnglish", JSON.stringify(bodyPart));
+        localStorage.setItem('bodyPartTranslated', JSON.stringify(text));
+    }));
+    translationPromises.push(translateSingleWord('Symptoms').then(function(text){
+        // console.log(text);
+        localStorage.setItem('Symptoms', JSON.stringify(text));
+        //text here to add symptoms / translation
+        //push this to local storage
+    }));
+    
+    return Promise.all(translationPromises).then(function(){
+        var newDictionary = {
+        };
+        var translationResults = $.map(rawData, function(obj){
+            var searchString = obj['Name'];
+            var language = $(LANGUAGE_SELECTOR).val();
+            var searchData = dataToTranslate(searchString, language);
+            
+            return retrieveTranslation(searchData, storedTranslations);
         
-        return retrieveTranslation(searchData, storedTranslations);
-    });
-    return Promise.all(translationResults).then(function(arrayOfResults){
-        var dictionary = {}
-        $.each(rawData, function(key, value){
-            dictionary[value['Name']] = arrayOfResults[key];
-        })
-        return dictionary;
+        });
+        return Promise.all(translationResults).then(function(arrayOfResults){
+            var dictionary = {}
+            $.each(rawData, function(key, value){
+                dictionary[value['Name']] = arrayOfResults[key];
+            })
+            return dictionary;
+        });
     })
+    
+    
 }
 
 
-function promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID){
-    // console.log(storedTranslations)
-    return retrieveSymptoms(bodyNumID).then(formatGetRequest.bind(this, storedTranslations));
+function promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyInfo){
+    return retrieveSymptoms(bodyInfo['id']).then(formatGetRequest.bind(this, storedTranslations, bodyInfo['bodyPart']));
 }
 
 function sendDataToLocalStorage(data, language){
@@ -159,28 +196,36 @@ function pullDataFromLocalStorage(stringifiedJSONName){
     
 }
 
-function translateBodyPart(bodyPart){
-    console.log(bodyPart);
+function translateSingleWord(bodyPart){
     var language = $(LANGUAGE_SELECTOR).val();
     var queryData = dataToTranslate(bodyPart, language);
-    console.log(queryData);
-    var d =  $.post(GOOGLE_URL, queryData);
-    console.log(d);
+    return $.post(GOOGLE_URL, queryData)
+        .then(function(d){
+            return d['data']['translations']['0']['translatedText'];
+        })
+    
+    
 }
 
 initialize();
 
+function createRow(info1, info2, fn){
+    $('table').append($('<tr>').append(fn(info1)).append(fn(info2)));
+}
 
+function createColumn(info){
+   return $("<td>" + info + "</td>"); 
+}
+function createHeader(info) {
+    return $("<th>" + info + "</th>"); 
+}
 
-var symptom = {
-    "es": "Síntomas",
-    "zh-CN": "症侯",
-    "fr": "Symptômes",
-    "tl": "Sintomas" ,
-    "vi": "Triệu chứng",
-    "ko": "조짐",
-    "de": "Symptome",        
-    "ar": "الأعراض",
-    "ru": "симптомы",
-};
+function createLangHeader(info) {
+    return $("<td class='lang-title'>" + info + "</td>"); 
+}
+
+function createLink(bodyPart){
+    $('table').append($('<a href="https://en.wikipedia.org/wiki/' + bodyPart + '"target="_blank" rel="noopener noreferrer">English Wikipedia</a>'));
+    //center and fix sizing
+}
 
