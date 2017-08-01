@@ -55,14 +55,9 @@
         fill: rgba(0,0,0,0);
       }
     
-
-
-  
     /*Phone*/ 
     @media only screen and (min-width : 300px) {
-      .body-part:focus,
-      .body-part:active,
-      .body-part:target {
+      .body-part:active {
         opacity:0.9;
         fill:#0000ff;
         fill-opacity:0.35294119;
@@ -77,9 +72,9 @@
       }
     }
 
-    /*Desktops */
+     /*Desktops */
     @media only screen and (min-width : 1200px) {
-      .body-part:hover, .body-part:focus .body-part:target {
+      .body-part:hover {
           opacity:0.9;
           fill:#0000ff;
           fill-opacity:0.35294119;
@@ -92,7 +87,7 @@
           stroke-miterlimit:4;
           stroke-dasharray:none
       }
-    }
+    } 
 
 
   </style>
@@ -119,6 +114,7 @@
    d="m 554.41177,-1094.6969 214.70588,1.4706 c 9.84393,-93.5347 -90.72011,-121.4815 -92.64706,-111.7647 -92.14642,-13.8383 -128.77823,61.317 -122.05882,110.2941 z"
    data-id="22"
    class="body-part head"
+   data-body-part="Head"
    inkscape:connector-curvature="0"
    sodipodi:nodetypes="cccc"
    data-target="body-part" />
@@ -127,108 +123,124 @@
    data-id="23"
    class="body-part upper-face"
    inkscape:connector-curvature="0"
-   data-target="body-part" />
+   data-target="body-part"
+   data-body-part="Upper Face" />
 <path
    d="m 559.86338,-1058.7197 201.90131,9.6111 c 9.34009,4.0045 13.33163,11.2161 8.82353,23.5294 l -8.82353,36.76466 -8.82353,8.82353 -14.45356,3.11959 c -57.35294,-0.82636 -110.54644,4.91439 -167.89938,-6.06077 l -13.23529,-13.23529 -5.88235,-29.41172 0,-14.7059 z"
    data-id="24"
    class="body-part ears-nose-throat"
    inkscape:connector-curvature="0"
    sodipodi:nodetypes="ccccccccccc"
-   data-target="body-part" />
+   data-target="body-part"
+   data-body-part="Ear, Nose, and Throat" />
 <path
    d="m 573.52941,-981.4616 170.58824,1.55445 -8.82353,43.52455 c -21.45808,28.04616 -37.8851,45.37531 -76.47058,51.29679 -34.34593,-5.28741 -55.64363,-14.34837 -79.41178,-62.17793 z"
    data-id="25"
    class="body-part mouth"
    inkscape:connector-curvature="0"
    sodipodi:nodetypes="cccccc"
-   data-target="body-part" />
+   data-target="body-part"
+   data-body-part="Mouth" />
 <path
    d="m 586.76471,-929.57829 32.35294,31.06263 39.70588,12.42506 44.11765,-17.08445 32.35294,-34.16891 c -1.223,24.00817 -0.54562,44.17881 13.4137,64.17836 -82.28524,50.87849 -126.82517,26.08908 -167.57315,4.14612 10.0921,-21.22464 11.13898,-39.33174 5.63004,-60.55881 z"
-   data-id="path4776"
+   data-id="24"
    class="body-part ears-nose-throat"
    inkscape:connector-curvature="0"
    sodipodi:nodetypes="cccccccc"
-   data-target="body-part" />
+   data-target="body-part"
+   data-body-part="Ear, Nose and Throat" />
 <path
    d="m 491.5333,-818.83545 -9.18036,312.37385 -23.52941,86.7647 0,45.58824 -48.52941,122.05886 -63.84444,165.062678 -56.74379,-31.239178 16.17646,-73.5294 26.47059,-145.58826 22.05882,-77.94117 14.70589,-30.88235 14.70588,-127.94118 5.88235,-132.35294 20.58824,-70.58824 c 22.04957,-19.13616 55.57943,-29.86981 81.23918,-41.78561 z"
    data-id="48"
    class="body-part arm"
    inkscape:connector-curvature="0"
    sodipodi:nodetypes="ccccccccccccccc" 
-   data-target="body-part"/>
+   data-target="body-part"
+   data-body-part="Arm"/>
 <path
    d="m 288.23529,-119.6969 -7.35294,33.8235 -8.82353,14.7059 -36.7647,27.9412 -38.2353,42.6471 -10.29411,7.3529 -2.94118,2.9412 19.11765,4.4117 16.17647,-5.8823 25,-19.1177 -7.35294,64.7059 2.94117,51.4706 5.88236,8.8235 11.7647,-7.3529 0,-48.5294 1.47059,-7.353 4.41176,70.5883 1.47059,5.8823 5.88236,0 8.82352,-1.4706 1.47059,-7.3529 1.47059,-45.5882 1.47059,-33.8236 2.94118,58.8236 0,20.5882 7.35294,2.9412 7.35294,-5.8824 4.41176,-36.7647 -1.47059,-35.2941 7.35295,-11.7647 11.7647,38.2353 4.41177,22.0588 5.88235,2.9412 5.88235,-4.4118 -1.47059,-27.9412 -5.88235,-38.2352 10.29412,-51.4706 -2.94118,-30.8824 8.82353,-33.8235 z"
    data-id="29"
    class="body-part hand-wrist"
    inkscape:connector-curvature="0"
-   data-target="body-part" />
+   data-target="body-part" 
+   data-body-part="Hand and Wrist"/>
 <path
    d="m 992.64706,-69.6969 0,39.7059 10.29414,50 -2.9412,38.2353 1.4706,32.3529 10.2941,1.4706 7.3529,-14.7059 0,-17.647 4.4118,-32.353 1.4706,88.2353 10.2941,5.8824 5.8824,-2.9412 4.4117,-45.5882 0,-30.8824 5.8824,33.8235 0,41.1765 5.8823,8.8235 5.8824,1.4706 8.8235,-7.3529 -1.4706,-29.4118 1.4706,-25 -4.4117,-35.2941 10.2941,26.4706 2.9412,42.6471 7.3529,8.8235 8.8235,-4.4118 2.9412,-16.1765 1.4706,-33.8235 -11.7647,-61.7647 30.8823,26.4706 19.1177,1.4706 4.4117,-7.353 -5.8823,-7.3529 -14.2752,-13.5920782 -29.8425,-39.3491218 -36.7647,-35.2941 m 0,0 -64.70584,13.2353"
    data-id="29"
    class="body-part hand-wrist"
    inkscape:connector-curvature="0"
    sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccc"
-   data-target="body-part" />
+   data-target="body-part" 
+   data-body-part="Hand and Wrist"/>
 <path
    d="m 747.05882,-872.63807 51.47059,30.88235 47.05883,25 0,55.88235 c -120.37115,-16.8317 -87.13533,-69.50502 -98.52942,-111.7647 z"
    data-id="33"
    class="body-part back"
    inkscape:connector-curvature="0"
    sodipodi:nodetypes="ccccc"
-   data-target="body-part" />
+   data-target="body-part"
+   data-body-part="Back" />
 <path
    d="m 583.82353,-868.22631 c 64.01208,36.75724 164.70588,-5.88235 164.70588,-5.88235 34.59293,21.8861 69.68745,42.76902 107.02674,59.16241 1.6708,86.47473 -1.32656,241.28079 -5.80847,309.95525 l -367.39474,-1.4706 4.41177,-308.82353 z"
    data-id="31"
    class="body-part chest"
    inkscape:connector-curvature="0"
    sodipodi:nodetypes="ccccccc"
-   data-target="body-part" />
+   data-target="body-part"
+   data-body-part="Chest" />
 <path
    d="m 483.82353,-507.93219 361.76471,2.94118 -13.2353,83.82353 2.94118,42.64705 11.7647,50 4.41177,89.70593 5.88235,7.3529 c 7.92809,37.25489 23.6511,81.78883 19.11764,119.04372 l -422.05882,-1.39662 1.72291,-72.5635 17.39474,-62.7307 0,-69.11761 16.17647,-73.52941 z"
    data-id="36"
    class="body-part abdomen"
    inkscape:connector-curvature="0"
    sodipodi:nodetypes="cccccccccccccc"
-   data-target="body-part" />
+   data-target="body-part" 
+   data-body-part="Abdomen"/>
 <path
    d="m 452.94118,-113.8145 423.52941,-5.8824 7.35294,48.5294 L 875,43.5384 682.10063,39.914215 666.17647,45.009 650,42.0678 463.23529,45.796515 452.94118,-74.1087 Z"
    data-id="38"
    class="body-part groin"
    inkscape:connector-curvature="0"
    sodipodi:nodetypes="cccccccccc"
-   data-target="body-part" />
+   data-target="body-part"
+   data-body-part="Groin" />
 <path
    d="m 511.76471,700.8913 -17.64706,-167.647 -7.35294,-41.1765 2.94117,-54.4118 8.82353,-67.647 4.41177,-14.7059 -1.47059,-98.5294 -10.29412,-32.3529 -27.94118,-182.353 189.70589,0 L 625,206.7737 l 0,85.2941 -5.88235,22.0588 L 600,377.3619 l 5.88235,129.4118 -22.05882,85.2941 -13.23529,92.6471 -2.51045,30.80844 z"
    data-id="49"
    class="body-part leg"
    inkscape:connector-curvature="0"
    sodipodi:nodetypes="ccccccccccccccccccc" 
-   data-target="body-part"/>
+   data-target="body-part"
+   data-body-part="Leg"/>
 <path
    d="M 685.29412,36.1855 C 748.52941,17.115282 811.76471,41.035048 875,43.5384 l -17.64706,170.5882 -11.7647,60.2942 1.47058,67.647 19.11765,73.5294 5.88235,75 -8.82353,116.1765 -2.94117,104.4118 -58.82353,13.59208 -14.70588,-106.23918 -10.29412,-51.4706 -16.17647,-55.8823 -5.88236,-126.4706 -26.47058,-69.1177 -5.88236,-16.1764 -5.88235,-100 z"
    data-id="49"
    class="body-part leg"
    inkscape:connector-curvature="0"
    sodipodi:nodetypes="cccccccccccccccccc"
-   data-target="body-part" />
+   data-target="body-part" 
+   data-body-part="Leg"/>
 <path
    d="m 511.76471,702.3619 55.88235,5.8824 10.29412,27.9412 -10.29412,35.2941 -5.88235,55.8823 -10.29412,38.2353 0,36.7647 -19.11765,50 -25,2.9412 -8.82353,-11.7647 4.41177,-22.0588 -10.29412,23.5294 -10.29412,4.4118 -5.88235,-2.9412 -5.88235,-8.8236 -5.88236,-1.4705 -7.35294,-7.353 -5.88235,-2.9412 0,-11.7647 -7.35294,-13.2353 5.88235,-36.7647 10.29412,-23.5294 30.88235,-39.7059 14.70588,-36.7647 0,-27.9411 z"
    data-id="44"
    class="body-part foot"
    inkscape:connector-curvature="0"
-   data-target="body-part" />
+   data-target="body-part"
+   data-body-part="Foot" />
 <path
    d="m 801.47059,720.009 58.82353,-10.2941 -1.47059,20.5882 10.29412,20.5882 -1.47059,30.8824 14.70588,23.5294 11.76471,25 32.35294,45.5882 5.88235,19.1177 2.94118,20.5882 L 925,928.8325 l -5.88235,19.1177 -7.35294,-1.4706 -2.94118,11.7647 -7.35294,2.9412 -4.41177,5.8823 -7.35294,2.9412 -10.29412,-5.8824 -2.94117,8.8236 -7.35294,1.4706 -8.82353,0 L 850,972.9502 l -10.29412,-14.7059 -10.29412,-25 -5.88235,-60.2941 -10.29412,-44.1177 -7.35294,-23.5294 -7.35294,-26.4706 -4.41176,-17.647 z"
    data-id="44"
    class="body-part foot"
    inkscape:connector-curvature="0"
-   data-target="body-part" />
+   data-target="body-part"
+   data-body-part="Foot" />
 <path
    d="m 992.42764,-70.6483 67.99986,-6.819122 -41.8833,-116.508878 -24.66564,-165.4046 -27.56743,-82.70231 -15.9601,-110.26973 -4.35275,-143.64085 -10.15642,-55.13487 -13.05826,-23.21468 -40.6257,-30.46927 -37.72385,-15.96009 4.35275,300.33994 20.31285,97.21148 4.35275,26.11652 1.45092,34.82202 23.21468,58.03674 z"
-   data-id="path48"
+   data-id="48"
    class="body-part arm"
    inkscape:connector-curvature="0"
    sodipodi:nodetypes="ccccccccccccccccc" 
+   data-body-part="Arm"
    />
 </g>
 
