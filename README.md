@@ -38,9 +38,14 @@ Since the APIs we used have a limited number of free queries, we are not hosting
 * [4. Visualization]
 * [5. Challenges and Successes!]
 
-## If We Had More Time...
+## If We Had More Time, we would...
 
-* Future concepts..
+* Spiff up design
+* Improve results display
+* Allow users to toggle between an anterior and posterior display
+* Create zoom capability for selected body part
+* Add instructions and welcome page for user
+* Make the body 3D using an API like BioDigital (https://www.biodigital.com/)
 
 ## Closing Thoughts
 
