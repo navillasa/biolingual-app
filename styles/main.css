@@ -452,7 +452,7 @@ main{
 @media only screen and (min-width : 1200px) {
     .menu {
         padding-top: 50px;
-        width: 300px;
+        width: 350px;
         transform: translateX(0%); 
     }
     .burger-holder, .burger1, .burger2, .burger3 {
@@ -475,7 +475,7 @@ main{
         /* top: 150px; */
         right: 0;
         overflow: auto; 
-        width: 300px;
+        width: 350px;
         border: unset;
         /* height: 98%; */
     }
@@ -502,3 +502,4 @@ main{
     justify-content: space-around;
     font-size: 1.5em;
 }
+

@@ -25,7 +25,8 @@ function initialize(){
     $(document).ready(function() {
         console.log('derp');
         clickOnTheBoxes("#body-boxes", storedTranslations, drawToDom);
-      
+    
+    
     })
     
 }
@@ -84,8 +85,6 @@ function retrieveTranslation(queryData, storedTranslations){
 function drawToDom(text){
     $(".results").remove();
     $('.main').append($("<div class='results' data-target='results'></div>").append('<span class="close">&times;</span> '));
-    
-    
     $('.results').append($("<table></table>"));
     createRow("English", $('[data-target="select"]')['0']['selectedOptions']['0']['dataset']['name'], createHeader, "language-display");
     createRow(pullDataFromLocalStorage("bodyPartEnglish"), pullDataFromLocalStorage('bodyPartTranslated'), createLangHeader, "body-part-display");
@@ -236,7 +235,7 @@ function createLangHeader(info) {
 }
 
 function createLink(bodyPart, className){
-    $('table').append($('<tr><td class="wiki-style" colspan="2"><a href="https://en.wikipedia.org/wiki/' + bodyPart + '"target="_blank" class="' + className + '"rel="noopener noreferrer">English Wikipedia</a></td></tr>'));
+    $('table').append($('<tr class="wiki-style" ><td colspan="2"><a href="https://en.wikipedia.org/wiki/' + bodyPart + '"target="_blank" class="' + className + '"rel="noopener noreferrer">English Wikipedia</a></td></tr>'));
     //center and fix sizing
 }
 

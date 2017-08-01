@@ -9,12 +9,12 @@ function turnOffSymp() {
 }
 
 function turnOnWiki() {
-    $('.wiki').show();
+    $('.wiki-style').show();
     showWiki = true;
 }
 
 function turnOffWiki() {
-    $('.wiki').hide();
+    $('.wiki-style').hide();
     console.log('off');
     showWiki = false;
 }
