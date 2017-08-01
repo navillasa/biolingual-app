@@ -7,19 +7,6 @@ var LANGUAGE_SELECTOR = '[data-target="select"]';
 //TODO I need to create a dictionary that gets all the translation for symptoms and for each body part
 //or you just need to 
 
-jQuery.fn.extend({
-    ensureLoad: function(handler) {
-        debugger;
-        return this.each(function(el) {
-            if(el.complete) {
-                handler.call(el);
-                
-            } else {
-                $(el).load(handler);
-            }
-        });
-    }
-});
 
 function initialize(){
     if(pullDataFromLocalStorage('storedTranslations') == null){
@@ -49,8 +36,7 @@ function initialize(){
 
 function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
     console.log($(elementToSelect).length);
-    // $(elementToSelect).on("load", function(event){
-    $(elementToSelect).ensureLoad(function(event){
+    $(elementToSelect).on("load", function(event){
         console.log('it loaded');
         var a = FULL_BODY_ELEMENT;
         var svgDoc = a.contentDocument;
