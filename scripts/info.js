@@ -1,27 +1,28 @@
 function turnOnSymp() {
     $('.symp-display').show();
-    console.log("on");
+    showSymptoms = true;
 }
 
 function turnOffSymp() {
     $('.symp-display').hide();
-    console.log('off');
+    showSymptoms = false;
 }
 
 function turnOnWiki() {
     $('.wiki').show();
-    console.log("on");
+    showWiki = true;
 }
 
 function turnOffWiki() {
     $('.wiki').hide();
     console.log('off');
+    showWiki = false;
 }
 
 
-// function selectLang() {
-//    console.log($('[data-target=select]').val());
-// }
+function selectLang() {
+   console.log($('[data-target=select]').val());
+}
 
 // function goToWiki(searchTerm) {
 //     window.open('https://en.wikipedia.org/wiki/' + searchTerm);
@@ -37,4 +38,4 @@ function turnOffWiki() {
         $('[data-target=sym-off]').on('click', turnOffSymp);
         $('[data-target=info-on]').on('click', turnOnWiki);
         
-        // $('[data-target=select]').on('change', selectLang);  
+        $('[data-target=select]').on('change', selectLang);  

@@ -15,6 +15,8 @@ html {
     src: url(fonts/Baloo/Baloo-Regular.ttf) format("truetype");
 } */
 
+
+
 html, body {
     /* border: 10px solid blue;    */
     display: flex;
@@ -256,9 +258,10 @@ main{
 
     .results {
         font: 0.5rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center; 
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* align-items: center;  */
+        /* justify-content: center; */
         position: absolute;
         /* top: 75px; */
         /* left: 7px; */
@@ -266,11 +269,11 @@ main{
         border-radius: 4px;  
         text-align: center;
         padding: 0.8em;
-        background-color: rgba(255, 255, 255, 0.85);
+        background-color: rgba(148, 204, 255, 0.8);
         width: 100%;
         height: 100%;
         font-size: 1.5em;
-        z-index: 5;
+        z-index: 1;
         overflow: scroll;  
         border: 1px black solid;
         /* display: none; */
@@ -306,7 +309,7 @@ main{
         position: absolute;
         color: #aaa;
         top: 1em;
-        left: 1em;
+        right: 1em;
         font-size: 28px;
         font-weight: bold;
     }
@@ -320,17 +323,17 @@ main{
 
     table {
         width: 100%;
-        height: 100%;
-        background-color: #fefefe;
+        height: 95%;
+        /* background-color: #fefefe; */
         margin: 15% auto; /* 15% from the top and centered */
         padding: 20px;
-        border: 1px solid #888;
+         /* border: 1px solid #888;   */
+        border-collapse: collapse;   
         width: 80%; /* Could be more or less, depending on screen size */
     }
      table th {
         font-size: 1.75rem;
-        height: 50px;
-        
+        /* height: 50px; */
     } 
     .lang-title {
         font-style: italic;
@@ -338,11 +341,20 @@ main{
         /* text-decoration: underline; */
     }
     table td {
-        height: 25px;
+        /* height: 10px; */
     }
-    th, td{
+    th, td {
         border-bottom: 1px solid black; 
+         /* border-collapse: collapse;  */
+        max-height: 40px !important;
     } 
+    th {
+        background-color: #719ECE;
+    }
+
+    .wiki-style {
+        width: 100%;
+    }
 
 
 }
@@ -376,9 +388,13 @@ main{
         border-radius: 4px 4px 4px 4px;
     }
     .results {
-        height: 250px; 
-        left: 15px;
-    } 
+        height: 100%;
+        overflow: scroll;
+    }
+    table {
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
 
 }
 
@@ -418,10 +434,9 @@ main{
     .symptoms label:last-of-type, .info label:last-of-type {
         border-radius: 0 4px 4px 0;
     }
-    .results {
-        top: 200px;
-        left: 20px;
-        height: unset;
+     table {
+         margin-top: 50px;
+         margin-bottom: 30px;
     }
 }
 
@@ -448,10 +463,10 @@ main{
         left: unset;
         overflow: scroll;
         align-self: center;
-        top: 50px;
+        /* top: 50px; */
         /* top: 150px; */
-        right: 10px;
-        width: 30%;
+         right: 0; 
+        width: 300px;
         /* height: 98%; */
     }
 

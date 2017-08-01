@@ -1,5 +1,6 @@
 var FULL_BODY_ELEMENT = document.getElementById("body-boxes");
-var LANGUAGE_SELECTOR = '[data-target="select"]';
+var showWiki = true;
+var showSymptoms = true;
 //derp
 
 
@@ -25,7 +26,6 @@ function initialize(){
         console.log('derp');
         clickOnTheBoxes("#body-boxes", storedTranslations, drawToDom);
       
-        // $('[data-target=select]').on('change', selectLang);  
     })
     
 }
@@ -41,22 +41,14 @@ function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
         var svgRoot  = svgDoc.documentElement;
         
         $(svgRoot).find('[data-target="body-part"]').on("click", function(event){
-            $(".results").remove();
-            // $(".main").remove($());
-            console.log('we found the rectangles')
-            var bodyNumID = event["currentTarget"]["dataset"]['id'];
-            var bodyInfo = event["currentTarget"]["dataset"];
+            createsPromiseChain(event, storedTranslations); 
             
-            promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyInfo)
-                .then(function(data){
-                    console.log("we're in the promise chain");
-                    drawToDom(data);
-                    // console.log(data);
-                    
-                    //this is where you will use the data that was clicked to create the boxes and add the data to the page.
-                })
-                // .catch(drawToDom);
+            $('[data-target=select]').change(function(event2){
+                createsPromiseChain(event, storedTranslations); 
+            })
         })
+        
+        
    });
 }
 
@@ -90,7 +82,10 @@ function retrieveTranslation(queryData, storedTranslations){
 
 
 function drawToDom(text){
-    $('.main').append($("<div class='results' data-target='results'></div>"));
+    $(".results").remove();
+    $('.main').append($("<div class='results' data-target='results'></div>").append('<span class="close">&times;</span> '));
+    
+    
     $('.results').append($("<table></table>"));
     createRow("English", $('[data-target="select"]')['0']['selectedOptions']['0']['dataset']['name'], createHeader, "language-display");
     createRow(pullDataFromLocalStorage("bodyPartEnglish"), pullDataFromLocalStorage('bodyPartTranslated'), createLangHeader, "body-part-display");
@@ -98,20 +93,31 @@ function drawToDom(text){
     createRow('Symptoms', pullDataFromLocalStorage('Symptoms'), createHeader, "symp-display");
         $.each(text, function(data){
         createRow(data, text[data], createColumn, "symp-display");
-        // console.log(text);
+       
         })
-    
-    if($('[data-target="sym-off"]').length == 1){
+    createLink(pullDataFromLocalStorage("bodyPartEnglish"), 'wiki');
+    $('.close').on('click', function(event){
+        $(".results").remove();
+    })
+    if(showSymptoms == false){
         turnOffSymp();
     }
-    
-    console.log(text)
+    else{
+        turnOnSymp();
+    }
+
+    if(showWiki == false){
+        turnOffWiki();
+    }
+    else{
+        turnOnWiki();
+    }
 
     
     
 
     
-    createLink(pullDataFromLocalStorage("bodyPartEnglish"), 'wiki');
+    
 
     
 }
@@ -152,7 +158,7 @@ function formatGetRequest(storedTranslations, bodyPart, rawData){
         };
         var translationResults = $.map(rawData, function(obj){
             var searchString = obj['Name'];
-            var language = $(LANGUAGE_SELECTOR).val();
+            var language = $('[data-target="select"]').val();
             var searchData = dataToTranslate(searchString, language);
             
             return retrieveTranslation(searchData, storedTranslations);
@@ -202,7 +208,7 @@ function pullDataFromLocalStorage(stringifiedJSONName){
 }
 
 function translateSingleWord(bodyPart){
-    var language = $(LANGUAGE_SELECTOR).val();
+    var language = $('[data-target="select"]').val();
     var queryData = dataToTranslate(bodyPart, language);
     return $.post(GOOGLE_URL, queryData)
         .then(function(d){
@@ -230,7 +236,7 @@ function createLangHeader(info) {
 }
 
 function createLink(bodyPart, className){
-    $('table').append($('<a href="https://en.wikipedia.org/wiki/' + bodyPart + '"target="_blank" class="' + className + '"rel="noopener noreferrer">English Wikipedia</a>'));
+    $('table').append($('<tr><td class="wiki-style" colspan="2"><a href="https://en.wikipedia.org/wiki/' + bodyPart + '"target="_blank" class="' + className + '"rel="noopener noreferrer">English Wikipedia</a></td></tr>'));
     //center and fix sizing
 }
 
@@ -254,4 +260,16 @@ function popUp (){
     }
 }
 
-popUp();
+function createsPromiseChain(event, storedTranslations){
+    
+    console.log('we found the rectangles')
+    var bodyNumID = event["currentTarget"]["dataset"]['id'];
+    var bodyInfo = event["currentTarget"]["dataset"];
+    
+    promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyInfo)
+        .then(function(data){
+            console.log("we're in the promise chain");
+            drawToDom(data);
+        })
+        // .catch(drawToDom);
+}
