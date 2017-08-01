@@ -25,12 +25,12 @@ html, body {
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 1px; 
     text-decoration: none;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 body {
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
 }
 
 .burger-holder {
@@ -150,7 +150,7 @@ select:focus {
     height: 1px;
     width: 1px;
     border: 0px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .symptoms label, .info label {
@@ -254,38 +254,26 @@ main{
         height:100%
     }
 
-    .ears-nose-throat, .mouth,
-    .upper-face, .head, .back,
-    .chest, .hand-wrist, abdomen,
-    .groin, .leg, .foot, {
-        fill: red;
-        pointer-events: all;
-    } 
-
-    .tooltip {
-        position: relative;
-        display: inline-block;
-        border-bottom: 1px dotted black;
-    }
     .results {
         font: 0.5rem;
         display: flex;
         flex-direction: column;
         align-items: center; 
         position: absolute;
-        top: 75px;
-        left: 7px;
+        /* top: 75px; */
+        /* left: 7px; */
         margin-bottom: 1em;
         border-radius: 4px;  
         text-align: center;
         padding: 0.8em;
         background-color: rgba(255, 255, 255, 0.85);
-        width: 95%;
+        width: 100%;
+        height: 100%;
         font-size: 1.5em;
-        z-index: 1;
-        overflow: scroll; 
-        height: 85%;    
+        z-index: 5;
+        overflow: scroll;  
         border: 1px black solid;
+        /* display: none; */
     }
 
     .body-part, .wiki-box {
@@ -313,9 +301,31 @@ main{
         justify-content: space-around;
 
     }
+
+    .close {
+        position: absolute;
+        color: #aaa;
+        top: 1em;
+        left: 1em;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover, .close:focus,
+    .close:active {
+        color: black;
+        /* text-decoration: none; */
+        cursor: pointer;
+    }
+
     table {
         width: 100%;
-        border-collapse: collapse; 
+        height: 100%;
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
     }
      table th {
         font-size: 1.75rem;
@@ -467,4 +477,3 @@ main{
     justify-content: space-around;
     font-size: 1.5em;
 }
-
