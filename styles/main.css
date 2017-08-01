@@ -5,23 +5,32 @@ html {
 *, *:before, *:after {
     box-sizing: inherit;
 }
+/* :hover{
+  fill: #111;
   
 } */
 
- @font-face {
+/* @font-face {
     font-family: Baloo;
     src: url(fonts/Baloo/Baloo-Regular.ttf) format("truetype");
-} 
+} */
 
 html, body {
-    border: 10px solid blue;    
+    /* border: 10px solid blue;    */
+    display: flex;
+    flex-direction: row; 
     height: 100%;
     width: 100%;
-    /* font-family: Baloo, Arial, Helvetica, sans-serif;  */
-    font-family: Arial, Helvetica, sans-serif;  
-    letter-spacing: 1px;
-    /* text-decoration: none; */
-    /* overflow: hidden; */
+    /* font-family: Baloo, Arial, Helvetica, sans-serif; */
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px; 
+    text-decoration: none;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
 }
 
 .burger-holder {
@@ -30,7 +39,7 @@ html, body {
     left: 20px;
     height: 50px;
     width: 50px;
-    z-index: 2;
+    z-index: 3;
 }
 
 .burger-holder span {
@@ -71,22 +80,22 @@ html, body {
 .menu-area {
     display: flex;
     flex-direction: column;
-    width: 300px; 
+    /* width: 300px; */
     width: 100%;
     height: 100%;
-    padding-left: 100px; 
+    /* padding-left: 100px; */
 
 }
 
 .menu-title {
-    position: relative;
-    top: 3px;
-    left: 90px;   
+    /* position: relative; */
+    /* top: 3px;
+    left: 90px; */
 }
 
 select {
     color: #232323; 
-    /* background-color: #232323;  */
+    /* background-color: #232323; */
     background-color:#cdcdcd; 
 }
 
@@ -102,7 +111,6 @@ select:focus {
     transform: translateX(0%);
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
-
 .burger1, .burger2, .burger3 {
     background-color:#232323;
 }
@@ -124,7 +132,7 @@ select:focus {
     transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-/* .languages {
+.languages {
     margin-top: 50px;
 }
 
@@ -134,7 +142,7 @@ select:focus {
 
 .info {
     margin-top: 50px;
-} */
+}
 
 .symptoms input, .info input {
     position: absolute !important;
@@ -186,19 +194,12 @@ select:focus {
 }
 
 main{
-    display: flex;
-    align-items: center; 
+  display: flex;
+  align-items: center;
 }
 
 /*Phone*/ 
 @media only screen and (min-width : 300px) {
-    
-    div.main {
-        border: 10px solid cyan;
-        width: 100%;
-        height: 100%;
-    }
-    
     .menu {
         width: 100%;
     }
@@ -237,44 +238,66 @@ main{
     }
 
     #body-boxes {
-        /* border: 10px solid green;   */
-        /* position: absolute; */
+         /* border: 10px solid red;  */
+        position: absolute;
         /* top: 0;
         left: 0; */
-        position: absolute;
         width: 100%;
         height: 100%;
-        z-index: 2;
-
+    }
+    #body-outline {
+        /* size: 50%; */
+        position: absolute;
+        left: 7px;
+        top:0;
+        width:100%;
+        height:100%
     }
 
+    .ears-nose-throat, .mouth,
+    .upper-face, .head, .back,
+    .chest, .hand-wrist, abdomen,
+    .groin, .leg, .foot, {
+        fill: red;
+        pointer-events: all;
+    } 
+
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        border-bottom: 1px dotted black;
+    }
     .results {
-        /* font: 0.5rem; */
+        font: 0.5rem;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center; 
-        justify-content: center;
-        width: 100%;
-        /* position: absolute; */
-        /* top: 75px;
-        left: 7px; */
-        /* margin-bottom: 1em;
-        border-radius: 4px;   */
+        position: absolute;
+        top: 75px;
+        left: 7px;
+        margin-bottom: 1em;
+        border-radius: 4px;  
         text-align: center;
-        padding: 2em;
-        background-color: rgba(255, 255, 255, 0.95); 
-        /* width: 95%; */
+        padding: 0.8em;
+        background-color: rgba(255, 255, 255, 0.85);
+        width: 95%;
         font-size: 1.5em;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> had to copy and paste files from master yikes
         z-index: 1;
         overflow: scroll; 
         height: 85%;    
         border: 1px black solid;
+<<<<<<< HEAD
 =======
         z-index: -3;
         /* height: 350px;    */
         border: 10px red solid;
 >>>>>>> tried flexboxing the table
+=======
+>>>>>>> had to copy and paste files from master yikes
     }
 
     .body-part, .wiki-box {
@@ -438,10 +461,10 @@ main{
  
 .main {
      /* border: 10px solid lightgreen;     */
-    display: flex; 
+    display: flex;
     width: 100%;
     height: 100%;
-    flex-direction: row;  
+    flex-direction: row; 
     /* justify-content: space-between; */
     
 }
@@ -456,4 +479,3 @@ main{
     justify-content: space-around;
     font-size: 1.5em;
 }
-
