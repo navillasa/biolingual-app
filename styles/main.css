@@ -269,7 +269,7 @@ main{
         border-radius: 4px;  
         text-align: center;
         padding: 0.8em;
-        background-color: rgba(148, 204, 255, 0.8);
+        background-color: rgba(211,211,211, 0.8);
         width: 100%;
         height: 100%;
         font-size: 1.5em;
@@ -324,16 +324,17 @@ main{
     table {
         width: 100%;
         height: 95%;
-        /* background-color: #fefefe; */
+        /* background-color: rgb(128,128,128); */
         margin: 15% auto; /* 15% from the top and centered */
         padding: 20px;
          /* border: 1px solid #888;   */
         border-collapse: collapse;   
         width: 80%; /* Could be more or less, depending on screen size */
     }
-     table th {
+     table th, td {
         font-size: 1.75rem;
-        /* height: 50px; */
+         /* height: 50px;  */
+         max-height: 30px;
     } 
     .lang-title {
         font-style: italic;
@@ -341,15 +342,17 @@ main{
         /* text-decoration: underline; */
     }
     table td {
-        /* height: 10px; */
+         
     }
     th, td {
         border-bottom: 1px solid black; 
-         /* border-collapse: collapse;  */
-        max-height: 40px !important;
+
     } 
-    th {
-        background-color: #719ECE;
+
+
+    th,td {
+        /* background-color: #719ECE; */
+        /* padding: 5px; */
     }
 
     .wiki-style {
@@ -438,6 +441,11 @@ main{
          margin-top: 50px;
          margin-bottom: 30px;
     }
+    .results{
+        margin: 0;
+        border: unset;
+        overflow: auto;
+    }
 }
 
 /*Desktops */
@@ -465,8 +473,10 @@ main{
         align-self: center;
         /* top: 50px; */
         /* top: 150px; */
-         right: 0; 
+        right: 0;
+        overflow: auto; 
         width: 300px;
+        border: unset;
         /* height: 98%; */
     }
 
