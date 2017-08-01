@@ -254,14 +254,6 @@ main{
         height:100%
     }
 
-    .ears-nose-throat, .mouth,
-    .upper-face, .head, .back,
-    .chest, .hand-wrist, abdomen,
-    .groin, .leg, .foot, {
-        fill: red;
-        pointer-events: all;
-    } 
-
     .tooltip {
         position: relative;
         display: inline-block;
