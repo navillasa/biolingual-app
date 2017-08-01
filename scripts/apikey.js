@@ -3,6 +3,8 @@ In index.html, replace <script src="scripts/api.js" charset="utf-8"></script>
 with the following: <script src="scripts/apikey.js" charset="utf-8"></script>
 
 Go to the links below and sign up for accounts to retrieve your free trial API keys.
+https://cloud.google.com/translate/docs/
+https://apimedic.net/
 */
 
 
