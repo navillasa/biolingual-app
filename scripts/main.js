@@ -1,14 +1,10 @@
 var FULL_BODY_ELEMENT = document.getElementById("body-boxes");
-var BODY_PART_SELECTOR = '[data-target="main-panel"] button';
 var LANGUAGE_SELECTOR = '[data-target="select"]';
 //derp
 
-//reject within recieve translations
-//TODO I need to create a dictionary that gets all the translation for symptoms and for each body part
-//or you just need to 
-
 
 function initialize(){
+    
     if(pullDataFromLocalStorage('storedTranslations') == null){
         var storedTranslations = {
         "es": {},
@@ -28,12 +24,9 @@ function initialize(){
     $(document).ready(function() {
         console.log('derp');
         clickOnTheBoxes("#body-boxes", storedTranslations, drawToDom);
-        
-        
+      
+        // $('[data-target=select]').on('change', selectLang);  
     })
-    
-    
-
     
 }
 
@@ -99,14 +92,26 @@ function retrieveTranslation(queryData, storedTranslations){
 function drawToDom(text){
     $('.main').append($("<div class='results' data-target='results'></div>"));
     $('.results').append($("<table></table>"));
-    createRow("English", $('[data-target="select"]')['0']['selectedOptions']['0']['dataset']['name'], createLangHeader);
-    createRow(pullDataFromLocalStorage("bodyPartEnglish"), pullDataFromLocalStorage('bodyPartTranslated'), createHeader);
-    createRow('Symptoms', pullDataFromLocalStorage('Symptoms'), createColumn);
-    $.each(text, function(data){
-        createRow(data, text[data], createColumn);
+    createRow("English", $('[data-target="select"]')['0']['selectedOptions']['0']['dataset']['name'], createHeader, "language-display");
+    createRow(pullDataFromLocalStorage("bodyPartEnglish"), pullDataFromLocalStorage('bodyPartTranslated'), createLangHeader, "body-part-display");
+    //if statement here if just change the datatarget to equal off
+    createRow('Symptoms', pullDataFromLocalStorage('Symptoms'), createHeader, "symp-display");
+        $.each(text, function(data){
+        createRow(data, text[data], createColumn, "symp-display");
         // console.log(text);
-    })
-    createLink('arm');
+        })
+    
+    if($('[data-target="sym-off"]').length == 1){
+        turnOffSymp();
+    }
+    
+    console.log(text)
+
+    
+    
+
+    
+    createLink(pullDataFromLocalStorage("bodyPartEnglish"), 'wiki');
 
     
 }
@@ -209,12 +214,12 @@ function translateSingleWord(bodyPart){
 
 initialize();
 
-function createRow(info1, info2, fn){
-    $('table').append($('<tr>').append(fn(info1)).append(fn(info2)));
+function createRow(info1, info2, fn, className){
+    $('table').append($('<tr class="' + className + '">').append(fn(info1)).append(fn(info2)));
 }
 
 function createColumn(info){
-   return $("<td>" + info + "</td>"); 
+    return $("<td>" + info + "</td>"); 
 }
 function createHeader(info) {
     return $("<th>" + info + "</th>"); 
@@ -224,8 +229,8 @@ function createLangHeader(info) {
     return $("<td class='lang-title'>" + info + "</td>"); 
 }
 
-function createLink(bodyPart){
-    $('table').append($('<a href="https://en.wikipedia.org/wiki/' + bodyPart + '"target="_blank" rel="noopener noreferrer">English Wikipedia</a>'));
+function createLink(bodyPart, className){
+    $('table').append($('<a href="https://en.wikipedia.org/wiki/' + bodyPart + '"target="_blank" class="' + className + '"rel="noopener noreferrer">English Wikipedia</a>'));
     //center and fix sizing
 }
 

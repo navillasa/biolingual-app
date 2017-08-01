@@ -1,28 +1,40 @@
-function turnOn() {
+function turnOnSymp() {
+    $('.symp-display').show();
     console.log("on");
 }
 
-function turnOff() {
+function turnOffSymp() {
+    $('.symp-display').hide();
     console.log('off');
 }
 
-function selectLang() {
-   console.log($('[data-target=select]').val());
+function turnOnWiki() {
+    $('.wiki').show();
+    console.log("on");
 }
 
-function goToWiki(searchTerm) {
-    window.open('https://en.wikipedia.org/wiki/' + searchTerm);
+function turnOffWiki() {
+    $('.wiki').hide();
+    console.log('off');
 }
 
 
-$('[data-target=info-on]').on('click', function() {
-    goToWiki('Hand');
-});
+// function selectLang() {
+//    console.log($('[data-target=select]').val());
+// }
 
-$('[data-target=info-off]').on('click', turnOff);
+// function goToWiki(searchTerm) {
+//     window.open('https://en.wikipedia.org/wiki/' + searchTerm);
+// }
 
-$('[data-target=sym-on]').on('click', turnOn);
-$('[data-target=sym-off]').on('click', turnOff);
 
+// $('[data-target=info-on]').on('click', function() {
+//     goToWiki('Hand');
+// });
 
-$('[data-target=select]').on('change', selectLang);
+  $('[data-target=info-off]').on('click', turnOffWiki);
+        $('[data-target=sym-on]').on('click', turnOnSymp);
+        $('[data-target=sym-off]').on('click', turnOffSymp);
+        $('[data-target=info-on]').on('click', turnOnWiki);
+        
+        // $('[data-target=select]').on('change', selectLang);  
