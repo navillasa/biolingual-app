@@ -14,15 +14,17 @@ BioLingual is an interactive anatomy map that translates the names of body parts
 * jQuery 3.2.1
 * HTML5/CSS3
 * [ApiMedic](https://apimedic.net/) - Medical Symptom Checker API
-* [Google Translate](https://cloud.google.com/translate/) - Google Cloud Translation API
+* [Google Translate](https://cloud.google.com/translate/) - Google Cloud Platform Translation API
 
 ## Getting Started
 
-(How to run project on local machine for development and testing purposes.)
+Since the APIs we used have a limited number of free queries, we are not hosting BioLingual live online. We've provided a demo video for a use case, but if you would like to try the application on your local machine, please follow these instructions.
 
-### Installation Requirements
-
-Coming soon!
+1. Clone or download our repository
+2. Update api.js with your ApiMedic and Google Cloud Platorm Translation API (see instructions in api.js)
+3. In your console, navigate to the directory where index.html is located
+4. Run the following console command: python -m "SimpleHTTPServer" 8000
+5. In your browser (Chrome works best), go to the URL called "localhost:8000"   
 
 ## Walkthrough
 
