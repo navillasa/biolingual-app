@@ -22,13 +22,12 @@ Since the APIs we used have a limited number of free queries, we are not hosting
 
 #### Mac Instructions
 1. Clone or download our repository
-2. Update api.js with your ApiMedic and Google Cloud Platorm Translation API (see instructions in api.js)
+2. Update api.js with your ApiMedic and Google Cloud Platorm Translation API (see instructions in apikeys.js)
 3. In your console, navigate to the directory where index.html is located
 4. Run the following console command: python -m "SimpleHTTPServer" 8000
 5. In your browser (Chrome works best), go to the URL localhost:8000   
 
 ## Walkthrough
-
 [Video -- coming soon!]
 
 ## Development Process
@@ -58,7 +57,7 @@ Thank you to our wonderful instructors at DigitalCrafts!
 * **Carl Severe** - [mutebard](https://github.com/mutebard)
 
 ## Disclaimer
-This application does NOT replace professional medical help. If you have a medical issue please see a physician or call 911. 
+This application does NOT replace professional medical help. If you have a medical issue. please see a physician or call 911. 
 
 ## License 
 Copyright <2017> <Jennifer Li Johnson, Nat Ventura, Tim Brady>
