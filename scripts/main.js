@@ -249,8 +249,6 @@ function popUp (){
     }
 }
 
-<<<<<<< HEAD
-=======
 function popUp (){
     var popUp = document.getElementsByClassName('results');
     var bodyButton = document.getElementsByClassName('body-part');
@@ -271,5 +269,4 @@ function popUp (){
     }
 }
 
->>>>>>> cba7ef2e3d14662e010f30fe90917f45ffc9dc8e
 popUp();
