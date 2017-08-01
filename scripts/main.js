@@ -1,11 +1,25 @@
-var FULL_BODY_ELEMENT = document.getElementById("body-outline");
+var FULL_BODY_ELEMENT = document.getElementById("body-boxes");
 var BODY_PART_SELECTOR = '[data-target="main-panel"] button';
 var LANGUAGE_SELECTOR = '[data-target="select"]';
 //derp
 
 //reject within recieve translations
-//want the body part clicked to be put in the translation thing function to display
-//TO DO Get rid of storedTranslations all together line 85
+//TODO I need to create a dictionary that gets all the translation for symptoms and for each body part
+//or you just need to 
+
+jQuery.fn.extend({
+    ensureLoad: function(handler) {
+        debugger;
+        return this.each(function(el) {
+            if(el.complete) {
+                handler.call(el);
+                
+            } else {
+                $(el).load(handler);
+            }
+        });
+    }
+});
 
 function initialize(){
     if(pullDataFromLocalStorage('storedTranslations') == null){
@@ -26,8 +40,7 @@ function initialize(){
     }
     $(document).ready(function() {
         console.log('derp');
-
-        clickOnTheBoxes("#body-outline", storedTranslations, drawToDom);
+        clickOnTheBoxes("#body-boxes", storedTranslations, drawToDom);
         
         
     })
@@ -36,7 +49,8 @@ function initialize(){
 
 function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
     console.log($(elementToSelect).length);
-    $(elementToSelect).on("load", function(event){
+    // $(elementToSelect).on("load", function(event){
+    $(elementToSelect).ensureLoad(function(event){
         console.log('it loaded');
         var a = FULL_BODY_ELEMENT;
         var svgDoc = a.contentDocument;
@@ -44,15 +58,14 @@ function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
         
         $(svgRoot).find('[data-target="body-part"]').on("click", function(event){
             console.log('we found the rectangles')
-            var bodyPart = $(event).find('class');
             var bodyNumID = event["currentTarget"]["dataset"]['id'];
+            var bodyInfo = event["currentTarget"]["dataset"];
             
-            promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID)
+            promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyInfo)
                 .then(function(data){
-                console.log("we;re in the promise chain");
-                drawToDom(data);
-                // pullDataFromLocalStorage('storedTranslations');
-                //this is where you will use the data that was clicked to create the boxes and add the data to the page.
+                    console.log("we're in the promise chain");
+                    drawToDom(data);
+                    //this is where you will use the data that was clicked to create the boxes and add the data to the page.
                 })
                 .catch(drawToDom);
         })
@@ -77,7 +90,6 @@ function retrieveTranslation(queryData, storedTranslations){
         .then(function(d){
             console.log('called the server');
             storedTranslations[queryData.target][queryData['q']] = d['data']['translations']['0']['translatedText'];
-            // storedTranslations[queryData.target][queryData['q']] = 'test';
             sendDataToLocalStorage(storedTranslations[queryData.target], queryData.target)
             var P = new Promise(function(resolve, reject){
                 resolve(storedTranslations[queryData.target][queryData['q']]);
@@ -109,14 +121,25 @@ function retrieveSymptoms(bodyNumID){
     return $.get(returnURLForSymptomChecker(bodyNumID), dataForSymptomChecker())
     
 }
-function formatGetRequest(storedTranslations, rawData){
-    var newDictionary = {};
+function formatGetRequest(storedTranslations, bodyPart, rawData){
+    translateSingleWord(bodyPart).then(function(text){
+        console.log(text);
+        //use the text here for body part
+    });
+    translateSingleWord('Symptoms').then(function(text){
+        console.log(text);
+        //text here to add symptoms / translation
+    });
+    
+    var newDictionary = {
+    };
     var translationResults = $.map(rawData, function(obj){
         var searchString = obj['Name'];
         var language = $(LANGUAGE_SELECTOR).val();
         var searchData = dataToTranslate(searchString, language);
         
         return retrieveTranslation(searchData, storedTranslations);
+    
     });
     return Promise.all(translationResults).then(function(arrayOfResults){
         var dictionary = {}
@@ -128,9 +151,8 @@ function formatGetRequest(storedTranslations, rawData){
 }
 
 
-function promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyNumID){
-    // console.log(storedTranslations)
-    return retrieveSymptoms(bodyNumID).then(formatGetRequest.bind(this, storedTranslations));
+function promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyInfo){
+    return retrieveSymptoms(bodyInfo['id']).then(formatGetRequest.bind(this, storedTranslations, bodyInfo['bodyPart']));
 }
 
 function sendDataToLocalStorage(data, language){
@@ -159,13 +181,15 @@ function pullDataFromLocalStorage(stringifiedJSONName){
     
 }
 
-function translateBodyPart(bodyPart){
-    console.log(bodyPart);
+function translateSingleWord(bodyPart){
     var language = $(LANGUAGE_SELECTOR).val();
     var queryData = dataToTranslate(bodyPart, language);
-    console.log(queryData);
-    var d =  $.post(GOOGLE_URL, queryData);
-    console.log(d);
+    return $.post(GOOGLE_URL, queryData)
+        .then(function(d){
+            return d['data']['translations']['0']['translatedText'];
+        })
+    
+    
 }
 
 initialize();
