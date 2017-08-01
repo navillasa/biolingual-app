@@ -57,7 +57,7 @@
     
     /*Phone*/ 
     @media only screen and (min-width : 300px) {
-      .body-part:active {
+      .hand:active {
         opacity:0.9;
         fill:#0000ff;
         fill-opacity:0.35294119;

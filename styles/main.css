@@ -306,7 +306,7 @@ main{
         position: absolute;
         color: #aaa;
         top: 1em;
-        left: 1em;
+        right: 1em;
         font-size: 28px;
         font-weight: bold;
     }
