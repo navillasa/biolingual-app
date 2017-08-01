@@ -57,7 +57,9 @@
     
     /*Phone*/ 
     @media only screen and (min-width : 300px) {
-      .body-part:active {
+      .body-part:focus,
+      .body-part:active,
+      .body-part:target {
         opacity:0.9;
         fill:#0000ff;
         fill-opacity:0.35294119;
@@ -74,7 +76,7 @@
 
      /*Desktops */
     @media only screen and (min-width : 1200px) {
-      .body-part:hover {
+      .body-part:hover, .body-part:focus .body-part:target {
           opacity:0.9;
           fill:#0000ff;
           fill-opacity:0.35294119;

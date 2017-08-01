@@ -25,7 +25,7 @@ html, body {
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 1px; 
     text-decoration: none;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 body {
@@ -150,7 +150,7 @@ select:focus {
     height: 1px;
     width: 1px;
     border: 0px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .symptoms label, .info label {
@@ -260,15 +260,17 @@ main{
         flex-direction: column;
         align-items: center; 
         position: absolute;
-        top: 75px;
-        left: 7px;
+        /* top: 75px; */
+        /* left: 7px; */
         margin-bottom: 1em;
         border-radius: 4px;  
         text-align: center;
         padding: 0.8em;
         background-color: rgba(255, 255, 255, 0.85);
-        width: 95%;
+        width: 100%;
+        height: 100%;
         font-size: 1.5em;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -285,6 +287,12 @@ main{
 >>>>>>> tried flexboxing the table
 =======
 >>>>>>> had to copy and paste files from master yikes
+=======
+        z-index: 5;
+        overflow: scroll;  
+        border: 1px black solid;
+        /* display: none; */
+>>>>>>> tried to make boxes remain highlighted with :focus-- no dice yet-- added pop up function to main.js to hide/create boxes, restyled the results box
     }
 
     .body-part, .wiki-box {
@@ -316,13 +324,14 @@ main{
     .close {
         position: absolute;
         color: #aaa;
-        top: .5em;
-        left: .5em;
+        top: 1em;
+        left: 1em;
         font-size: 28px;
         font-weight: bold;
     }
 
-    .close:hover, .close:focus {
+    .close:hover, .close:focus,
+    .close:active {
         color: black;
         /* text-decoration: none; */
         cursor: pointer;
