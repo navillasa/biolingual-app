@@ -59,9 +59,7 @@
     @media only screen and (min-width : 300px) {
       .body-part:focus {
         opacity:0.9;
-        fill:rgb(40, 80, 200);
-        <!-- fill-opacity:0.35294119; -->
-        
+        fill:rgb(40, 80, 200);        
         fill-opacity: 0.95;  
         fill-rule:evenodd;
         stroke:#000000;
@@ -80,7 +78,6 @@
           opacity:0.9;
           fill:rgb(40, 80, 200);
           fill-opacity: 0.95; 
-          <!-- fill-opacity:0.35294119; -->
           fill-rule:evenodd;
           stroke:#000000;
           stroke-width:0;
@@ -89,9 +86,6 @@
           stroke-opacity:1
           stroke-miterlimit:4;
           stroke-dasharray:none
-      }
-      .body-part: focus {
-        fill:rgb(40, 80, 200);
       }
     } 
 
