@@ -243,6 +243,7 @@
    inkscape:connector-curvature="0"
    sodipodi:nodetypes="ccccccccccccccccc" 
    data-body-part="Arm"
+   data-target="body-part"
    />
 </g>
 
