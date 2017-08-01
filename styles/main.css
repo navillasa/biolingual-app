@@ -266,6 +266,7 @@ main{
         /* width: 95%; */
         font-size: 1.5em;
 <<<<<<< HEAD
+<<<<<<< HEAD
         z-index: 1;
         overflow: scroll; 
         height: 85%;    
@@ -275,6 +276,11 @@ main{
         /* height: 350px;    */
         border: 10px red solid;
 >>>>>>> tried flexboxing the table
+=======
+        z-index: -3;
+        /* height: 350px;    */
+        border: 10px red solid;
+>>>>>>> 27c0e0cc0990e3b6b5e62bdadf9f527939a2cb0b
     }
 
     .body-part, .wiki-box {
