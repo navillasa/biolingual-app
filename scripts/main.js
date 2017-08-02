@@ -56,7 +56,6 @@ function promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyInfo){
 
 function retrieveSymptoms(bodyNumID){
     return $.get(returnURLForSymptomChecker(bodyNumID), dataForSymptomChecker())
-    
 }
 
 function formatGetRequest(storedTranslations, bodyPart, rawData){
@@ -135,7 +134,6 @@ function drawToDom(text){
     createRow('Symptoms', pullDataFromLocalStorage('Symptoms'), createHeader, "symp-display");
         $.each(text, function(data){
         createRow(data, text[data], createColumn, "symp-display");
-       
         })
     createLink(pullDataFromLocalStorage("bodyPartEnglish"), 'wiki');
     $('.close').on('click', function(event){
