@@ -5,17 +5,11 @@ html {
 *, *:before, *:after {
     box-sizing: inherit;
 }
-/* :hover{
-  fill: #111;
-  
-} */
 
 /* @font-face {
     font-family: Baloo;
     src: url(fonts/Baloo/Baloo-Regular.ttf) format("truetype");
 } */
-
-
 
 html, body {
     display: flex;
@@ -27,11 +21,6 @@ html, body {
     letter-spacing: 1px; 
     text-decoration: none;
     /* overflow: hidden; */
-}
-
-body {
-    /* display: flex;
-    flex-direction: row; */
 }
 
 .burger-holder {
@@ -81,17 +70,8 @@ body {
 .menu-area {
     display: flex;
     flex-direction: column;
-    /* width: 300px; */
     width: 100%;
     height: 100%;
-    /* padding-left: 100px; */
-
-}
-
-.menu-title {
-    /* position: relative; */
-    /* top: 3px;
-    left: 90px; */
 }
 
 select {
@@ -243,35 +223,17 @@ main{
         flex-direction: row;  
     }
 
-
-    .body-display {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-    }
-
     #body-boxes {
-         /* border: 10px solid red;  */
+        /* border: 10px solid red;  */
         position: absolute;
-        /* top: 0;
-        left: 0; */
         width: 100%;
         height: 100%;
     }
 
     .results {
         font: 0.5rem;
-        /* z-index: 1; */
-        /* position: relative; */
         display: flex;
-        justify-content: space-between;  
-        /* position: absolute; */
-        /* left: 7px; */
-        /* margin-bottom: 1em;
-        border-radius: 4px;  
-        text-align: center;
-        padding: 0.8em; */
+        justify-content: space-between;
         /* background-color: rgba(123,237,234, 0.9); */
         width: 100%;
         height: 100%;
@@ -282,25 +244,21 @@ main{
         flex-direction: row;
         justify-content: space-around;
         width: 100%;
-        /* padding: 1em; */
-        /* margin: 1em; */
         border: 1px solid black;
-         /* border-radius: 25px;  */
     }
+
     .symptom-box {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         width: 100%;
-        /* padding: 1em; */
-        /* margin: 1em; */
         border: 1px solid black;
     }
+
     .sym-row {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-
     }
 
     .close{
@@ -327,26 +285,26 @@ main{
         border-radius: 15px;
     }
 
-
-    table {
-        width: 100%;
-        height: 40%;
-        background-color: rgba(123,237,234, 0.9);
-        /* background-color: rgba(255,255,255,0.9);  */
-        margin: 15% auto;  /* 15% from the top and centered   */
+/* 
+      table { 
+         width: 100%; 
+          height: 40%; 
+        background-color: rgba(123,237,234, 0.9); 
+         background-color: rgba(255,255,255,0.9);  
+        margin: 15% auto;   15% from the top and centered   
         padding-top: 15% auto;
-        /* padding-top: 20px; */
-        /* border: 1px solid black;    */
+         padding-top: 20px; 
+         border: 1px solid black;    
         border-radius: 15px;
         border-collapse: collapse;
-        /* width: 80%;  Could be more or less, depending on screen size  */
-    }
+         width: 80%;  Could be more or less, depending on screen size  
+    }  */
 
-    table th, td {
+    /* table th, td {
         font-size: 1.75rem;
-         /* height: 50px;  */
+           height: 50px;   
         max-height: 30px; 
-    }
+    } */
 
     .lang-title {
         /* font-style: italic; */
@@ -354,17 +312,17 @@ main{
         /* text-decoration: underline; */
     }
 
-    table th {
+    /* table th {
         font-size: 2.75rem;
         padding: 1em .5em 1em .5em;
-        /* border-top: 1px solid black;
+         border-top: 1px solid black;
         border-left: 1px solid black;
-        border-right: 1px solid black; */
-    }
+        border-right: 1px solid black; 
+    } */
 
-    td, th {
+    /* td, th {
         border-bottom: 1px solid black; 
-    }
+    } */
 
     div.wiki-style {
         width: 100%;
@@ -377,7 +335,6 @@ main{
 
     .language-part-display, .symp-display {
         /* background-color: rgba(255, 255, 255, .9); */
-        /* margin: 15px; */
         justify-content: center; 
         padding: 1em;
         /* border: 1px solid black; */
@@ -443,22 +400,27 @@ main{
         display: flex;
         flex-direction: row;   
     }
+    
     .menu-title {
         margin-top: 22px;
         font-size: 2.5em;
     }  
+
     .languages {
         font-size: 1.25rem;
         margin-right: 50px; 
         margin-left: 50px;
     }
+
     .symptoms {
         font-size: 1.25rem;
         margin-right: 50px;  
     }
+
     .info {
         font-size: 1.25rem;
     }
+
     /* .symptoms label:first-of-type, .info label:first-of-type {
         border-radius: 4px 4px 4px 4px;
     }
@@ -500,6 +462,7 @@ main{
         margin: 0;
         /* height: 10rem; */
     }
+
     /* }
     table {
         margin-top: 50px;
@@ -525,29 +488,35 @@ main{
         width: 50%;
         min-width: 300px;
     }
+
     .menu-area {
         display: flex;
         flex-direction: column;
     }
+
     .menu-title h1 {
         padding-top: 50px;
         font-size: 3rem;
         margin-top: 22px;
         position: relative;
-    }  
+    }
+
     .languages {
         font-size: 1.5rem;
         margin-right: unset;
         margin-left: unset;
     }
+
     .symptoms {
         font-size: 1.5rem;
         margin-right: unset;
     }
+
     .info {
         /* margin-right: unset; */
         font-size: 1.5rem;
     }
+
     .symptoms label:first-of-type, .info label:first-of-type {
         border-radius: 4px 0 0 4px;
     }
@@ -555,15 +524,18 @@ main{
     .symptoms label:last-of-type, .info label:last-of-type {
         border-radius: 0 4px 4px 0;
     }
+
      table {
          margin-top: 50px;
          margin-bottom: 30px;
     }
+
     .results{
         margin: 0;
         border: unset;
         overflow: auto;
     }
+
     .results .main-box {
         /* display: flex;
         justify-content: center;
@@ -593,15 +565,10 @@ main{
     .close{
         color: black;
         position: absolute; 
-        /* top: .5rem;   */
         right: 1rem;
-        /* padding-bottom: 50rem; */
-        
-        /* right: .25rem; */
         font-size: 60px;
         font-weight: bold;
     }
-
 }
 
 /*Desktops */
@@ -682,12 +649,10 @@ main{
 }
  
 .main {
-     /* border: 10px solid lightgreen;     */
     display: flex;
     width: 100%;
     height: 100%;
     flex-direction: row; 
-    /* justify-content: space-between; */
     
 }
 
