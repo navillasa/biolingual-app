@@ -127,10 +127,10 @@ function catchError(text){
 
 function drawToDom(text){
     $(".results").remove();
-    $('.main').append($("<div class='results' data-target='results'></div>").append('<span class="close">&times;</span> '));
-    $('.results').append($("<div class='main-box'></div>"));
-    $('.results').append($("<div class='second-box'></div"));
-    $('.results').append($("<div class='third-box'></div"));
+    $('.main-panel').append($("<div class='results' data-target='results'></div>"));
+    $('.results').append($("<div class='main-box'></div>").append('<span class="close">&times;</span> '));
+    $('.main-box').append($("<div class='second-box'></div"));
+    $('.main-box').append($("<div class='third-box'></div"));
     createRow("English", $('[data-target="select"]')['0']['selectedOptions']['0']['dataset']['name'], createHeader, "language-part-display", ".second-box");
     $('.main-box').append(createRow(pullDataFromLocalStorage("bodyPartEnglish"), pullDataFromLocalStorage('bodyPartTranslated'), createLangHeader, "language-part-display", ".second-box"));
     createRow('Symptoms', pullDataFromLocalStorage('Symptoms'), createHeader, "symp-display", ".third-box");
