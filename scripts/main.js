@@ -128,12 +128,14 @@ function catchError(text){
 function drawToDom(text){
     $(".results").remove();
     $('.main').append($("<div class='results' data-target='results'></div>").append('<span class="close">&times;</span> '));
-    $('.results').append($("<table></table>"));
-    createRow("English", $('[data-target="select"]')['0']['selectedOptions']['0']['dataset']['name'], createHeader, "language-part-display");
-    createRow(pullDataFromLocalStorage("bodyPartEnglish"), pullDataFromLocalStorage('bodyPartTranslated'), createLangHeader, "language-part-display");
-    createRow('Symptoms', pullDataFromLocalStorage('Symptoms'), createHeader, "symp-display");
+    $('.results').append($("<div class='main-box'></div>"));
+    $('.results').append($("<div class='second-box'></div"));
+    $('.results').append($("<div class='third-box'></div"));
+    createRow("English", $('[data-target="select"]')['0']['selectedOptions']['0']['dataset']['name'], createHeader, "language-part-display", ".second-box");
+    $('.main-box').append(createRow(pullDataFromLocalStorage("bodyPartEnglish"), pullDataFromLocalStorage('bodyPartTranslated'), createLangHeader, "language-part-display", ".second-box"));
+    createRow('Symptoms', pullDataFromLocalStorage('Symptoms'), createHeader, "symp-display", ".third-box");
         $.each(text, function(data){
-        createRow(data, text[data], createColumn, "symp-display");
+        createRow(data, text[data], createColumn, "symp-display", ".third-box");
         })
     createLink(pullDataFromLocalStorage("bodyPartEnglish"), 'wiki');
     $('.close').on('click', function(event){
@@ -154,23 +156,23 @@ function drawToDom(text){
     }    
 }
 
-function createRow(info1, info2, fn, className){
-    $('table').append($('<tr class="' + className + '">').append(fn(info1)).append(fn(info2)));
+function createRow(info1, info2, fn, className, boxDestination){
+    $(boxDestination).append($('<div class="' + className + '">').append(fn(info1)).append(fn(info2)));
 }
 
 function createColumn(info){
-    return $("<td>" + info + "</td>"); 
+    return $("<div>" + info + "</div>"); 
 }
 function createHeader(info) {
-    return $("<th class='table-header'>" + info + "</th>"); 
+    return $("<div class='table-header'>" + info + "</div>"); 
 }
 
 function createLangHeader(info) {
-    return $("<td class='lang-title'>" + info + "</td>"); 
+    return $("<div class='lang-title'>" + info + "</div>"); 
 }
 
 function createLink(bodyPart, className){
-    $('table').append($('<tr class="wiki-style" ><td colspan="2"><a href="https://en.wikipedia.org/wiki/' + bodyPart + '"target="_blank" class="' + className + '"rel="noopener noreferrer">English Wikipedia</a></td></tr>'));
+    $('.third-box').append($('<div class="wiki-style" ><a href="https://en.wikipedia.org/wiki/' + bodyPart + '"target="_blank" class="' + className + '"rel="noopener noreferrer">English Wikipedia</a></td></div>'));
 }
 
 function returnURLForSymptomChecker(bodyNumID){
