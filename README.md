@@ -1,6 +1,9 @@
-# BioLingual
+# ![icon](images/icon.png)BioLingual
 
-BioLingual is an interactive anatomy map that translates the names of body parts and commonly associated symptoms using ApiMedic and the Google Translate API.
+BioLingual is an interactive anatomy map that translates the names of body parts and commonly associated symptoms using ApiMedic and the Google Translate API.<br>
+Users can click or tap an area of the body on our main body display in order to read a translation
+of that body part in another language of their choice.<br>
+We believe a future version of BioLingual could help facilitate communication between patients and healthcare providers who do not speak the same language.
 
 ## Authors
 
@@ -18,7 +21,7 @@ BioLingual is an interactive anatomy map that translates the names of body parts
 
 ## Getting Started
 
-Since the APIs we used have a limited number of free queries, we are not hosting BioLingual live online. We've provided a demo video for a use case, but if you would like to try the application on your local machine, please follow these instructions.
+Since the APIs we used have a limited number of free queries, we have chosen not to host BioLingual live online. We've provided a demo video for a typical use case, but if you would like to try the application on your local machine, please follow these instructions.
 
 #### Mac Instructions
 1. Clone or download our repository
@@ -36,6 +39,15 @@ Since the APIs we used have a limited number of free queries, we are not hosting
 * [3. Accessing APIs]
 * [4. Visualization]
 * [5. Challenges and Successes!]
+
+### 1. Concept
+
+Our idea began with the idea of an interactive "body map," where a user would be able to tap a part of the body, and trigger a display of that body part's name and description. When brainstorming the type of information to provide
+
+### 2. Initial Planning
+
+Early on, at first we were thinking that we would pick a body system such as musculoskeletal or circulatory, and then create labels for those parts alone. However, we soon realized that it would be more efficient within the scope of this project to limit our "selectable" body parts to the topical headings provided by the ApiMedic sandbox toolkit.
+
 
 ## If We Had More Time, we would...
 
