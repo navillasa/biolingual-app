@@ -10,7 +10,7 @@ BioLingual is an interactive anatomy map that translates the names of body parts
 
 ## Built With
 
-* JavaScript ES6
+* JavaScript ES5
 * jQuery 3.2.1
 * HTML5/CSS3
 * [ApiMedic](https://apimedic.net/) - Medical Symptom Checker API
