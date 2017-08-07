@@ -37,7 +37,7 @@ Since ApiMedic and the Google Translate API provide a limited number of free que
 [Video -- coming soon!]
 
 ## Development Process
-* [1. Concept](1-Concept)
+* [1. Concept](#1-Concept)
 * [2. Initial Planning]
 * [3. Visualization and Accessing APIs]
 * [4. Challenges and Successes!]
