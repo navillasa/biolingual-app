@@ -1,4 +1,6 @@
-# ![icon](images/readme-materials/icon.png){width=40px height=40px} BioLingual
+# ![icon]()
+<img src="images/readme-materials/icon.png" alt="icon" style="width: 50px;"/>
+BioLingual
 
 BioLingual is an interactive anatomy map that translates the names of body parts and commonly associated symptoms using ApiMedic and the Google Translate API.<br>
 Users can click or tap an area of the body on our main body display in order to read a translation of that body part in another language of their choice.<br>
