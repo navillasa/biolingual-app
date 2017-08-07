@@ -28,7 +28,7 @@ Since ApiMedic and the Google Translate API provide a limited number of free que
 
 #### Mac Instructions
 1. Clone or download our repository
-2. Update api.js with your ApiMedic and Google Cloud Platorm Translation API (see instructions in apikeys.js)
+2. Update apikey.js with your ApiMedic and Google Cloud Platorm Translation API (see instructions in apikeys.js)
 3. In your console, navigate to the directory containing index.html
 4. Run the following console command: python -m "SimpleHTTPServer" 8000
 5. In your browser (Chrome works best), go to the URL localhost:8000   
@@ -45,7 +45,7 @@ Since ApiMedic and the Google Translate API provide a limited number of free que
 
 ### 1. Concept
 
-Our idea began with the idea of an interactive "body map," where a user would be able to tap a part of the body, and trigger a display of that body part's name and description. When brainstorming the type of information to provide, we realized a translation would create an important new dimension of use for our anatomy app.
+Our idea began with the idea of an interactive "body map," where a user would be able to tap a part of the body, and trigger a display of that body part's name and description. When brainstorming the type of information to provide, we realized associated symptoms and their translations would add an important new dimension of use to our anatomy app.
 
 ### 2. Initial Planning
 
