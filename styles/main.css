@@ -5,22 +5,15 @@ html {
 *, *:before, *:after {
     box-sizing: inherit;
 }
-/* :hover{
-  fill: #111;
-  
-} */
 
 /* @font-face {
     font-family: Baloo;
     src: url(fonts/Baloo/Baloo-Regular.ttf) format("truetype");
 } */
 
-
-
 html, body {
-    /* border: 10px solid blue;    */
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;  
     height: 100%;
     width: 100%;
     /* font-family: Baloo, Arial, Helvetica, sans-serif; */
@@ -28,11 +21,6 @@ html, body {
     letter-spacing: 1px; 
     text-decoration: none;
     /* overflow: hidden; */
-}
-
-body {
-    /* display: flex;
-    flex-direction: row; */
 }
 
 .burger-holder {
@@ -82,17 +70,8 @@ body {
 .menu-area {
     display: flex;
     flex-direction: column;
-    /* width: 300px; */
     width: 100%;
     height: 100%;
-    /* padding-left: 100px; */
-
-}
-
-.menu-title {
-    /* position: relative; */
-    /* top: 3px;
-    left: 90px; */
 }
 
 select {
@@ -210,6 +189,7 @@ main{
         margin-top: 22px;
         font-size: 4em;
         padding-top: 1em;
+        /* letter-spacing: 5px; */
     }
 
     .menu-elements {
@@ -218,6 +198,18 @@ main{
         justify-content: center;
         flex-direction: column;
         font-size: 14px;
+    }
+
+    div.selector {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+    }
+
+    select option {
+        position: relative;
+        display: inline-block;
+        text-align: center;
     }
 
     .languages, .symptoms, .info {
@@ -231,52 +223,20 @@ main{
         flex-direction: row;  
     }
 
-
-    .body-display {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-    }
-
     #body-boxes {
-         /* border: 10px solid red;  */
+        /* border: 10px solid red;  */
         position: absolute;
-        /* top: 0;
-        left: 0; */
         width: 100%;
         height: 100%;
-    }
-    #body-outline {
-        /* size: 50%; */
-        position: absolute;
-        left: 7px;
-        top:0;
-        width:100%;
-        height:100%
     }
 
     .results {
         font: 0.5rem;
-        /* display: flex; */
-        /* flex-direction: column; */
-        /* align-items: center;  */
-        /* justify-content: center; */
-        position: absolute;
-        /* top: 75px; */
-        /* left: 7px; */
-        margin-bottom: 1em;
-        border-radius: 4px;  
-        text-align: center;
-        padding: 0.8em;
-        background-color: rgba(211,211,211, 0.8);
+        display: flex;
+        justify-content: space-between;
+        /* background-color: rgba(123,237,234, 0.9); */
         width: 100%;
         height: 100%;
-        font-size: 1.5em;
-        z-index: 1;
-        overflow: scroll;  
-        border: 1px black solid;
-        /* display: none; */
     }
 
     .body-part, .wiki-box {
@@ -284,33 +244,31 @@ main{
         flex-direction: row;
         justify-content: space-around;
         width: 100%;
-        /* padding: 1em; */
-        /* margin: 1em; */
         border: 1px solid black;
-         /* border-radius: 25px;  */
     }
+
     .symptom-box {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         width: 100%;
-        /* padding: 1em; */
-        /* margin: 1em; */
         border: 1px solid black;
     }
+
     .sym-row {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-
     }
 
-    .close {
+    .close{
+        color: black;
         position: absolute;
-        color: #aaa;
-        top: 1em;
-        right: 1em;
-        font-size: 28px;
+        top: 0;    
+        right: .5rem;
+        z-index: 1;
+        /* right: .25rem; */
+        font-size: 40px;
         font-weight: bold;
     }
 
@@ -321,44 +279,119 @@ main{
         cursor: pointer;
     }
 
-    table {
-        width: 100%;
-        height: 95%;
-        /* background-color: rgb(128,128,128); */
-        margin: 15% auto; /* 15% from the top and centered */
-        padding: 20px;
-         /* border: 1px solid #888;   */
-        border-collapse: collapse;   
-        width: 80%; /* Could be more or less, depending on screen size */
+    .second-box, .third-box {
+        padding-top: 1rem;
+        background-color: rgba(123,237,234, 0.9);
+        border-radius: 15px;
     }
-     table th, td {
+
+/* 
+      table { 
+         width: 100%; 
+          height: 40%; 
+        background-color: rgba(123,237,234, 0.9); 
+         background-color: rgba(255,255,255,0.9);  
+        margin: 15% auto;   15% from the top and centered   
+        padding-top: 15% auto;
+         padding-top: 20px; 
+         border: 1px solid black;    
+        border-radius: 15px;
+        border-collapse: collapse;
+         width: 80%;  Could be more or less, depending on screen size  
+    }  */
+
+    /* table th, td {
         font-size: 1.75rem;
-         /* height: 50px;  */
-         max-height: 30px;
-    } 
+           height: 50px;   
+        max-height: 30px; 
+    } */
+
     .lang-title {
-        font-style: italic;
-        font-size: 1.5rem;
+        /* font-style: italic; */
+        font-size: 2rem;
         /* text-decoration: underline; */
     }
-    table td {
-         
-    }
-    th, td {
-        border-bottom: 1px solid black; 
 
+    /* table th {
+        font-size: 2.75rem;
+        padding: 1em .5em 1em .5em;
+         border-top: 1px solid black;
+        border-left: 1px solid black;
+        border-right: 1px solid black; 
+    } */
+
+    /* td, th {
+        border-bottom: 1px solid black; 
+    } */
+
+    div.wiki-style {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .language-part-display, .symp-display {
+        /* background-color: rgba(255, 255, 255, .9); */
+        justify-content: center; 
+        padding: 1em;
+        /* border: 1px solid black; */
+    }
+
+    .symp-display {
+        /* border-top: 1px solid black; */
+        border-bottom: 1px solid black;
+    }
+
+     .main-box {
+        /* border: 2px solid orange; */
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 15%;
+        width: 100%;
+        /* padding: 50px; */
+        /* padding: 2rem; */
+        /* justify-content: center; */
+        justify-content: space-around;
     } 
 
-
-    th,td {
-        /* background-color: #719ECE; */
-        /* padding: 5px; */
+    div.second-box {
+        /* border: 2px solid cyan; */
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center;  */
+        justify-content: space-around;
+        margin-bottom: 4rem;
     }
 
-    .wiki-style {
-        width: 100%;
+    div.language-part-display {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
     }
 
+    div.third-box {
+        /* border: 2px solid cyan; */
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        justify-content: space-around;
+    }  
+
+    div.symp-display {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        justify-content: space-around;
+    }
+
+    div.table-header {
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
 
 }
 
@@ -367,36 +400,84 @@ main{
         display: flex;
         flex-direction: row;   
     }
+    
     .menu-title {
         margin-top: 22px;
         font-size: 2.5em;
     }  
+
     .languages {
         font-size: 1.25rem;
         margin-right: 50px; 
         margin-left: 50px;
     }
+
     .symptoms {
         font-size: 1.25rem;
         margin-right: 50px;  
     }
+
     .info {
         font-size: 1.25rem;
     }
-    .symptoms label:first-of-type, .info label:first-of-type {
+
+    /* .symptoms label:first-of-type, .info label:first-of-type {
         border-radius: 4px 4px 4px 4px;
     }
 
     .symptoms label:last-of-type, .info label:last-of-type {
         border-radius: 4px 4px 4px 4px;
-    }
+    } */
+
     .results {
+        position: absolute;
+        top: 20px;
         height: 100%;
-        overflow: scroll;
     }
+
+    .results .main-box {
+        height: 100%;
+        width: 80%;
+        overflow: scroll;
+        margin-left: 10%;
+        margin-right: 10%;
+        /* position: relative; */
+        justify-content: none;
+    }
+
+     div.second-box {
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        top: 5%;
+        width: 100%;
+        /* height: 4rem; */
+    } 
+
+    div.third-box {
+        position: absolute;
+        top: 35%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        /* height: 10rem; */
+    }
+
+    /* }
     table {
         margin-top: 50px;
         margin-bottom: 30px;
+    } */
+
+    .close{
+        color: black;
+        position: absolute;
+        top: .75rem;    
+        right: .75rem;
+        z-index: 2;
+        /* right: .25rem; */
+        font-size: 60px;
+        font-weight: bold;
     }
 
 }
@@ -407,29 +488,35 @@ main{
         width: 50%;
         min-width: 300px;
     }
+
     .menu-area {
         display: flex;
         flex-direction: column;
     }
+
     .menu-title h1 {
         padding-top: 50px;
         font-size: 3rem;
         margin-top: 22px;
         position: relative;
-    }  
+    }
+
     .languages {
         font-size: 1.5rem;
         margin-right: unset;
         margin-left: unset;
     }
+
     .symptoms {
         font-size: 1.5rem;
         margin-right: unset;
     }
+
     .info {
         /* margin-right: unset; */
         font-size: 1.5rem;
     }
+
     .symptoms label:first-of-type, .info label:first-of-type {
         border-radius: 4px 0 0 4px;
     }
@@ -437,14 +524,50 @@ main{
     .symptoms label:last-of-type, .info label:last-of-type {
         border-radius: 0 4px 4px 0;
     }
+
      table {
          margin-top: 50px;
          margin-bottom: 30px;
     }
+
     .results{
         margin: 0;
         border: unset;
         overflow: auto;
+    }
+
+    .results .main-box {
+        /* display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column; */
+        height: 100%;
+        width: 80%;
+        overflow: scroll;
+        margin-left: 10%;
+        margin-right: 10%;
+        /* position: relative; */
+        justify-content: none;
+    }
+
+    .second-box {
+        position: absolute;
+        top: 5%;
+        width: 100%;
+    } 
+
+    .third-box {
+        position: absolute;
+        /* top: %; */
+        width: 100%;
+    }
+
+    .close{
+        color: black;
+        position: absolute; 
+        right: 1rem;
+        font-size: 60px;
+        font-weight: bold;
     }
 }
 
@@ -468,27 +591,68 @@ main{
         margin-top: 50px;
     }
     .results {
-        left: unset;
-        overflow: scroll;
-        align-self: center;
+  
+        left: unset; 
+        overflow: scroll; 
+        align-self: center; 
         /* top: 50px; */
         /* top: 150px; */
-        right: 0;
-        overflow: auto; 
-        width: 350px;
+        right: 0; 
+        /* overflow: auto; */
+        width: 100%;
+        height: 100%;
+        /* width: 350px; */
         border: unset;
         /* height: 98%; */
+    }
+
+      .main-box {
+        position: unset;  
+        /* width: 35%; */
+        height: 100%;
+        width: unset;
+        width: 100%;
+        /* width: 100%; */
+        /* border: 10px solid red; */
+    }  
+
+      div.second-box, div.third-box {
+        padding: 3rem;
+        /* margin: 1rem; */
+    }  
+
+    div.second-box {
+        width: 25%;
+        height: 10%;
+        top: 3%;
+        right: 6%;
+        margin: unset;
+        padding: unset;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        align-self: flex-end;
+    }
+
+    div.third-box {
+        top: 15%;
+        width: 30%;
+        right: 3%;
+        font-size: 20px;
+        margin-bottom: auto;
+    }
+
+    .close {
+        top: 0;
+        right: 2%;
     }
 
 }
  
 .main {
-     /* border: 10px solid lightgreen;     */
     display: flex;
     width: 100%;
     height: 100%;
     flex-direction: row; 
-    /* justify-content: space-between; */
     
 }
 
@@ -500,6 +664,6 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    font-size: 1.5em;
+    font-size: 1.25em;
 }
 
