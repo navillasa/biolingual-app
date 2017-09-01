@@ -35,8 +35,7 @@ Since ApiMedic and the Google Translate API provide a limited number of free que
 
 ## Demo
 
-<iframe src="https://player.vimeo.com/video/229168815?autoplay=1" width="640" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-<p><a href="https://vimeo.com/229168815">BioLingual App</a> from <a href="https://vimeo.com/user46767264">Nat Ventura</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+https://vimeo.com/user46767264
 
 ## Development Process
 * [1. Concept](#1-concept)
