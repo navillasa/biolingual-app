@@ -32,14 +32,29 @@ Since the APIs we used have a limited number of free queries, we are not hosting
 
 ## Development Process
 * [1. Concept]
+
 * [2. Initial Planning]
+    creating a mock up of the body and the menu
+    creating a mock up of how and where the data will be displayed
+    
 * [3. Accessing APIs]
+    created based functions to access the api
+    built gradually more complicated functions to access the API when clicked, then those accessed the other API - Natalie and i wrote a good snippet about this for the presentation tomorrow
 * [4. Visualization]
+    within all of our promises we created a function to build out the information that was queried from the api's
 * [5. Challenges and Successes!]
+    problems with the image loading before the document.ready fired off. So we had to inject the file into the dom with the document.ready
+    design - struggled with getting the menu to go over the guy
+    challenges with the language dropdown updating when that was changed and not just when the body was clicked
+    creating the SVG file and being able to access it
+
+
+
 
 ## If We Had More Time, we would...
 
 * Spiff up design
+* Make body part stay highlighted on click
 * Improve results display
 * Allow users to toggle between an anterior and posterior display
 * Create zoom capability for selected body part
