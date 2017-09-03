@@ -50,11 +50,11 @@ Our idea began with the idea of an interactive "body map," where a user would be
 
 ### 2. Initial Planning
 
-Early on, at first we were thinking that we would pick a body system such as musculoskeletal or circulatory, and then create labels for those parts alone. However, we soon realized that it would be more efficient within the scope of this project to limit our "selectable" body parts to the topical headings provided by the ApiMedic sandbox toolkit.<br>
+Early on, we thought we would pick a body system such as the musculoskeletal or circulatory system, and then create labels for those parts alone. However, we soon realized that it would be more efficient within the scope of this project to limit our "selectable" body parts to the topical headings provided by the ApiMedic sandbox toolkit.<br>
 
 We had also initially hoped to create a map with "zooming" capabilities-- where users could select one body part-- the "foot" for example-- then zoom to view more specific details such as the toes, the ankle, or the sole of the foot. Again we realized that for the scope of this project, we had to limit our anatomy map to a smaller, fixed number of parts.<br>
 
-We selected the ten languages provided through BioLingual by looking up the ten most spoken languages in the United States. According to the American Community Survey 2015, endorsed by the United States Census Bureau, the ten mostly spoken languages are English, Spanish, Chinese, French, Tagalog, Vietnamese, (**Hindustani - we don't have this one!), Arabic, Korean, German, and Russian.
+We selected the ten languages provided through BioLingual by looking up the ten most spoken languages in the United States. According to the American Community Survey 2015, endorsed by the United States Census Bureau, the ten mostly spoken languages are English, Spanish, Chinese, French, Tagalog, Vietnamese, Arabic, Korean, German, and Russian.
 
 ### 3. Visualization and Accessing APIs
 
