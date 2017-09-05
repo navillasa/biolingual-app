@@ -125,6 +125,17 @@ var translations = {
     },
     
     中文 : {
+        "Head": "头", 
+        "Face": "面对",
+        "Ear, nose and throat":"耳朵，鼻子和喉咙",
+        "Mouth": "口",
+        "Chest": "胸部",
+        "Arm": "臂",
+        "Hand and Wrist":"手和手腕",
+        "Abdomen": "腹部",
+        "Groin":"腹股沟",
+        "Leg": "腿",
+        "Foot": "馅饼",
         "头": [
             "头痛",
             "发热",
@@ -251,6 +262,17 @@ var translations = {
     
     Español : {
         "Head": "Cabeza",
+        "Face": "Cara",
+        "Ear, nose and throat":"Oído, nariz y garganta",
+        "Mouth": "Boca",
+        "Chest": "Pecho",
+        "Arm": "Brazo",
+        "Hand and Wrist":"Mano y muñeca",
+        "Abdomen": "Abdomen",
+        "Groin":"Ingle",
+        "Leg": "Pierna",
+        "Foot": "Pie",
+
         "Cabeza": [
             "Dolor de cabeza",
             "Fiebre",
@@ -263,7 +285,7 @@ var translations = {
             "Mareo",
             "Pérdida de memoria"
         ],
-    
+        
         "Cara": [
             "Enrojecimiento de los ojos",
             "Ojos que pican",
@@ -309,7 +331,7 @@ var translations = {
             "Hinchazón de la lengua"
         ],
     
-        "Chest": [
+        "Pecho": [
             "Tos",
             "Dolor de pecho",
             "Dificultad para respirar",
@@ -357,7 +379,7 @@ var translations = {
             "Picazón",
             "Ardiente"
         ],
-    
+        
         "Pierna": [
             "Dolor",
             "Dolor",
@@ -365,7 +387,7 @@ var translations = {
             "Parálisis",
             "Hinchazón"
         ],
-    
+         
         "Pie": [
             "Temblor",
             "Rigidez",
@@ -377,6 +399,17 @@ var translations = {
     
     Français : {
         "Head": "Tête", 
+        "Face": "visage",
+        "Ear, nose and throat":"L'oreille, le nez et la gorge",
+        "Mouth": "Bouche",
+        "Chest": "Poitrine",
+        "Arm": "Bras",
+        "Hand and Wrist":"Main et poignet",
+        "Abdomen": "Abdomen",
+        "Groin":"Aine",
+        "Leg": "Jambe",
+        "Pie": "Tarte",
+
         "Tête": [
             "Mal de tête",
             "Fièvre",
