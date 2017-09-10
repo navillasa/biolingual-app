@@ -7,13 +7,7 @@ function initialize(){
         var storedTranslations = {
         "es": {},
         "zh-CN": {},
-        'fr': {},
-        "tl": {},
-        "vi":{},
-        "ko":{},
-        "de":{},
-        "ar":{},
-        "ru":{},
+        'fr': {}
         };
         localStorage.setItem('storedTranslations', JSON.stringify(storedTranslations));
     }else {

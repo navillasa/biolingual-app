@@ -127,7 +127,7 @@ var translations = {
     中文 : {
         "Head": "头", 
         "Face": "面对",
-        "Ear, nose and throat":"耳朵，鼻子和喉咙",
+        "Ear, nose and throat":"耳朵,鼻子和喉咙",
         "Mouth": "口",
         "Chest": "胸部",
         "Arm": "臂",
@@ -161,7 +161,7 @@ var translations = {
             "眼睛疼痛"
         ],
     
-        "耳鼻喉咙": [
+        "耳朵,鼻子和喉咙": [
             "喉咙痛",
             "流鼻涕",
             "咳嗽",
@@ -399,8 +399,8 @@ var translations = {
     
     Français : {
         "Head": "Tête", 
-        "Face": "visage",
-        "Ear, nose and throat":"L'oreille, le nez et la gorge",
+        "Face": "Visage",
+        "Ear, nose and throat":"Nez, gorge et l'oreille",
         "Mouth": "Bouche",
         "Chest": "Poitrine",
         "Arm": "Bras",
@@ -408,7 +408,7 @@ var translations = {
         "Abdomen": "Abdomen",
         "Groin":"Aine",
         "Leg": "Jambe",
-        "Pie": "Tarte",
+        "Foot": "Pied",
 
         "Tête": [
             "Mal de tête",
