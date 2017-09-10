@@ -249,7 +249,9 @@ var mandarin = {
 };
 
 var spanish = {
-    "Cabeza": [
+    "Head":  "Cabeza",
+
+    "Head-Symptoms": [
         "Dolor de cabeza",
         "Fiebre",
         "Cansancio",
