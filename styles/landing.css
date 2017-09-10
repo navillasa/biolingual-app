@@ -1,72 +1,66 @@
 html, body {
-    /* border: 10px solid lightgreen;     */
     display: flex;
     flex-direction: row;  
     height: 100%;
     width: 100%;
     z-index: -1;
-     /* background-color: rgba(40, 255, 255, .2);  */
-
-    /* I added this green background because I thought it looked
-    too much like facebook without the green hahaha. But we can change
-    the color scheme! - NV */
-
-    /* background-color: -webkit-linear-gradient(skyblue, lightblue);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;  */
+    overflow: hidden;
 }
 
 body {
-    /* border: 10px solid pink;  */
     height: 100%;
     width: 100%;
+    background-color: black;
     color: #0000ff;
+    font-family: 'Roboto', sans-serif;
 }
 
-@media only screen and (min-width : 300px) {
 
-    #robo-body {
-        /* border: 10px solid red; */
-        position: absolute;
-        top: 0;
-        padding-right: 8em;
-        height: 110%;
-        width: 110%;
-        z-index: -1;
-        color: blue;
-    }
+#robo-body {
+    position: absolute;
+    top: 0;
+    padding-right: 8em;
+    height: 110%;
+    width: 110%;
+    z-index: -1;
+}
 
-    @font-face {
-        font-family: Baloo;
-        src: url(fonts/Baloo/Baloo-Regular.ttf) format("truetype");
-    }
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    padding-left: 8em;
+}
 
-    /* .info {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: -5;
-    }
+.title {
+    font-size: 3em;
+}
 
-     .info-button {
-        border-radius: 20px;
-        background-color: rgba(0, 0, 0, .1);
-        padding: 1em;
-        
-    }  */
+.enter {
+    border: 2px solid;
+    padding: 7px;
+}
 
-    .container {
-        /* border: 10px solid yellowgreen;  */
-        display: flex;
-        height: 100%;
-        width: 100%;
-        justify-content: center;
-        font-family: Baloo, Arial, Helvetica, sans-serif;
-        font-size: 16px;
-        letter-spacing: 1.5px;
-        /* color: #0000ff; */
-        padding-left: 8em;
-        padding-top: 15em;
+.enter:hover {
+    color: white;
+}
 
+.text {
+    padding-left: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+a {
+    text-decoration: none;
+    color: #0000ff;
+}
+@media only screen and (max-width : 400px) {
+    .text {
+        padding-left: 40px;
+        font-size: 12px;
     }
 }
