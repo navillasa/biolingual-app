@@ -2,8 +2,10 @@
 
 ![screenshot of desktop display](images/readme-materials/flag-symptom-desktop.png)
 
-BioLingual is an interactive anatomy map that translates the names of body parts and commonly associated symptoms using ApiMedic and the Google Translate API.<br>
-Users can click or tap an area of the body on our main body display in order to read a translation of that body part in another language of their choice.<br>
+BioLingual is an interactive anatomy map that translates the names of body parts and commonly associated symptoms using ApiMedic and the Google Translate API.
+
+Users can click or tap an area of the body on our main body display in order to read a translation of that body part in another language of their choice.
+
 We believe a future version of BioLingual could help facilitate communication between patients and healthcare providers who do not speak the same language.
 
 ## Authors
@@ -24,7 +26,7 @@ We believe a future version of BioLingual could help facilitate communication be
 
 ## Getting Started
 
-Since ApiMedic and the Google Translate API provide a limited number of free queries, we have chosen not to host BioLingual live online. Instead we've provided a demo video for a typical use case, but if you would like to try the application on your local machine, please follow these instructions.
+Since ApiMedic and the Google Translate API provide a limited number of free queries, we have chosen not to host the full version of BioLingual live. <b>However we are currently in the process of creating a demo version of BioLingual with access to three languages: Spanish, Mandarin, and French.</b> We've also provided a demo video for a typical use case, but if you would like to try the application on your local machine, please follow these instructions.
 
 #### Mac Instructions
 1. Clone or download our repository
