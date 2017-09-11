@@ -19,7 +19,7 @@ We believe a future version of BioLingual could help facilitate communication be
 * JavaScript ES5
 * jQuery 3.2.1
 * HTML5/CSS3
-* Adobe Illustrator CC 2015
+* Adobe Illustrator CC
 * Inkscape
 * [ApiMedic](https://apimedic.net/) - Medical Symptom Checker API
 * [Google Translate](https://cloud.google.com/translate/) - Google Cloud Platform Translation API
@@ -104,15 +104,15 @@ colorful rectangles as clickable target boxes.
 However, we later learned the correct way to trace organic shapes over pre-existing shapes in the same folder. (When fully highlighted,
 our anatomy now looks like a bit more high-tech of a robot.)
 ![svg file of properly traced anatomy map with delineated body sections](images/readme-materials/purople-body-boxes.svg)
-<br>
+
 Since a major objective of our project was to familiarize ourselves with the execution of promise chains, our architecture does not fully account for the implementation of future features-- it's not especially add-on friendly.
-<br>
+
 Asynchronous API load times presented an issue.
 Our API keys were not free and required refresh every so many data calls.
 We also had problems with the image loading before the `document.ready` fired off. So we had to inject the file into the dom with the `document.ready`.
-<br>
+
 Sometimes the smallest, most subtle features caused the most unexpected challenges. For example, determining the z-index of elements inside our hamburger menu dictated whether users would be able to close the menu more than once. Requiring the results box to "live update" when the language was changed in the menu settings presented a similar challenge.
-<br>
+
 Both issues were fixed by inspecting our hamburger menu's elements in the developer tools, and checking to see what other elements each selection referred to-- and making sure that information was consistent across media queries.
 
 
@@ -132,12 +132,6 @@ If we had more time, we would...
 
 ## Closing Thoughts
 If we had a lot more time and resources, we could imagine making this application a translation tool for hospitals and medical centers to assist communication between patients and providers.  
-
-## Acknowledgments
-
-Thank you to our wonderful instructors at DigitalCrafts!
-* **Chris Aquino** - [radishmouse](https://github.com/radishmouse)
-* **Carl Severe** - [mutebard](https://github.com/mutebard)
 
 ## Disclaimer
 This application does NOT replace professional medical help. If you have a medical issue. please see a physician or call 911. 
