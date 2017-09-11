@@ -13,7 +13,7 @@ var translations = {
             "Memory loss"
         ],
     
-        "Face": [
+        "Upper Face": [
             "Eye redness",
             "Itchy eyes",
             "Burning eyes",
@@ -126,8 +126,8 @@ var translations = {
     
     中文 : {
         "Head": "头", 
-        "Face": "面对",
-        "Ear, nose and throat":"耳朵,鼻子和喉咙",
+        "Upper Face": "面对",
+        "Ear, Nose and Throat":"耳朵,鼻子和喉咙",
         "Mouth": "口",
         "Chest": "胸部",
         "Arm": "臂",
@@ -135,7 +135,7 @@ var translations = {
         "Abdomen": "腹部",
         "Groin":"腹股沟",
         "Leg": "腿",
-        "Foot": "馅饼",
+        "Foot": "脚丫子",
         "头": [
             "头痛",
             "发热",
@@ -262,13 +262,13 @@ var translations = {
     
     Español : {
         "Head": "Cabeza",
-        "Face": "Cara",
-        "Ear, nose and throat":"Oído, nariz y garganta",
+        "Upper Face": "Cara",
+        "Ear, Nose and Throat":"Oído, nariz y garganta",
         "Mouth": "Boca",
         "Chest": "Pecho",
         "Arm": "Brazo",
         "Hand and Wrist":"Mano y muñeca",
-        "Abdomen": "Abdomen",
+        "Abdomen": "Vientre",
         "Groin":"Ingle",
         "Leg": "Pierna",
         "Foot": "Pie",
@@ -360,7 +360,7 @@ var translations = {
             "Entumecimiento"
         ],
     
-        "Abdomen": [
+        "Vientre": [
             "Dolor abdominal",
             "Náusea",
             "Acidez",
@@ -399,13 +399,13 @@ var translations = {
     
     Français : {
         "Head": "Tête", 
-        "Face": "Visage",
-        "Ear, nose and throat":"Nez, gorge et l'oreille",
+        "Upper Face": "Visage",
+        "Ear, Nose and Throat":"Nez, gorge et l'oreille",
         "Mouth": "Bouche",
         "Chest": "Poitrine",
         "Arm": "Bras",
         "Hand and Wrist":"Main et poignet",
-        "Abdomen": "Abdomen",
+        "Abdomen": "Ventre",
         "Groin":"Aine",
         "Leg": "Jambe",
         "Foot": "Pied",
@@ -497,7 +497,7 @@ var translations = {
             "Engourdissement"
         ],
     
-        "Abdomen": [
+        "Ventre": [
             "Douleur abdominale",
             "La nausée",
             "Brûlures d'estomac",

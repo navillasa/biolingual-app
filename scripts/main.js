@@ -7,7 +7,13 @@ function initialize(){
         var storedTranslations = {
         "es": {},
         "zh-CN": {},
-        'fr': {}
+        'fr': {},
+        "tl": {},
+        "vi":{},
+        "ko":{},
+        "de":{},
+        "ar":{},
+        "ru":{},
         };
         localStorage.setItem('storedTranslations', JSON.stringify(storedTranslations));
     }else {
@@ -26,23 +32,15 @@ function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
         var svgRoot  = svgDoc.documentElement;
         
         $(svgRoot).find('[data-target="body-part"]').on("click", function(event){
-            checkDictionary(event, storedTranslations)
+            createsPromiseChain(event, storedTranslations); 
             
             $('[data-target=select]').change(function(event2){
-                checkDictionary(event,storedTranslations)
+                createsPromiseChain(event, storedTranslations); 
             })
         })
    });
 }
 
-function checkDictionary(event, storedTranslations){
-    var bodyInfo = event["currentTarget"]["dataset"];
-    // console.log();
-    drawToDom2(bodyInfo.bodyPart)
-   
-
-    // drawToDom('depr')
-}
 function createsPromiseChain(event, storedTranslations){
     var bodyInfo = event["currentTarget"]["dataset"];
     promiseChainToGetSymptomsAndTranslate(storedTranslations, bodyInfo)
@@ -158,46 +156,6 @@ function drawToDom(text){
     }    
 }
 
-function drawToDom2(text){
-    var lang = $('[data-target="select"]')['0']['selectedOptions']['0']['dataset']['name'];
-    // console.log(lang);
-    $(".results").remove();
-    $('.main').append($("<div class='results' data-target='results'></div>").append('<span class="close">&times;</span> '));
-    $('.results').append($("<table></table>"));
-    createRow("English", $('[data-target="select"]')['0']['selectedOptions']['0']['dataset']['name'], createHeader, "language-display");
-    createRow(text, text, createLangHeader, "body-part-display");
-    createRow('Symptoms', "symptoms translation", createHeader, "symp-display");
-        // $.each(text, function(data){
-        // createRow(data, text[data], createColumn, "symp-display");
-       
-        // })
-    
-    translations["english"][text].forEach(function (data, idx){
-        createRow(data, translations[lang][translations[lang][text]][idx], createColumn, "symp-display");
-    })
-    
-    
-    
-    
-    createLink(text, 'wiki');
-    $('.close').on('click', function(event){
-        $(".results").remove();
-    })
-    if(showSymptoms == false){
-        turnOffSymp();
-    }
-    else{
-        turnOnSymp();
-    }
-
-    if(showWiki == false){
-        turnOffWiki();
-    }
-    else{
-        turnOnWiki();
-    }    
-}
-
 function createRow(info1, info2, fn, className){
     $('table').append($('<tr class="' + className + '">').append(fn(info1)).append(fn(info2)));
 }
@@ -266,6 +224,3 @@ function translateSingleWord(bodyPart){
 }
 
 initialize();
-
-
-
