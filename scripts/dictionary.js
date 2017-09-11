@@ -1,5 +1,19 @@
 var translations = {
     english : {
+        "wiki": {
+            "Head": "head",
+            "Upper Face": "Face",
+            "Ear, Nose and Throat": "Otorhinolaryngology",
+            "Mouth": "mouth",
+            "Chest": "chest",
+            "Arm": "arm",
+            "Hand and Wrist":"hand",
+            "Abdomen": "abdomen",
+            "Groin": "groin",
+            "Leg":"leg",
+            "Foot": "foot"
+
+        },
         "Head": [ 
             "Headache",
             "Fever",
@@ -125,6 +139,7 @@ var translations = {
     },
     
     中文 : {
+        "Symptoms": "症状",
         "Head": "头", 
         "Upper Face": "面对",
         "Ear, Nose and Throat":"耳朵,鼻子和喉咙",
@@ -261,6 +276,7 @@ var translations = {
     },
     
     Español : {
+        "Symptoms": "Síntomas",
         "Head": "Cabeza",
         "Upper Face": "Cara",
         "Ear, Nose and Throat":"Oído, nariz y garganta",
@@ -398,6 +414,7 @@ var translations = {
     },
     
     Français : {
+        "Symptoms": "Symptômes",
         "Head": "Tête", 
         "Upper Face": "Visage",
         "Ear, Nose and Throat":"Nez, gorge et l'oreille",
