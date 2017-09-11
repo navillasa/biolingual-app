@@ -224,6 +224,3 @@ function translateSingleWord(bodyPart){
 }
 
 initialize();
-
-
-

@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" href="images/favicon.ico">
     <title>BioLingual</title>
 </head>
 <body ontouchstart="" onmouseover="">
@@ -15,7 +17,7 @@
         <span class="burger3"></span>
     </div>
      <div class="menu">
-        <h1 class="menu-title">BioLingual</h1>
+        <h1 class="menu-title">BioLingual Demo</h1>
         <div class="menu-area">
             <div class="languages">
             <h2>Language</h2>
@@ -24,12 +26,6 @@
                     <option value = 'es' data-name = "Español">Spanish / Español</option>
                     <option data-name = "中文" value = 'zh-CN'>Mandarin / 中文</option>
                     <option data-name = "Français" value = 'fr'>French / Français</option>
-                    <option data-name = "Tagalog" value = 'tl'>Filipino / Tagalog</option>
-                    <option data-name = "Tiếng Việt" value = 'vi'>Vietnamese / Tiếng Việt </option>
-                    <option data-name = "한국어" value = 'ko'>Korean / 한국어</option>
-                    <option data-name = "Deutsche" value = 'de'>German / Deutsche</option>
-                    <option data-name = "عربى" value = 'ar'>Arabic / عربى</option>
-                    <option data-name = "ру́сский" value = 'ru'>Russian / ру́сский</option>
                 </select>
             </div>
             </div>
@@ -51,6 +47,9 @@
                     <label for="info-switch-right">Off</label>
                 </div>
             </div>
+            <div class="info">
+                <h2><a class="about" href="https://github.com/nat-ventura/biolingual-app">About</a></h2>
+            </div>
         </div>
     </div> 
     <div class="main">
@@ -58,13 +57,15 @@
             <object type="image/svg+xml" id="body-boxes" alt="vector graphic color overlays"></object> 
         </div>
     </main> 
-    <script src="scripts/api.js" charset="utf-8"></script>
+    <!-- <script src="scripts/api.js" charset="utf-8"></script> -->
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
+      <script src="scripts/dictionary.js" charset="utf-8"></script>
     <script src="scripts/menu.js" charset="utf-8"></script>
      <script src="scripts/info.js" charset="utf-8"></script>  
-     <script src="scripts/main.js" charset="utf-8"></script>
+     <!-- <script src="scripts/main.js" charset="utf-8"></script> -->
+     <script src="scripts/demo.js" charset="utf-8"></script>  
 </body>
 </html>
