@@ -10,7 +10,6 @@ While we currently cannot host the full featured version of BioLingual due to li
 
 Users can click or tap an area of the body on our main body display in order to read a translation of that body part in another language of their choice. We believe a future version of BioLingual could help facilitate communication between patients and healthcare providers who do not speak the same language.
 
-
 ## Authors
 
 * **Jennifer Li Johnson** - [jenlij](https://github.com/jenlij)
@@ -26,13 +25,6 @@ Users can click or tap an area of the body on our main body display in order to 
 * Inkscape
 * [ApiMedic](https://apimedic.net/) - Medical Symptom Checker API
 * [Google Translate](https://cloud.google.com/translate/) - Google Cloud Platform Translation API
-
-#### Mac Development Instructions
-1. Clone or download our repository
-2. Update apikey.js with your ApiMedic and Google Cloud Platorm Translation API (see instructions in apikeys.js)
-3. In your console, navigate to the directory containing index.html
-4. Run the following console command: python -m "SimpleHTTPServer" 8000
-5. In your browser (Chrome works best), go to the URL localhost:8000   
 
 ## Development Process
 * [1. Concept](#1-concept)
@@ -62,7 +54,7 @@ Within the body-boxes.svg file, we attached descriptive data-targets to the shap
 
 ```
 <path
-   d="m 559.86338,-1058.7197 201.90131,9.6111 c 9.34009,4.0045 13.33163,11.2161 8.82353,23.5294 l -8.82353,36.76466 -8.82353,8.82353 -14.45356,3.11959 c -57.35294,-0.82636 -110.54644,4.91439 -167.89938,-6.06077 l -13.23529,-13.23529 -5.88235,-29.41172 0,-14.7059 z"
+   d="m 559.86338,-1058.7197 201.90131,9.6111 c 9.34009,4.0045 13.33163,11.2161..."
    data-id="24"
    class="body-part ears-nose-throat"
    inkscape:connector-curvature="0"
@@ -70,7 +62,7 @@ Within the body-boxes.svg file, we attached descriptive data-targets to the shap
    data-target="body-part"
    data-body-part="Ear, Nose and Throat" />
 <path
-   d="m 573.52941,-981.4616 170.58824,1.55445 -8.82353,43.52455 c -21.45808,28.04616 -37.8851,45.37531 -76.47058,51.29679 -34.34593,-5.28741 -55.64363,-14.34837 -79.41178,-62.17793 z"
+   d="m 573.52941,-981.4616 170.58824,1.55445 -8.82353,43.52455..."
    data-id="25"
    class="body-part mouth"
    inkscape:connector-curvature="0"
@@ -170,38 +162,6 @@ function formatGetRequest(storedTranslations, bodyPart, rawData){
 
 Finally, we draw our gathered results to the DOM in the form of a "flexboxed" table.
 
-```
-function drawToDom(text){
-    $(".results").remove();
-    $('.main').append($("<div class='results' data-target='results'></div>").append('<span class="close">&times;</span> '));
-    $('.results').append($("<table></table>"));
-    createRow("English", $('[data-target="select"]')['0']['selectedOptions']['0']['dataset']['name'], createHeader, "language-display");
-    createRow(pullDataFromLocalStorage("bodyPartEnglish"), pullDataFromLocalStorage('bodyPartTranslated'), createLangHeader, "body-part-display");
-    createRow('Symptoms', pullDataFromLocalStorage('Symptoms'), createHeader, "symp-display");
-        $.each(text, function(data){
-        createRow(data, text[data], createColumn, "symp-display");
-       
-        })
-    createLink(pullDataFromLocalStorage("bodyPartEnglish"), 'wiki');
-    $('.close').on('click', function(event){
-        $(".results").remove();
-    })
-    if(showSymptoms == false){
-        turnOffSymp();
-    }
-    else{
-        turnOnSymp();
-    }
-
-    if(showWiki == false){
-        turnOffWiki();
-    }
-    else{
-        turnOnWiki();
-    }    
-}
-```
-
 ![screenshot of desktop display](images/readme-materials/flag-symptom-desktop.png)
 
 <!-- We attached IDs to each body part shape group, so we knew which body part information to send to the Google Translate API and ApiMedic.
@@ -236,8 +196,6 @@ Sometimes the smallest, most subtle features caused the most unexpected challeng
 
 Both issues were fixed by inspecting our hamburger menu's elements in the developer tools, and checking to see what other elements each selection referred to-- and making sure that information was consistent across media queries.
 
-
-
 ### 5. Future Additions
 
 If we had more time, we would...
@@ -250,12 +208,20 @@ If we had more time, we would...
 * Make the body 3D using an API like [BioDigital](https://www.biodigital.com/)
 * Architect API calls to be more modular
 
-
 ## Closing Thoughts
 If we had a lot more time and resources, we could imagine making this application a translation tool for hospitals and medical centers to assist communication between patients and providers.  
 
+## Instructions for Mac Development
+1. Clone or download our repository
+2. Update apikey.js with your ApiMedic and Google Cloud Platorm Translation API (see instructions in apikeys.js)
+3. In your console, navigate to the directory containing index.html
+4. Run the following console command: python -m "SimpleHTTPServer" 8000
+5. In your browser (Chrome works best), go to the URL localhost:8000
+
+The local server (Python or otherwise) is recommended to prevent browser safety measures that interfere with SVG manipulation. For example, when we were developing, we found that Chrome would prevent us from accessing the `bodyboxes.svg` because it read the file as its own DOM, thus preventing us from "going to another page" and compromising security. There are probably other workarounds but the Python Simple Server was most convenient for us.
+
 ## Disclaimer
-This application does NOT replace professional medical help. If you have a medical issue. please see a physician or call 911. 
+This application does NOT replace professional medical help. If you have a medical issue. please see a physician or call 911.
 
 ## License 
 Copyright 2017 Jennifer Li Johnson, Nat Ventura, Tim Brady
