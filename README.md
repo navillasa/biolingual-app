@@ -1,6 +1,6 @@
 # BioLingual
 
-![screenshot of desktop display](images/readme-materials/bioling3.gif)
+![screenshot of desktop display](images/readme-materials/bioling3.gif)(https://vimeo.com/user46767264)
 
 BioLingual is an interactive anatomy map that translates the names of body parts and commonly associated symptoms using ApiMedic and the Google Translate API.
 
@@ -37,7 +37,7 @@ Since ApiMedic and the Google Translate API provide a limited number of free que
 
 ## Demo
 
-https://vimeo.com/user46767264
+
 
 ## Development Process
 * [1. Concept](#1-concept)
