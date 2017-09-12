@@ -52,7 +52,7 @@ instead of the more common JPEG or PNG image files. For our purposes, the SVG le
 
 Within the body-boxes.svg file, we attached descriptive data-targets to the shape paths of each body part.
 
-```
+``` HTML
 <path
    d="m 559.86338,-1058.7197 201.90131,9.6111 c 9.34009,4.0045 13.33163,11.2161..."
    data-id="24"
@@ -73,7 +73,8 @@ Within the body-boxes.svg file, we attached descriptive data-targets to the shap
 
 We refer to these data-targets in main.js, and begin a Promise chain to send the name of those data-targets to ApiMedic.
 
-```
+``` javascript
+
 function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
     $(elementToSelect).attr('data','images/body-boxes.svg?'+new Date().getTime())
         .on("load", function(event){
@@ -90,11 +91,13 @@ function clickOnTheBoxes(elementToSelect, storedTranslations, drawToDom){
         })
    });
 }
+
 ```
 
 ApiMedic returns a list of all symptoms associated with that body part. Then we send a post request to the Google Translate API to translate each symptom in the returned list:
 
-```
+``` javascript
+
 function dataToTranslate(searchString, language) {
     var data = {
         "key": googleTranslateToken,
@@ -124,11 +127,13 @@ function retrieveTranslation(queryData, storedTranslations){
 function catchError(text){
     console.log(text);
 }
+
 ```
 
 After receiving the translations of all of the symptoms, we gather the English-language symptoms and their translations into one dictionary.
 
-```
+``` javascript
+
 function formatGetRequest(storedTranslations, bodyPart, rawData){
     var translationPromises = [];
     
@@ -158,6 +163,7 @@ function formatGetRequest(storedTranslations, bodyPart, rawData){
         });
     })
 }
+
 ```
 
 Finally, we draw our gathered results to the DOM in the form of a "flexboxed" table.
