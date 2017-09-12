@@ -184,7 +184,6 @@ colorful rectangles as clickable target boxes.
 
 However, we later learned the correct way to trace organic shapes over pre-existing shapes in the same folder. (When fully highlighted,
 our anatomy now looks like a bit more high-tech of a robot.)
-![svg file of properly traced anatomy map with delineated body sections](images/readme-materials/purople-body-boxes.svg)
 
 Since a major objective of our project was to familiarize ourselves with the execution of promise chains, our architecture does not fully account for the implementation of future features-- it's not especially add-on friendly.
 
