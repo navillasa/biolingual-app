@@ -4,9 +4,11 @@
 
 BioLingual is an interactive anatomy map that translates the names of body parts and commonly associated symptoms using ApiMedic and the Google Translate API.
 
-Users can click or tap an area of the body on our main body display in order to read a translation of that body part in another language of their choice.
+Users can click or tap an area of the body on our main body display in order to read a translation of that body part in another language of their choice. We believe a future version of BioLingual could help facilitate communication between patients and healthcare providers who do not speak the same language.
 
-We believe a future version of BioLingual could help facilitate communication between patients and healthcare providers who do not speak the same language.
+While we currently cannot host the full featured version of BioLingual due to limited free queries to ApiMedic and the Google Translate API, we have created a demo site with translations in Spanish, Mandarin, and French.
+
+[!<b>Demo Site</b>](http://biolingual.online/)
 
 ## Authors
 
@@ -26,9 +28,9 @@ We believe a future version of BioLingual could help facilitate communication be
 
 ## Getting Started
 
-Since ApiMedic and the Google Translate API provide a limited number of free queries, we have chosen not to host the full version of BioLingual live. <b>However we are currently in the process of creating a demo version of BioLingual with access to three languages: Spanish, Mandarin, and French.</b> We've also provided a demo video for a typical use case, but if you would like to try the application on your local machine, please follow these instructions.
 
-#### Mac Instructions
+
+#### Mac Development Instructions
 1. Clone or download our repository
 2. Update apikey.js with your ApiMedic and Google Cloud Platorm Translation API (see instructions in apikeys.js)
 3. In your console, navigate to the directory containing index.html
