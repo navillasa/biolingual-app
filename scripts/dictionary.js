@@ -551,4 +551,3 @@ var translations = {
         ]
     }
 }
-
