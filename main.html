@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" href="images/favicon.ico">
+    <title>BioLingual</title>
+</head>
+<body ontouchstart="" onmouseover="">
+    <div class="burger-holder">
+        <span class="burger1"></span>
+        <span class="burger2"></span>
+        <span class="burger3"></span>
+    </div>
+     <div class="menu">
+        <h1 class="menu-title">BioLingual Demo</h1>
+        <div class="menu-area">
+            <div class="languages">
+            <h2>Language</h2>
+            <div class="selector" data-target="lang-selector">
+                <select data-target="select" >
+                    <option value = 'es' data-name = "Español">Spanish / Español</option>
+                    <option data-name = "中文" value = 'zh-CN'>Mandarin / 中文</option>
+                    <option data-name = "Français" value = 'fr'>French / Français</option>
+                </select>
+            </div>
+            </div>
+            <div class="symptoms">  
+                <h2>Symptoms</h2>
+                <div class="switch">
+                <input type="radio" id="sym-switch-left" name="sym-switch" value="on" data-target="sym-on" checked/>
+                <label for="sym-switch-left">On</label>
+                <input type="radio" id="sym-switch-right" name="sym-switch" value="off" data-target="sym-off"/>
+                <label for="sym-switch-right">Off</label> 
+                </div>
+            </div>
+            <div class="info">
+                <h2>Wiki</h2>
+                <div class="switch">
+                    <input type="radio" id="info-switch-left" name="info-switch" value="on" data-target="info-on" checked/>
+                    <label for="info-switch-left">On</label>
+                    <input type="radio" id="info-switch-right" name="info-switch" data-target="info-off" value="off"/>
+                    <label for="info-switch-right">Off</label>
+                </div>
+            </div>
+            <div class="info">
+                <h2><a class="about" href="https://github.com/nat-ventura/biolingual-app">About</a></h2>
+            </div>
+        </div>
+    </div> 
+    <div class="main">
+         <div class="main-panel" data-target="main-panel">
+            <object type="image/svg+xml" id="body-boxes" alt="vector graphic color overlays"></object> 
+        </div>
+    </main> 
+    <!-- <script src="scripts/api.js" charset="utf-8"></script> -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+      <script src="scripts/dictionary.js" charset="utf-8"></script>
+    <script src="scripts/menu.js" charset="utf-8"></script>
+     <script src="scripts/info.js" charset="utf-8"></script>  
+     <!-- <script src="scripts/main.js" charset="utf-8"></script> -->
+     <script src="scripts/demo.js" charset="utf-8"></script>  
+</body>
+</html>
