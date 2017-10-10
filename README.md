@@ -35,20 +35,19 @@ Users can click or tap an area of the body on our main body display in order to 
 
 ### 1. Concept
 
-Our idea began with the idea of an interactive "body map," where a user would be able to tap a part of the body, and trigger a display of that body part's name and description. While brainstorming the type of body part information to provide, we decided that providing a translation and commonly associated illnesses could potentially provide a useful interface for both healthcare providers and patients to better communicate.
+Our idea began with the idea of an interactive "body map," where a user would be able to tap a part of the body, and trigger a display of that body part's name and description. We decided that providing a translation and a list of illnesses commonly associated with the body part could create a useful interface for both healthcare providers and patients to better communicate.
 
 ### 2. Initial Planning
 
-Early on, we planned to use the musculoskeletal or circulatory system as the "theme" for our anatomy map, and then create labels for major organs in those body systems. However, since we wanted to work with an accredited symptom-checking API, we soon realized that it would be more efficient to limit our "selectable" body parts to the topical headings provided by the ApiMedic sandbox toolkit.
+We first planned to use the musculoskeletal system as the "theme" for our anatomy map. However, since we wanted to work with a symptom-checking API, we soon realized that it would be more efficient to limit our body part selection to the main categories provided by the ApiMedic sandbox toolkit.
 
-We had also initially envisioned a map with "zooming" capabilities, where users could select one body part, such as the foot, and then zoom to view more specific details such as the toes, the ankle, or the sole. Again we realized that for the scope of this project, we realized it would be better to limit our anatomy map to a smaller, fixed number of parts.
+We had also initially envisioned a map with "zooming" capabilities, where users could select one body part, such as the foot, and then zoom to view more specific details such as the toes, the ankle, or the sole. Again we realized that for the scope of this project, it would be better to limit our anatomy map to a smaller, fixed number of parts.
 
 We selected the ten languages provided through BioLingual by looking up the ten most spoken languages in the United States. According to the American Community Survey 2015, endorsed by the United States Census Bureau, the ten mostly spoken languages are English, Spanish, Chinese, French, Tagalog, Vietnamese, Arabic, Korean, German, and Russian.
 
 ### 3. Visualization and Accessing APIs
 
-We used scalable vector graphics (SVG) as the basis for our anatomy map
-instead of the more common JPEG or PNG image files. For our purposes, the SVG lent itself best to responsive design, where our anatomy outline is able to scale to smartphone size or desktop size without losing quality.
+We used scalable vector graphics (SVG) as the basis for our anatomy map. For our purposes, the SVG lent itself best to responsive design, where our anatomy outline is able to scale to smartphone size or desktop size without losing quality.
 
 Within the body-boxes.svg file, we attached descriptive data-targets to the shape paths of each body part.
 
